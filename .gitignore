@@ -1,0 +1,6 @@
+*.jar
+*.war
+lib/
+Library/
+dist/
+!/**/css/lib/
