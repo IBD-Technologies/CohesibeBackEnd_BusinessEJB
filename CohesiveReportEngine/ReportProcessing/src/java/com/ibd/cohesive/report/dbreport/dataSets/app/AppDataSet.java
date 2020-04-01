@@ -226,7 +226,7 @@ public class AppDataSet implements IAppDataSet{
     
     
     
-    public String getINSTITUTE_MASTER_DataSet(String p_instituteID)throws DBProcessingException,DBValidationException{
+    public String getINSTITUTE_MASTER_DataSet(String p_instituteID,String businessReport)throws DBProcessingException,DBValidationException{
         try{
             
           session.createSessionObject();
@@ -238,11 +238,11 @@ public class AppDataSet implements IAppDataSet{
           INSTITUTE_MASTER_DATASET institute=inject.getInstituteMasterDataSet();
           
           
-          dbg("end of getINSTITUTE_MASTER_DataSet");
-          ArrayList<INSTITUTE_MASTER>instituteMaster  = institute.getTableObject(p_instituteID, session, dbSession, inject);
+         
+          ArrayList<INSTITUTE_MASTER>instituteMaster  = institute.getTableObject(p_instituteID, session, dbSession, inject,businessReport);
           
           String result=  convertINSTITUTE_MASTERArrayListToString(instituteMaster,session);
-          
+           dbg("end of getINSTITUTE_MASTER_DataSet-->result-->"+result);
           return result;
        }catch(DBProcessingException ex){
           dbg(ex);
@@ -271,8 +271,9 @@ public class AppDataSet implements IAppDataSet{
                 
                 String instituteID=instituteMaster.getINSTITUTE_ID();
                 String instituteName=instituteMaster.getINSTITUTE_NAME();
+                String imagePath=instituteMaster.getIMAGE_PATH();
                 
-                String record=instituteID+"~"+instituteName;
+                String record=instituteID+"~"+instituteName+"~"+imagePath;
                 
                 if(i==0){
                 

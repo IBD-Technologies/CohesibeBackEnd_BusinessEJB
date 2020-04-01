@@ -35,6 +35,15 @@ public class ClassFeeAmountSummary_DataSet {
         ClassFeeDetail_DataSet classDetails=inject.getClassFeeDetail();
         ArrayList<ClassFeeDetail>classFeeList=  classDetails.getClassOtherActivity(p_standard,p_section, p_instanceID, session, dbSession, inject,appInject);
         dbg("classFeeList size"+classFeeList.size(),session);
+        
+        
+        if(classFeeList.size()==1&&classFeeList.get(0).getFeeID().equals(" ")){
+            
+            dbg("classFeeList is empty",session);
+            
+        }else{
+        
+        
         Map<String,List<ClassFeeDetail>> feeTypeGroup=classFeeList.stream().collect(Collectors.groupingBy(rec->rec.getFeeType()));
         dbg("feeTypeGroup size"+feeTypeGroup.size(),session);
         Iterator<String>feeTypeIterator=feeTypeGroup.keySet().iterator();
@@ -67,6 +76,22 @@ public class ClassFeeAmountSummary_DataSet {
             dataset.add(feeSummary);
         }
 
+        }
+        
+        
+        
+        if(dataset.isEmpty()){
+            
+             ClassFeeAmountSummary feeSummary=new ClassFeeAmountSummary();
+            feeSummary.setFeeType(" ");
+            feeSummary.setTotalFeeAmount(" ");
+            feeSummary.setTotalPaidAmount(" ");
+            feeSummary.setTotalBalanceAmount(" ");
+            dataset.add(feeSummary);
+            
+        }
+        
+        
         dbg("end of getClassFeeAmountSummaryObject",session);
     }catch(DBProcessingException ex){
           dbg(ex,session);

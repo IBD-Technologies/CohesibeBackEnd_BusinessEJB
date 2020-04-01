@@ -17,7 +17,9 @@ import com.ibd.cohesive.util.session.CohesiveSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -27,7 +29,7 @@ public class BATCH_STATUS_ERROR_DATASET {
 //    ArrayList<BATCH_STATUS_ERROR> dataset;
     
     
-    public ArrayList<BATCH_STATUS_ERROR> getTableObject(String p_businessDate,String p_instituteID,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
+    public ArrayList<BATCH_STATUS_ERROR> getTableObject(String p_businessDate,String p_instituteID,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject,String batchName)throws DBProcessingException,DBValidationException{
         
         
         try{
@@ -77,7 +79,7 @@ Map<String,DBRecord>l_tableMap=null;
                     
         
          dbg("end of BATCH_STATUS_ERROR_DATASET--->getTableObject",session);  
-        return   convertDBtoReportObject(l_tableMap,session) ;
+        return   convertDBtoReportObject(l_tableMap,session,batchName) ;
 
     
     }catch(DBProcessingException ex){
@@ -96,7 +98,7 @@ Map<String,DBRecord>l_tableMap=null;
     
     
     
-    private ArrayList<BATCH_STATUS_ERROR> convertDBtoReportObject(Map<String,DBRecord>l_tableMap,CohesiveSession session)throws DBProcessingException{
+    private ArrayList<BATCH_STATUS_ERROR> convertDBtoReportObject(Map<String,DBRecord>l_tableMap,CohesiveSession session,String batchName)throws DBProcessingException{
     
         ArrayList<BATCH_STATUS_ERROR>dataset=new ArrayList();
         try{
@@ -107,7 +109,16 @@ Map<String,DBRecord>l_tableMap=null;
             if(l_tableMap!=null&&!l_tableMap.isEmpty()){
                 
              
-                Iterator<DBRecord> recordIterator=l_tableMap.values().iterator();
+List<DBRecord> filteredRecords;
+                if(batchName!=null){
+                
+                  filteredRecords=l_tableMap.values().stream().filter(rec->rec.getRecord().get(1).trim().equals(batchName)).collect(Collectors.toList());
+             
+                }else{
+                    
+                    filteredRecords=l_tableMap.values().stream().collect(Collectors.toList());
+                }             
+                Iterator<DBRecord> recordIterator=filteredRecords.iterator();
                 
                 while(recordIterator.hasNext()){
                     

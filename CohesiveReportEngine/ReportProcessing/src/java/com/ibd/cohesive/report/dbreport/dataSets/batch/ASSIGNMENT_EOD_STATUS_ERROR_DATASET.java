@@ -24,10 +24,7 @@ import java.util.Map;
  * @author DELL
  */
 public class ASSIGNMENT_EOD_STATUS_ERROR_DATASET {
-//    ArrayList<ASSIGNMENT_EOD_STATUS_ERROR> dataset;
-    
-    
-    public ArrayList<ASSIGNMENT_EOD_STATUS_ERROR> getTableObject(String p_businessDate,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
+ public ArrayList<ASSIGNMENT_EOD_STATUS_ERROR> getTableObject(String p_businessDate,String p_instituteID,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
         
         
         try{
@@ -46,11 +43,35 @@ public class ASSIGNMENT_EOD_STATUS_ERROR_DATASET {
         }
         
         
-         Map<String,DBRecord>l_tableMap=new HashMap();
+         Map<String,DBRecord>l_tableMap=null;
         
-        l_tableMap=readBuffer.readTable("BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate, "BATCH", "ASSIGNMENT_EOD_STATUS_ERROR", session, dbSession,ismaxVersionRequired);
+         
+         try{
+         
+         
+           l_tableMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate, "BATCH", "ASSIGNMENT_EOD_STATUS_ERROR", session, dbSession,ismaxVersionRequired);
           
-                    
+        }catch(DBValidationException ex){
+            
+            if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
+                
+                ArrayList<ASSIGNMENT_EOD_STATUS_ERROR>dataset=new ArrayList();
+                ASSIGNMENT_EOD_STATUS_ERROR appEod=new ASSIGNMENT_EOD_STATUS_ERROR();
+                appEod.setINSTITUTE_ID(" ");
+                appEod.setASSIGNMENT_ID(" ");
+                appEod.setBUSINESS_DATE(" ");
+                appEod.setERROR(" ");
+                
+                dataset.add(appEod);
+                
+                return dataset;
+            }else{
+                
+                throw ex;
+            }
+            
+            
+        }            
         
          dbg("end of ASSIGNMENT_EOD_STATUS_ERROR_DATASET--->getTableObject",session);  
         return   convertDBtoReportObject(l_tableMap,session) ;
@@ -80,7 +101,7 @@ public class ASSIGNMENT_EOD_STATUS_ERROR_DATASET {
             
             dbg("inside ASSIGNMENT_EOD_STATUS_ERROR_DATASET convertDBtoReportObject",session);
             
-           if(l_tableMap!=null&&!l_tableMap.isEmpty()){
+            if(l_tableMap!=null&&!l_tableMap.isEmpty()){
                 
              
                 Iterator<DBRecord> recordIterator=l_tableMap.values().iterator();

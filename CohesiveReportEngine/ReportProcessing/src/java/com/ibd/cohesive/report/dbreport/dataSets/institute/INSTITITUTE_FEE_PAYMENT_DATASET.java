@@ -37,7 +37,7 @@ public class INSTITITUTE_FEE_PAYMENT_DATASET {
         Map<String,DBRecord>l_contentTypeMap=null;
         try
         {
-        l_contentTypeMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"FEE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_feeID+i_db_properties.getProperty("FOLDER_DELIMITER")+p_feeID,"INSTITUTE", "INSTITITUTE_FEE_PAYMENT", session, dbSession);
+        l_contentTypeMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"FEE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_feeID+i_db_properties.getProperty("FOLDER_DELIMITER")+p_feeID,"FEE", "INSTITITUTE_FEE_PAYMENT", session, dbSession);
         }
           catch(DBValidationException ex){
             

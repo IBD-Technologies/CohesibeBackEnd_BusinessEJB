@@ -5,6 +5,7 @@
  */
 package com.ibd.cohesive.report.businessreport.dataSets.student;
 
+import com.ibd.cohesive.db.core.metadata.IMetaDataService;
 import com.ibd.cohesive.db.readbuffer.DBRecord;
 import com.ibd.cohesive.db.readbuffer.IDBReadBufferService;
 import com.ibd.cohesive.db.session.DBSession;
@@ -33,11 +34,16 @@ public class StudentOtherActivityDetail_DataSet {
         dataset=new ArrayList();
         IDBReadBufferService readBuffer=inject.getDBReadBufferService();
         IBDProperties i_db_properties=session.getCohesiveproperties();
-        
+        IMetaDataService mds=inject.getMetadataservice();
+        int recStatusColId=mds.getColumnMetaData("OTHER_ACTIVITY", "SVW_STUDENT_OTHER_ACTIVITY", "RECORD_STATUS", session).getI_ColumnID()-1;
+        int authStatusColId=mds.getColumnMetaData("OTHER_ACTIVITY", "SVW_STUDENT_OTHER_ACTIVITY", "AUTH_STATUS", session).getI_ColumnID()-1;
         try{
         
                 Map<String,DBRecord>activityMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"STUDENT"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_studentID+i_db_properties.getProperty("FOLDER_DELIMITER")+"OTHER_ACTIVITY"+i_db_properties.getProperty("FOLDER_DELIMITER")+"OtherActivity"+i_db_properties.getProperty("FOLDER_DELIMITER")+"OtherActivity","OTHER_ACTIVITY", "SVW_STUDENT_OTHER_ACTIVITY", session, dbSession);
-                Iterator<DBRecord>valueIterator=activityMap.values().iterator();
+                
+                List<DBRecord>authorizedRecords=activityMap.values().stream().filter(rec->rec.getRecord().get(recStatusColId).trim().equals("O")&&rec.getRecord().get(authStatusColId).trim().equals("A")).collect(Collectors.toList());
+                
+                Iterator<DBRecord>valueIterator=authorizedRecords.iterator();
                 while(valueIterator.hasNext()){
 
                     ArrayList<String>activityList=valueIterator.next().getRecord();

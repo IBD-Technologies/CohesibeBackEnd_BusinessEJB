@@ -39,7 +39,7 @@ public class CLASS_TIMETABLE_DETAIL_DATASET {
         Map<String,DBRecord>l_classTimeTabletMap=null;
         try
         {
-        l_classTimeTabletMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"CLASS"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section,"CLASS", "CLASS_TIMETABLE_DETAIL", session, dbSession);
+        l_classTimeTabletMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"CLASS"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section+i_db_properties.getProperty("FOLDER_DELIMITER")+"Timetable","CLASS", "CLASS_TIMETABLE_DETAIL", session, dbSession);
         }
           catch(DBValidationException ex){
             

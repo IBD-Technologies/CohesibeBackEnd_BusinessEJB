@@ -27,7 +27,7 @@ public class STUDENT_MARKS_DATASET {
 //    ArrayList<STUDENT_MARKS> dataset;
     
     
-    public ArrayList<STUDENT_MARKS> getTableObject(String p_standard,String p_section,String p_instanceID,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
+    public ArrayList<STUDENT_MARKS> getTableObject(String p_standard,String p_section,String p_instanceID,String p_exam,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
         
         
         try{
@@ -39,7 +39,7 @@ public class STUDENT_MARKS_DATASET {
         Map<String,DBRecord>l_marksMap=null;
         try
         {
-        l_marksMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"CLASS"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section,"CLASS", "STUDENT_MARKS", session, dbSession);
+        l_marksMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"CLASS"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section+i_db_properties.getProperty("FOLDER_DELIMITER")+p_exam,"CLASS", "STUDENT_MARKS", session, dbSession);
         }
           catch(DBValidationException ex){
             

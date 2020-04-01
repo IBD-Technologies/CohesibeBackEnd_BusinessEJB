@@ -9,11 +9,16 @@ import com.ibd.cohesive.db.readbuffer.DBRecord;
 import com.ibd.cohesive.db.readbuffer.IDBReadBufferService;
 import com.ibd.cohesive.db.session.DBSession;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY;
+import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY;
 import com.ibd.cohesive.report.dependencyinjection.ReportDependencyInjection;
 import com.ibd.cohesive.util.IBDProperties;
 import com.ibd.cohesive.util.exceptions.DBProcessingException;
 import com.ibd.cohesive.util.exceptions.DBValidationException;
 import com.ibd.cohesive.util.session.CohesiveSession;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,19 +29,17 @@ import java.util.Map;
  * @author DELL
  */
 public class STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY_DATASET {
-//    ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY> dataset;
-    
-    
-    public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY> getTableObject(String p_businessDate,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
+ public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY> getTableObject(String p_businessDate,String p_instituteID,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
         
-        
+        DirectoryStream<Path> stream =null;
+        ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY>totalEodList=new ArrayList();
         try{
         
         dbg("inside STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY_DATASET--->getTableObject",session);    
         IDBReadBufferService readBuffer =inject.getDBReadBufferService();
         IBDProperties i_db_properties=session.getCohesiveproperties();
         boolean ismaxVersionRequired=false;
-        
+        String fileExtension=i_db_properties.getProperty("FILE_EXTENSION");
         String maxVersionProperty=i_db_properties.getProperty("MAX_VERSION_REQUIRED");
         
         if(maxVersionProperty.equals("YES")){
@@ -46,14 +49,88 @@ public class STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY_DATASET {
         }
         
         
-Map<String,DBRecord>l_tableMap=new HashMap();
+        Map<String,DBRecord>l_tableMap=null; 
         
-        l_tableMap=readBuffer.readTable("BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate, "BATCH", "STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY", session, dbSession,ismaxVersionRequired);
-          
+         Path ArchFolderPath=Paths.get(i_db_properties.getProperty("DATABASE_HOME_PATH")+"INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+"Assignment"+i_db_properties.getProperty("FOLDER_DELIMITER"));
+        if(Files.notExists(ArchFolderPath)){
+                Files.createDirectories(ArchFolderPath);
+            }
+         
+
+             
+            stream = Files.newDirectoryStream(ArchFolderPath);
+             
+             
+            for (Path file: stream) { 
+
+                
+            try{    
+                
+                 if(file.getFileName().toString().endsWith(fileExtension)){
+
+                    String fileNameWithExtension= file.getFileName().toString();
+                    String fileNameWithoutExtension=fileNameWithExtension.substring(0, fileNameWithExtension.indexOf(".")) ;
+                    l_tableMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+"Assignment"+i_db_properties.getProperty("FOLDER_DELIMITER")+fileNameWithoutExtension, "BATCH", "STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY", session, dbSession,ismaxVersionRequired);
+                    ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY>eodList=convertDBtoReportObject(l_tableMap,session);
+
+                    for(int i=0;i<eodList.size();i++){
+
+
+                        totalEodList.add(eodList.get(i));
+                    }
+                 }
+             
+             
+             }catch(DBValidationException ex){
+            
+                if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
+
+                    session.getErrorhandler().removeSessionErrCode("DB_VAL_000");
+                    session.getErrorhandler().removeSessionErrCode("DB_VAL_011");
+
+
+                }else{
+
+                    throw ex;
+                }
+            
+            
+             } 
+             
+            }
+             
+             
                     
-        
-         dbg("end of STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY_DATASET--->getTableObject",session);  
-        return   convertDBtoReportObject(l_tableMap,session) ;
+         if(totalEodList.isEmpty()){
+             
+             dbg("student otherActivity eod status history empty",session);
+              ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY>dataset=new ArrayList();
+                STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY appEod=new STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY();
+                appEod.setINSTITUTE_ID(" ");
+                appEod.setASSIGNMENT_ID(" ");
+                appEod.setSTUDENT_ID(" ");
+                appEod.setBUSINESS_DATE(" ");
+                appEod.setSTATUS(" ");
+                appEod.setERROR(" ");
+                appEod.setSTART_TIME(" ");
+                appEod.setEND_TIME(" ");
+                appEod.setSEQUENCE_NO(" ");
+                
+                dataset.add(appEod);
+                
+                return dataset;
+         }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         dbg("end of STUDENT_OTHER_ACTIVITY_EOD_STATUS_DATASET--->getTableObject",session);  
+        return   totalEodList ;
 
     
     }catch(DBProcessingException ex){
@@ -64,7 +141,17 @@ Map<String,DBRecord>l_tableMap=new HashMap();
           throw ex;
      }catch(Exception ex){
          throw new DBProcessingException("DBProcessingException"+ex.toString());
-     }
+     }finally{
+            
+           try{ 
+                if(stream!=null){
+                    stream.close();
+                }
+                
+           }catch(Exception ex){
+             throw new DBProcessingException("DBProcessingException"+ex.toString());
+           }
+        }
         
         
     }
@@ -98,7 +185,7 @@ Map<String,DBRecord>l_tableMap=new HashMap();
                     eod.setERROR(l_eodRecords.getRecord().get(5).trim());
                     eod.setSTART_TIME(l_eodRecords.getRecord().get(6).trim());
                     eod.setEND_TIME(l_eodRecords.getRecord().get(7).trim());
-                    eod.setSEQUENCE_NO(l_eodRecords.getRecord().get(7).trim());
+                    eod.setSEQUENCE_NO(l_eodRecords.getRecord().get(8).trim());
  
                     dataset.add(eod);
                     
@@ -127,4 +214,5 @@ Map<String,DBRecord>l_tableMap=new HashMap();
         session.getDebug().exceptionDbg(ex);
 
     }
+
 }

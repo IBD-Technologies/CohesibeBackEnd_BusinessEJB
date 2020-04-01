@@ -24,10 +24,7 @@ import java.util.Map;
  * @author DELL
  */
 public class ASSIGNMENT_EOD_STATUS_HISTORY_DATASET {
-//    ArrayList<ASSIGNMENT_EOD_STATUS_HISTORY> dataset;
-    
-    
-    public ArrayList<ASSIGNMENT_EOD_STATUS_HISTORY> getTableObject(String p_businessDate,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
+public ArrayList<ASSIGNMENT_EOD_STATUS_HISTORY> getTableObject(String p_businessDate,String p_instituteID,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
         
         
         try{
@@ -46,11 +43,42 @@ public class ASSIGNMENT_EOD_STATUS_HISTORY_DATASET {
         }
         
         
-      Map<String,DBRecord>l_tableMap=new HashMap();
+      Map<String,DBRecord>l_tableMap=null;
         
-        l_tableMap=readBuffer.readTable("BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate, "BATCH", "ASSIGNMENT_EOD_STATUS_HISTORY", session, dbSession,ismaxVersionRequired);
+      
+      
+      try{
+      
+        l_tableMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate, "BATCH", "ASSIGNMENT_EOD_STATUS_HISTORY", session, dbSession,ismaxVersionRequired);
           
-                    
+        }catch(DBValidationException ex){
+            
+            if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
+                
+                ArrayList<ASSIGNMENT_EOD_STATUS_HISTORY>dataset=new ArrayList();
+                ASSIGNMENT_EOD_STATUS_HISTORY appEod=new ASSIGNMENT_EOD_STATUS_HISTORY();
+                appEod.setINSTITUTE_ID(" ");
+                appEod.setASSIGNMENT_ID(" ");
+                appEod.setBUSINESS_DATE(" ");
+                appEod.setSTATUS(" ");
+                appEod.setERROR(" ");
+                appEod.setNO_OF_SUCCESS(" ");
+                appEod.setNO_FAILURES(" ");
+                appEod.setGROUP_ID(" ");
+                appEod.setSTART_TIME(" ");
+                appEod.setEND_TIME(" ");
+                appEod.setSEQUENCE_NO(" ");
+                
+                dataset.add(appEod);
+                
+                return dataset;
+            }else{
+                
+                throw ex;
+            }
+            
+            
+        }                    
         
          dbg("end of ASSIGNMENT_EOD_STATUS_HISTORY_DATASET--->getTableObject",session);  
         return   convertDBtoReportObject(l_tableMap,session) ;

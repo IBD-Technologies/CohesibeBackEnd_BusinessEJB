@@ -102,16 +102,10 @@ public class CLASS_ATTENDANCE_MASTER_DATASET {
                     CLASS_ATTENDANCE_MASTER classAttendance=new CLASS_ATTENDANCE_MASTER();
                     classAttendance.setSTANDARD(l_attendanceRecords.getRecord().get(0).trim());
                     classAttendance.setSECTION(l_attendanceRecords.getRecord().get(1).trim());
-                    classAttendance.setDATE(l_attendanceRecords.getRecord().get(2).trim());
-                    classAttendance.setMAKER_ID(l_attendanceRecords.getRecord().get(3).trim());
-                    classAttendance.setCHECKER_ID(l_attendanceRecords.getRecord().get(4).trim());
-                    classAttendance.setMAKER_DATE_STAMP(l_attendanceRecords.getRecord().get(5).trim());
-                    classAttendance.setCHECKER_DATE_STAMP(l_attendanceRecords.getRecord().get(6).trim());
-                    classAttendance.setRECORD_STATUS(l_attendanceRecords.getRecord().get(7).trim());
-                    classAttendance.setAUTH_STATUS(l_attendanceRecords.getRecord().get(8).trim());
-                    classAttendance.setVERSION_NUMBER(l_attendanceRecords.getRecord().get(9).trim());
-                    classAttendance.setMAKER_REMARKS(l_attendanceRecords.getRecord().get(10).trim());
-                    classAttendance.setCHECKER_REMARKS(l_attendanceRecords.getRecord().get(11).trim()); 
+                    classAttendance.setYEAR(l_attendanceRecords.getRecord().get(2).trim());
+                    classAttendance.setMONTH(l_attendanceRecords.getRecord().get(3).trim());
+                    classAttendance.setAUDIT_DETAILS(l_attendanceRecords.getRecord().get(4).trim());
+                   
                     
                     dataset.add(classAttendance);
                     
@@ -124,16 +118,10 @@ public class CLASS_ATTENDANCE_MASTER_DATASET {
                  
                     service.setSTANDARD(" ");
                     service.setSECTION(" ");
-                    service.setDATE(" ");
-                    service.setMAKER_ID(" ");
-                    service.setCHECKER_ID(" ");
-                    service.setMAKER_DATE_STAMP(" ");
-                    service.setCHECKER_DATE_STAMP(" ");
-                    service.setRECORD_STATUS(" ");
-                    service.setAUTH_STATUS(" ");
-                    service.setVERSION_NUMBER(" ");
-                    service.setMAKER_REMARKS(" ");
-                    service.setCHECKER_REMARKS(" ");
+                    service.setYEAR(" ");
+                    service.setMONTH(" ");
+                    service.setAUDIT_DETAILS(" ");
+                    
                    
                                   
                     

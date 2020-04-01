@@ -39,7 +39,7 @@ public class CLASS_MARK_ENTRY_DATASET {
         Map<String,DBRecord>l_classMarkEntryMap=null;
         try
         {
-        l_classMarkEntryMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"CLASS"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section,"CLASS", "CLASS_MARK_ENTRY", session, dbSession);
+        l_classMarkEntryMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"CLASS"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section+i_db_properties.getProperty("FOLDER_DELIMITER")+"ExamMarkMaster","CLASS", "CLASS_MARK_ENTRY", session, dbSession);
         }  
           catch(DBValidationException ex){
             

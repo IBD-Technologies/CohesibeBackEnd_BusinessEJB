@@ -47,8 +47,10 @@ public class ClassOtherActivitySummary_DataSet {
 
         
         if(otherActivityDetailList.size()==1&&otherActivityDetailList.get(0).getACTIVITY_TYPE().equals(" ")){
+            
+            dbg("class other activity details list is empty",session);
         
-        
+        }else{
          ConcurrentMap<String,List<ClassOtherActivityDetail>> otherActivityYearMonthwiseGroup=otherActivityDetailList.parallelStream().collect(Collectors.groupingByConcurrent(ClassOtherActivitySummary_DataSet::getYearandMonth));
        dbg("otherActivityYearMonthwiseGroup"+otherActivityYearMonthwiseGroup.size(),session);
          Iterator<String> yearMonthIterator=otherActivityYearMonthwiseGroup.keySet().iterator();

@@ -103,11 +103,10 @@ public class CLASS_ATTENDANCE_DETAIL_DATASET {
                 while(recordIterator.hasNext()){
                     DBRecord l_assignmentRecords=recordIterator.next();
                     CLASS_ATTENDANCE_DETAIL classAttendance=new CLASS_ATTENDANCE_DETAIL();
-                    classAttendance.setSTANDARD(l_assignmentRecords.getRecord().get(0).trim());
-                    classAttendance.setSECTION(l_assignmentRecords.getRecord().get(1).trim());
-                    classAttendance.setYEAR(l_assignmentRecords.getRecord().get(2).trim());
-                    classAttendance.setMONTH(l_assignmentRecords.getRecord().get(3).trim());
-                    classAttendance.setSTUDENT_ID(l_assignmentRecords.getRecord().get(4).trim());
+                    classAttendance.setREFERENCE_NO(l_assignmentRecords.getRecord().get(0).trim());
+                    classAttendance.setSTUDENT_ID(l_assignmentRecords.getRecord().get(1).trim());
+                    classAttendance.setATTENDANCE(l_assignmentRecords.getRecord().get(2).trim());
+                
 //                    String attendance=l_assignmentRecords.getRecord().get(4).trim();
                     
 //                    Map<Integer ,Map<Integer,String>>attendanceMap= attendanceParsing(attendance,session);
@@ -125,8 +124,7 @@ public class CLASS_ATTENDANCE_DETAIL_DATASET {
 //                       
 //                       
 //                    }
-                    classAttendance.setATTENDANCE(l_assignmentRecords.getRecord().get(4).trim());
-                    classAttendance.setVERSION_NUMBER(l_assignmentRecords.getRecord().get(5).trim());
+                   
                     dataset.add(classAttendance);
                     
                 }
@@ -136,11 +134,10 @@ public class CLASS_ATTENDANCE_DETAIL_DATASET {
             {
                 CLASS_ATTENDANCE_DETAIL service=new CLASS_ATTENDANCE_DETAIL();
                  
-                    service.setSTANDARD(" ");
-                    service.setSECTION(" ");
-                    service.setYEAR(" ");
-                    service.setMONTH(" ");
+                    service.setREFERENCE_NO(" ");
                     service.setSTUDENT_ID(" ");
+                    service.setATTENDANCE(" ");
+                 
                                                    
                     
                     

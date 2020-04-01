@@ -39,7 +39,7 @@ public class CLASS_EXAM_SCHEDULE_DETAIL_DATASET {
          Map<String,DBRecord>l_classExamScheduleMap=null;
          try
          {
-        l_classExamScheduleMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"CLASS"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section,"CLASS", "CLASS_EXAM_SCHEDULE_DETAIL", session, dbSession);
+        l_classExamScheduleMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"CLASS"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_standard+p_section+i_db_properties.getProperty("FOLDER_DELIMITER")+"ExamSchedules","CLASS", "CLASS_EXAM_SCHEDULE_DETAIL", session, dbSession);
          }
            catch(DBValidationException ex){
             

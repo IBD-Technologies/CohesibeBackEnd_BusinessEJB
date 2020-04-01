@@ -53,13 +53,17 @@ public class STUDENT_FEE_EOD_STATUS_HISTORY_DATASET {
         if(Files.notExists(ArchFolderPath)){
                 Files.createDirectories(ArchFolderPath);
             }
-         try{
+         
 
              
             stream = Files.newDirectoryStream(ArchFolderPath);
              
              
             for (Path file: stream) { 
+                
+                
+             try{   
+                
 
              if(file.getFileName().toString().endsWith(fileExtension)){
                  
@@ -76,34 +80,26 @@ public class STUDENT_FEE_EOD_STATUS_HISTORY_DATASET {
              }
              
              
+             }catch(DBValidationException ex){
+            
+                if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
+
+                    session.getErrorhandler().removeSessionErrCode("DB_VAL_000");
+                    session.getErrorhandler().removeSessionErrCode("DB_VAL_011");
+
+                }else{
+
+                    throw ex;
+                }
+            
+            
+        }  
+             
+             
+             
             }
              
-         }catch(DBValidationException ex){
             
-            if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
-                
-//                ArrayList<STUDENT_FEE_EOD_STATUS_HISTORY>dataset=new ArrayList();
-//                STUDENT_FEE_EOD_STATUS_HISTORY appEod=new STUDENT_FEE_EOD_STATUS_HISTORY();
-//                appEod.setINSTITUTE_ID(" ");
-//                appEod.setFEE_ID(" ");
-//                appEod.setSTUDENT_ID(" ");
-//                appEod.setBUSINESS_DATE(" ");
-//                appEod.setSTATUS(" ");
-//                appEod.setERROR(" ");
-//                appEod.setSTART_TIME(" ");
-//                appEod.setEND_TIME(" ");
-//                appEod.setSEQUENCE_NO(" ");
-//                
-//                dataset.add(appEod);
-//                
-//                return dataset;
-            }else{
-                
-                throw ex;
-            }
-            
-            
-        }     
                     
          if(totalEodList.isEmpty()){
              

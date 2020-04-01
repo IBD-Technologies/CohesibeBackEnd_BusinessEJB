@@ -5,6 +5,7 @@
  */
 package com.ibd.cohesive.report.businessreport.dataSets.student;
 
+import com.ibd.cohesive.db.core.metadata.IMetaDataService;
 import com.ibd.cohesive.db.session.DBSession;
 import com.ibd.cohesive.report.businessreport.dataModels.student.StudentFeeDetails;
 import com.ibd.cohesive.db.readbuffer.DBRecord;
@@ -36,15 +37,28 @@ public class StudentFeeDetails_DataSet {
         dataset=new ArrayList();
         IDBReadBufferService readBuffer=inject.getDBReadBufferService();
         IBDProperties i_db_properties=session.getCohesiveproperties();
+        IMetaDataService mds=inject.getMetadataservice();
+        int recStatusColId=mds.getColumnMetaData("FEE", "INSTITUTE_FEE_MANAGEMENT", "RECORD_STATUS", session).getI_ColumnID()-1;
+        int authStatusColId=mds.getColumnMetaData("FEE", "INSTITUTE_FEE_MANAGEMENT", "AUTH_STATUS", session).getI_ColumnID()-1;
         
         try{
         
+            
+            
+                  
                 Map<String,DBRecord>feeMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"STUDENT"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_studentID+i_db_properties.getProperty("FOLDER_DELIMITER")+"FEE"+i_db_properties.getProperty("FOLDER_DELIMITER")+"Fee"+i_db_properties.getProperty("FOLDER_DELIMITER")+"Fee","FEE", "STUDENT_FEE_MANAGEMENT", session, dbSession);
+                 Map<String,DBRecord>instituteFeeMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"Fee","INSTITUTE","INSTITUTE_FEE_MANAGEMENT", session, dbSession);
+                
+                Map<String,List<DBRecord>>aauthorizedRecords=instituteFeeMap.values().stream().filter(rec->rec.getRecord().get(recStatusColId).trim().equals("O")&&rec.getRecord().get(authStatusColId).trim().equals("A")).collect(Collectors.groupingBy(rec->rec.getRecord().get(2).trim()));
+                
                 Iterator<DBRecord>valueIterator=feeMap.values().iterator();
                 while(valueIterator.hasNext()){
 
                     ArrayList<String>feeList=valueIterator.next().getRecord();
                     String feeID=feeList.get(1).trim();
+                    
+                    if(aauthorizedRecords.containsKey(feeID)){
+                    
                     String[] l_pkey={feeID};
                     DBRecord feeManagementRecord=readBuffer.readRecord("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"Fee","INSTITUTE","INSTITUTE_FEE_MANAGEMENT", l_pkey, session,dbSession);
                     StudentFeeDetails feeDetail=new StudentFeeDetails();
@@ -97,7 +111,7 @@ public class StudentFeeDetails_DataSet {
                         feeDetail.setBalanceAmount(Float.toString(balanceAmount));
                         dataset.add(feeDetail);
                         
-                    
+                    }
 
                 }
          }catch(DBValidationException ex){

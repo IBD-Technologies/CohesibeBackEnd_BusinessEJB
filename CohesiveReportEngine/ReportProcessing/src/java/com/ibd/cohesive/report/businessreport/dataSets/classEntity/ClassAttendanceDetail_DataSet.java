@@ -6,6 +6,7 @@
  */
 package com.ibd.cohesive.report.businessreport.dataSets.classEntity;
 
+import com.ibd.cohesive.app.business.student.studentattendanceservice.AuditDetails;
 import com.ibd.cohesive.db.session.DBSession;
 import com.ibd.cohesive.report.businessreport.dataModels.classEntity.ClassAttendanceDetail;
 import com.ibd.cohesive.report.dbreport.dataModels.classEntity.CLASS_ATTENDANCE_DETAIL;
@@ -15,8 +16,9 @@ import com.ibd.cohesive.app.business.util.ConvertedDate;
 import com.ibd.cohesive.app.business.util.EducationPeriod;
 import com.ibd.cohesive.app.business.util.dependencyInjection.AppDependencyInjection;
 import com.ibd.cohesive.db.core.pdata.IPDataService;
+import com.ibd.cohesive.db.readbuffer.DBRecord;
+import com.ibd.cohesive.db.readbuffer.IDBReadBufferService;
 import com.ibd.cohesive.report.dbreport.dataSets.classEntity.CLASS_ATTENDANCE_DETAIL_DATASET;
-import com.ibd.cohesive.report.dbreport.dataSets.classEntity.ClassDataSet;
 import com.ibd.cohesive.report.dependencyinjection.ReportDependencyInjection;
 import com.ibd.cohesive.report.util.ReportUtil;
 import com.ibd.cohesive.util.IBDProperties;
@@ -71,6 +73,7 @@ public class ClassAttendanceDetail_DataSet {
         dbg("toYear"+fromYear,session);
         dbg("toMonth"+fromYear,session);
         ArrayList<CLASS_ATTENDANCE_DETAIL>classAttendanceDetail=null;
+        IDBReadBufferService readBuffer=inject.getDBReadBufferService();
         
           try{
 
@@ -101,8 +104,22 @@ public class ClassAttendanceDetail_DataSet {
 
                     dbg("inside iteration",session);
                     CLASS_ATTENDANCE_DETAIL attendanceTableObject=studentFilteredList.get(i);
-                    int attYear=Integer.parseInt(attendanceTableObject.getYEAR());
-                    int attMonth=Integer.parseInt(attendanceTableObject.getMONTH());
+                    
+                    String refNo=attendanceTableObject.getREFERENCE_NO().replace("*", "~");
+                    String YEAR=refNo.split("~")[2];
+                    String MONTH=refNo.split("~")[3];
+                    
+                    
+//                    String[] l_masterPkey={standard,section,YEAR,MONTH};
+//                    DBRecord masterRecord=readBuffer.readRecord("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+l_instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"CLASS"+i_db_properties.getProperty("FOLDER_DELIMITER")+standard+section+i_db_properties.getProperty("FOLDER_DELIMITER")+standard+section,"CLASS", "CLASS_ATTENDANCE_MASTER", l_masterPkey, session, dbSession);
+//    
+//                    AuditDetails auditDetails=bs.getClassAuditDetails(masterRecord.getRecord().get(4).trim(), MONTH);
+//            
+//            if(auditDetails.getAuthStatus().equals("A")&&auditDetails.getRecordStatus().equals("O")){
+                    
+                    
+                    int attYear=Integer.parseInt(YEAR);
+                    int attMonth=Integer.parseInt(MONTH);
                     dbg("attYear-->"+attYear,session);
                     dbg("attMonth-->"+attMonth,session);
 
@@ -114,8 +131,8 @@ public class ClassAttendanceDetail_DataSet {
                         ClassAttendanceDetail summary=new ClassAttendanceDetail();
                         summary.setStudentID(attendanceTableObject.getSTUDENT_ID());
                         summary.setStudentName(bs.getStudentName(summary.getStudentID(), l_instituteID, session, dbSession, appInject));
-                        summary.setYear(attendanceTableObject.getYEAR());
-                        summary.setMonth(attendanceTableObject.getMONTH());
+                        summary.setYear(YEAR);
+                        summary.setMonth(MONTH);
                         summary.setMonthString(reportUtil.getMonthValueInString(summary.getMonth()));
 
                         String attendance=attendanceTableObject.getATTENDANCE();
@@ -141,7 +158,7 @@ public class ClassAttendanceDetail_DataSet {
                             summary.setNo_of_DaysPresent(df.format(no_OfDaysPresent));
                             summary.setNo_of_DaysAbsent(df.format(no_ofDaysAbsent));
                             summary.setNo_ofDaysLeave(df.format(no_ofDaysLeave));
-                            float workingDays=reportUtil.getNoOfWorkingDaysInMonth(l_instituteID, attendanceTableObject.getYEAR(), attendanceTableObject.getMONTH(), session, dbSession, inject,appInject);
+                            float workingDays=reportUtil.getNoOfWorkingDaysInMonth(l_instituteID, YEAR, MONTH, session, dbSession, inject,appInject);
                             float percentage=(no_OfDaysPresent/workingDays)*100;
                             summary.setNo_of_workingDays(df.format(workingDays));
                             summary.setPercentage(df.format(Math.round(percentage)));
@@ -153,6 +170,7 @@ public class ClassAttendanceDetail_DataSet {
                             dataset.add(summary);
                     }
                     }
+//                }
                 }
         
        }

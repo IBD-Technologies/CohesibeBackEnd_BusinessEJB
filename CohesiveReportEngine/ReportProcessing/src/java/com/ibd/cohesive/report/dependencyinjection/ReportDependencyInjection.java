@@ -177,12 +177,19 @@ import com.ibd.businessViews.IUserDataSet;
 import com.ibd.cohesive.db.transaction.IDBTransactionService;
 import com.ibd.cohesive.db.transaction.transactioncontol.ITransactionControlService;
 import com.ibd.cohesive.report.businessreport.dataSets.classEntity.ClassDetails_DataSet;
+import com.ibd.cohesive.report.businessreport.dataSets.institute.BusinessReportParamsDataSet;
 import com.ibd.cohesive.report.businessreport.dataSets.institute.CLASS_MARK_REPORT_DATASET;
+import com.ibd.cohesive.report.businessreport.dataSets.institute.FeeDetailBusinessDataSet;
+import com.ibd.cohesive.report.businessreport.dataSets.institute.FeePaymentBusinessDataSet;
+import com.ibd.cohesive.report.businessreport.dataSets.institute.FeeSummaryBusinessDataSet;
 import com.ibd.cohesive.report.businessreport.dataSets.institute.MarkComparison_DataSet;
+import com.ibd.cohesive.report.businessreport.dataSets.institute.NotificationDetailBusinessDataSet;
+import com.ibd.cohesive.report.businessreport.dataSets.institute.StudentDetailsDataSet;
 import com.ibd.cohesive.report.businessreport.dataSets.student.SVW_FAMILY_DETAILS_BUSINESS_DATASET;
 import com.ibd.cohesive.report.businessreport.dataSets.student.SVW_STUDENT_MARKS_BUSINESS_DATASET;
 import com.ibd.cohesive.report.businessreport.dataSets.student.SVW_STUDENT_OTHER_ACTIVITY_REPORT_BUSINESS_DATASET;
 import com.ibd.cohesive.report.businessreport.dataSets.student.SVW_STUDENT_PROFILE_BUSINESS_DATASET;
+import com.ibd.cohesive.report.businessreport.dataSets.student.SVW_STUDENT_SOFT_SKILLS_BUSINESS_DATASET;
 import com.ibd.cohesive.report.businessreport.dataSets.student.SVW_STUDENT_TIMETABLE_DETAIL_BUSINESS_DATASET;
 import com.ibd.cohesive.report.businessreport.dataSets.student.StudentOtherActivityDetail_DataSet;
 import com.ibd.cohesive.report.businessreport.dataSets.student.StudentRankDataSet;
@@ -197,8 +204,26 @@ import com.ibd.cohesive.report.dbreport.dataSets.app.ARCH_APPLY_STATUS_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.app.ARCH_SHIPPING_STATUS_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.app.BATCH_SERVICES_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.app.CONTRACT_MASTER_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.E_CIRCULAR_EOD_STATUS_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.E_CIRCULAR_EOD_STATUS_ERROR_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.E_CIRCULAR_EOD_STATUS_HISTORY_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.FEE_NOTIFICATION_EOD_STATUS_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_EVENT_NOTIFICATION_EOD_STATUS_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_EVENT_NOTIFICATION_EOD_STATUS_ERROR_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_EVENT_NOTIFICATION_EOD_STATUS_HISTORY_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_E_CIRCULAR_EOD_STATUS_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_E_CIRCULAR_EOD_STATUS_ERROR_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_FEE_NOTIFICATION_EOD_STATUS_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_NOTIFICATION_EMAIL_ERROR_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.batch.STUDENT_NOTIFICATION_SMS_ERROR_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.TEACHER_E_CIRCULAR_EOD_STATUS_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.TEACHER_E_CIRCULAR_EOD_STATUS_ERROR_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.batch.TEACHER_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.classEntity.CLASS_ATTENDANCE_REPORT_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.classEntity.CLASS_EXAM_RANK_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.classEntity.CLASS_FEE_AMOUNT_REPORT_DATASET;
@@ -230,6 +255,7 @@ import com.ibd.cohesive.report.dbreport.dataSets.institute.PAYMENT_MASTER_DATASE
 import com.ibd.cohesive.report.dbreport.dataSets.institute.RETENTION_PERIOD_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.institute.STUDENT_ASSIGNMENT_STATUS_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.institute.STUDENT_OTP_STATUS_DATASET;
+import com.ibd.cohesive.report.dbreport.dataSets.institute.TODAY_NOTIFICATION_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.student.STUDENT_NOTIFICATION_STATUS_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.student.SVW_STUDENT_E_CIRCULAR_DATASET;
 import com.ibd.cohesive.report.dbreport.dataSets.student.SVW_STUDENT_NOTIFICATION_DATASET;
@@ -405,6 +431,7 @@ public class ReportDependencyInjection {
      private StudentOtherActivityDetail_DataSet otherActivityDetail;
      private SVW_FAMILY_DETAILS_BUSINESS_DATASET studentFamilyDetailsBusiness;
      private SVW_STUDENT_MARKS_BUSINESS_DATASET studentMarksBusiness;
+     private SVW_STUDENT_SOFT_SKILLS_BUSINESS_DATASET studentSoftSkillsBusiness;
      private SVW_STUDENT_PROFILE_BUSINESS_DATASET studentProfileBusiness;
      private SVW_STUDENT_TIMETABLE_DETAIL_BUSINESS_DATASET studentTimeTableBusiness;
      private SVW_STUDENT_OTHER_ACTIVITY_REPORT_BUSINESS_DATASET studentOtherActivityBusiness;
@@ -465,9 +492,31 @@ public class ReportDependencyInjection {
      private CLASS_MARK_REPORT_DATASET classMark;
      private TeacherTimeTableReport_DataSet teacherTimeTableReport;
      private SubstituteReportParam_DataSet substituteReportparam;
-   
-     
-     
+     private TODAY_NOTIFICATION_DATASET todaynotificationDataset;
+     private FEE_NOTIFICATION_EOD_STATUS_DATASET feeNotificationEodStatusDataset;
+     private FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET feeNotificationEodStatusHistoryDataset;
+     private FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET feeNotificationEodStatusErrorDataset;
+     private STUDENT_FEE_NOTIFICATION_EOD_STATUS_DATASET studentFeeNotificationEodStatus;
+     private STUDENT_FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET studentFeeNotificationEodStatusHistory;
+     private STUDENT_FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET studentFeeNotificationEodStatusError;
+     private STUDENT_EVENT_NOTIFICATION_EOD_STATUS_DATASET studentEventNotificationEodStatus;
+     private STUDENT_EVENT_NOTIFICATION_EOD_STATUS_HISTORY_DATASET studentEventNotificationEodStatusHistory;
+     private STUDENT_EVENT_NOTIFICATION_EOD_STATUS_ERROR_DATASET studentEventNotificationEodStatusError;
+     private E_CIRCULAR_EOD_STATUS_DATASET eCircularEodDataSet;
+     private E_CIRCULAR_EOD_STATUS_ERROR_DATASET eCircularEodErrorDataset;
+     private E_CIRCULAR_EOD_STATUS_HISTORY_DATASET eCircularEodHistoryDataset;
+     private STUDENT_E_CIRCULAR_EOD_STATUS_DATASET studentECircularEodDatset;
+     private STUDENT_E_CIRCULAR_EOD_STATUS_ERROR_DATASET studentECircularErrorDataset;
+     private STUDENT_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET studentECircularHistoryDataSet;
+     private TEACHER_E_CIRCULAR_EOD_STATUS_DATASET teacherECircularEodDatset;
+     private TEACHER_E_CIRCULAR_EOD_STATUS_ERROR_DATASET teacherECircularErrorDataset;
+     private TEACHER_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET teacherECircularHistoryDataSet;
+     private FeeDetailBusinessDataSet feeDetailBusinessDataSet;
+     private FeeSummaryBusinessDataSet feeSummaryBusinessDataSet;
+     private FeePaymentBusinessDataSet feePaymentBusinessDataSet;
+     private NotificationDetailBusinessDataSet notificationDetailBusinessDataSet;
+     private StudentDetailsDataSet studentDetailsDataSet;
+     private BusinessReportParamsDataSet businessReportParams;
      
       public ReportDependencyInjection()throws NamingException{
           
@@ -873,7 +922,11 @@ public class ReportDependencyInjection {
            
            
            
-           
+           if(todaynotificationDataset==null){
+            
+
+              todaynotificationDataset=new TODAY_NOTIFICATION_DATASET();
+        } 
            
            
          
@@ -1054,7 +1107,33 @@ public class ReportDependencyInjection {
             
             classMark=new CLASS_MARK_REPORT_DATASET();
         }
+             
+        if(feeDetailBusinessDataSet==null){
             
+            feeDetailBusinessDataSet=new FeeDetailBusinessDataSet();
+        }
+        if(feeSummaryBusinessDataSet==null){
+            
+            feeSummaryBusinessDataSet=new FeeSummaryBusinessDataSet();
+        }
+             
+        if(feePaymentBusinessDataSet==null){
+            
+            feePaymentBusinessDataSet=new FeePaymentBusinessDataSet();
+        }     
+           if(notificationDetailBusinessDataSet==null){
+            
+            notificationDetailBusinessDataSet=new NotificationDetailBusinessDataSet();
+        }   
+                
+           if(studentDetailsDataSet==null){
+            
+            studentDetailsDataSet=new StudentDetailsDataSet();
+        } 
+                if(businessReportParams==null){
+            
+            businessReportParams=new BusinessReportParamsDataSet();
+        }
         }else if(serviceType.equals("STUDENT_BU")){
             
             if(classAttendanceDetailDataSet==null){
@@ -1105,7 +1184,10 @@ public class ReportDependencyInjection {
             
                    studentMarksBusiness=new SVW_STUDENT_MARKS_BUSINESS_DATASET();
             }
-
+if(studentSoftSkillsBusiness==null){
+            
+                   studentSoftSkillsBusiness=new SVW_STUDENT_SOFT_SKILLS_BUSINESS_DATASET();
+            }
 //            if(studentDataSet==null){
 //                
 //                studentDataSet=new StudentDataSet();
@@ -1210,6 +1292,18 @@ public class ReportDependencyInjection {
             
                    assignmentEodHistoryDataset=new ASSIGNMENT_EOD_STATUS_HISTORY_DATASET();
             }
+            if(eCircularEodDataSet==null){
+            
+                   eCircularEodDataSet=new E_CIRCULAR_EOD_STATUS_DATASET();
+            }
+            if(eCircularEodErrorDataset==null){
+            
+                   eCircularEodErrorDataset=new E_CIRCULAR_EOD_STATUS_ERROR_DATASET();
+            }
+            if(eCircularEodHistoryDataset==null){
+            
+                   eCircularEodHistoryDataset=new E_CIRCULAR_EOD_STATUS_HISTORY_DATASET();
+            }
             if(batchConfig==null){
             
                    batchConfig=new BATCH_CONFIG_DATASET();
@@ -1241,6 +1335,41 @@ public class ReportDependencyInjection {
             
                    studentAssignmentEodDatset=new STUDENT_ASSIGNMENT_EOD_STATUS_DATASET();
             }
+            if(studentAssignmentErrorDataset==null){
+            
+                   studentAssignmentErrorDataset=new STUDENT_ASSIGNMENT_EOD_STATUS_ERROR_DATASET();
+            }
+            if(studentAssignmentHistoryDataSet==null){
+            
+                   studentAssignmentHistoryDataSet=new STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY_DATASET();
+            }
+            if(studentECircularEodDatset==null){
+            
+                   studentECircularEodDatset=new STUDENT_E_CIRCULAR_EOD_STATUS_DATASET();
+            }
+            if(studentECircularErrorDataset==null){
+            
+                   studentECircularErrorDataset=new STUDENT_E_CIRCULAR_EOD_STATUS_ERROR_DATASET();
+            }
+            if(studentECircularHistoryDataSet==null){
+            
+                   studentECircularHistoryDataSet=new STUDENT_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET();
+            }
+            
+            if(teacherECircularEodDatset==null){
+            
+                   teacherECircularEodDatset=new TEACHER_E_CIRCULAR_EOD_STATUS_DATASET();
+            }
+            if(teacherECircularErrorDataset==null){
+            
+                   teacherECircularErrorDataset=new TEACHER_E_CIRCULAR_EOD_STATUS_ERROR_DATASET();
+            }
+            if(teacherECircularHistoryDataSet==null){
+            
+                   teacherECircularHistoryDataSet=new TEACHER_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET();
+            }
+            
+            
             if(attendanceBatchDataSet==null){
             
                    attendanceBatchDataSet=new ATTENDANCE_BATCH_STATUS_DATASET();
@@ -1439,10 +1568,170 @@ public class ReportDependencyInjection {
             
                    studentNotificationEmailDataSet=new STUDENT_NOTIFICATION_EMAIL_ERROR_DATASET();
             }
+            
+             if(feeNotificationEodStatusDataset==null){
+            
+                   feeNotificationEodStatusDataset=new FEE_NOTIFICATION_EOD_STATUS_DATASET();
+            }
+              if(feeNotificationEodStatusHistoryDataset==null){
+            
+                   feeNotificationEodStatusHistoryDataset=new FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET();
+            }
+               if(feeNotificationEodStatusErrorDataset==null){
+            
+                   feeNotificationEodStatusErrorDataset=new FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET();
+            }
+                if(studentFeeNotificationEodStatus==null){
+            
+                   studentFeeNotificationEodStatus=new STUDENT_FEE_NOTIFICATION_EOD_STATUS_DATASET();
+            }
+                 if(studentFeeNotificationEodStatusHistory==null){
+            
+                   studentFeeNotificationEodStatusHistory=new STUDENT_FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET();
+            }
+              if(studentFeeNotificationEodStatusError==null){
+            
+                   studentFeeNotificationEodStatusError=new STUDENT_FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET();
+            }
+            
+            
+            if(studentEventNotificationEodStatus==null){
+            
+                   studentEventNotificationEodStatus=new STUDENT_EVENT_NOTIFICATION_EOD_STATUS_DATASET();
+            }
+                 if(studentEventNotificationEodStatusHistory==null){
+            
+                   studentEventNotificationEodStatusHistory=new STUDENT_EVENT_NOTIFICATION_EOD_STATUS_HISTORY_DATASET();
+            }
+              if(studentEventNotificationEodStatusError==null){
+            
+                   studentEventNotificationEodStatusError=new STUDENT_EVENT_NOTIFICATION_EOD_STATUS_ERROR_DATASET();
+            }
+            
+            
         }
         
     }
 
+    public Properties getProps() {
+        return props;
+    }
+
+    public void setProps(Properties props) {
+        this.props = props;
+    }
+
+    public E_CIRCULAR_EOD_STATUS_DATASET geteCircularEodDataSet() {
+        return eCircularEodDataSet;
+    }
+
+    public void seteCircularEodDataSet(E_CIRCULAR_EOD_STATUS_DATASET eCircularEodDataSet) {
+        this.eCircularEodDataSet = eCircularEodDataSet;
+    }
+
+    public E_CIRCULAR_EOD_STATUS_ERROR_DATASET geteCircularEodErrorDataset() {
+        return eCircularEodErrorDataset;
+    }
+
+    public void seteCircularEodErrorDataset(E_CIRCULAR_EOD_STATUS_ERROR_DATASET eCircularEodErrorDataset) {
+        this.eCircularEodErrorDataset = eCircularEodErrorDataset;
+    }
+
+    public E_CIRCULAR_EOD_STATUS_HISTORY_DATASET geteCircularEodHistoryDataset() {
+        return eCircularEodHistoryDataset;
+    }
+
+    public void seteCircularEodHistoryDataset(E_CIRCULAR_EOD_STATUS_HISTORY_DATASET eCircularEodHistoryDataset) {
+        this.eCircularEodHistoryDataset = eCircularEodHistoryDataset;
+    }
+
+    public STUDENT_E_CIRCULAR_EOD_STATUS_DATASET getStudentECircularEodDatset() {
+        return studentECircularEodDatset;
+    }
+
+    public void setStudentECircularEodDatset(STUDENT_E_CIRCULAR_EOD_STATUS_DATASET studentECircularEodDatset) {
+        this.studentECircularEodDatset = studentECircularEodDatset;
+    }
+
+    public STUDENT_E_CIRCULAR_EOD_STATUS_ERROR_DATASET getStudentECircularErrorDataset() {
+        return studentECircularErrorDataset;
+    }
+
+    public void setStudentECircularErrorDataset(STUDENT_E_CIRCULAR_EOD_STATUS_ERROR_DATASET studentECircularErrorDataset) {
+        this.studentECircularErrorDataset = studentECircularErrorDataset;
+    }
+
+    public STUDENT_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET getStudentECircularHistoryDataSet() {
+        return studentECircularHistoryDataSet;
+    }
+
+    public void setStudentECircularHistoryDataSet(STUDENT_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET studentECircularHistoryDataSet) {
+        this.studentECircularHistoryDataSet = studentECircularHistoryDataSet;
+    }
+
+    public TEACHER_E_CIRCULAR_EOD_STATUS_DATASET getTeacherECircularEodDatset() {
+        return teacherECircularEodDatset;
+    }
+
+    public void setTeacherECircularEodDatset(TEACHER_E_CIRCULAR_EOD_STATUS_DATASET teacherECircularEodDatset) {
+        this.teacherECircularEodDatset = teacherECircularEodDatset;
+    }
+
+    public TEACHER_E_CIRCULAR_EOD_STATUS_ERROR_DATASET getTeacherECircularErrorDataset() {
+        return teacherECircularErrorDataset;
+    }
+
+    public void setTeacherECircularErrorDataset(TEACHER_E_CIRCULAR_EOD_STATUS_ERROR_DATASET teacherECircularErrorDataset) {
+        this.teacherECircularErrorDataset = teacherECircularErrorDataset;
+    }
+
+    public TEACHER_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET getTeacherECircularHistoryDataSet() {
+        return teacherECircularHistoryDataSet;
+    }
+
+    public void setTeacherECircularHistoryDataSet(TEACHER_E_CIRCULAR_EOD_STATUS_HISTORY_DATASET teacherECircularHistoryDataSet) {
+        this.teacherECircularHistoryDataSet = teacherECircularHistoryDataSet;
+    }
+    
+    
+    
+    
+
+    public TODAY_NOTIFICATION_DATASET getTodaynotificationDataset() {
+        return todaynotificationDataset;
+    }
+
+    public void setTodaynotificationDataset(TODAY_NOTIFICATION_DATASET todaynotificationDataset) {
+        this.todaynotificationDataset = todaynotificationDataset;
+    }
+
+    public STUDENT_EVENT_NOTIFICATION_EOD_STATUS_DATASET getStudentEventNotificationEodStatus() {
+        return studentEventNotificationEodStatus;
+    }
+
+    public void setStudentEventNotificationEodStatus(STUDENT_EVENT_NOTIFICATION_EOD_STATUS_DATASET studentEventNotificationEodStatus) {
+        this.studentEventNotificationEodStatus = studentEventNotificationEodStatus;
+    }
+
+    public STUDENT_EVENT_NOTIFICATION_EOD_STATUS_HISTORY_DATASET getStudentEventNotificationEodStatusHistory() {
+        return studentEventNotificationEodStatusHistory;
+    }
+
+    public void setStudentEventNotificationEodStatusHistory(STUDENT_EVENT_NOTIFICATION_EOD_STATUS_HISTORY_DATASET studentEventNotificationEodStatusHistory) {
+        this.studentEventNotificationEodStatusHistory = studentEventNotificationEodStatusHistory;
+    }
+
+    public STUDENT_EVENT_NOTIFICATION_EOD_STATUS_ERROR_DATASET getStudentEventNotificationEodStatusError() {
+        return studentEventNotificationEodStatusError;
+    }
+
+    public void setStudentEventNotificationEodStatusError(STUDENT_EVENT_NOTIFICATION_EOD_STATUS_ERROR_DATASET studentEventNotificationEodStatusError) {
+        this.studentEventNotificationEodStatusError = studentEventNotificationEodStatusError;
+    }
+
+    
+    
+    
     public CLASS_OTHER_ACTIVITY_REPORT_DATASET getClassOtherActivityReportDataset() {
         return classOtherActivityReportDataset;
     }
@@ -2361,6 +2650,15 @@ public class ReportDependencyInjection {
         return otherActivityBatchDataSet;
     }
 
+    public NotificationDetailBusinessDataSet getNotificationDetailBusinessDataSet() {
+        return notificationDetailBusinessDataSet;
+    }
+
+    public void setNotificationDetailBusinessDataSet(NotificationDetailBusinessDataSet notificationDetailBusinessDataSet) {
+        this.notificationDetailBusinessDataSet = notificationDetailBusinessDataSet;
+    }
+    
+
     public void setOtherActivityBatchDataSet(OTHER_ACTIVITY_EOD_STATUS_DATASET otherActivityBatchDataSet) {
         this.otherActivityBatchDataSet = otherActivityBatchDataSet;
     }
@@ -3195,6 +3493,104 @@ public IPDataService getPdataservice() throws NamingException { //EJB Integratio
     public void setSubstituteReportparam(SubstituteReportParam_DataSet substituteReportparam) {
         this.substituteReportparam = substituteReportparam;
     }
+
+    public FEE_NOTIFICATION_EOD_STATUS_DATASET getFeeNotificationEodStatusDataset() {
+        return feeNotificationEodStatusDataset;
+    }
+
+    public void setFeeNotificationEodStatusDataset(FEE_NOTIFICATION_EOD_STATUS_DATASET feeNotificationEodStatusDataset) {
+        this.feeNotificationEodStatusDataset = feeNotificationEodStatusDataset;
+    }
+
+    public FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET getFeeNotificationEodStatusHistoryDataset() {
+        return feeNotificationEodStatusHistoryDataset;
+    }
+
+    public void setFeeNotificationEodStatusHistoryDataset(FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET feeNotificationEodStatusHistoryDataset) {
+        this.feeNotificationEodStatusHistoryDataset = feeNotificationEodStatusHistoryDataset;
+    }
+
+    public FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET getFeeNotificationEodStatusErrorDataset() {
+        return feeNotificationEodStatusErrorDataset;
+    }
+
+    public void setFeeNotificationEodStatusErrorDataset(FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET feeNotificationEodStatusErrorDataset) {
+        this.feeNotificationEodStatusErrorDataset = feeNotificationEodStatusErrorDataset;
+    }
+
+    public STUDENT_FEE_NOTIFICATION_EOD_STATUS_DATASET getStudentFeeNotificationEodStatus() {
+        return studentFeeNotificationEodStatus;
+    }
+
+    public void setStudentFeeNotificationEodStatus(STUDENT_FEE_NOTIFICATION_EOD_STATUS_DATASET studentFeeNotificationEodStatus) {
+        this.studentFeeNotificationEodStatus = studentFeeNotificationEodStatus;
+    }
+
+    public STUDENT_FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET getStudentFeeNotificationEodStatusHistory() {
+        return studentFeeNotificationEodStatusHistory;
+    }
+
+    public void setStudentFeeNotificationEodStatusHistory(STUDENT_FEE_NOTIFICATION_EOD_STATUS_HISTORY_DATASET studentFeeNotificationEodStatusHistory) {
+        this.studentFeeNotificationEodStatusHistory = studentFeeNotificationEodStatusHistory;
+    }
+
+    public STUDENT_FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET getStudentFeeNotificationEodStatusError() {
+        return studentFeeNotificationEodStatusError;
+    }
+
+    public void setStudentFeeNotificationEodStatusError(STUDENT_FEE_NOTIFICATION_EOD_STATUS_ERROR_DATASET studentFeeNotificationEodStatusError) {
+        this.studentFeeNotificationEodStatusError = studentFeeNotificationEodStatusError;
+    }
+
+    public SVW_STUDENT_SOFT_SKILLS_BUSINESS_DATASET getStudentSoftSkillsBusiness() {
+        return studentSoftSkillsBusiness;
+    }
+
+    public void setStudentSoftSkillsBusiness(SVW_STUDENT_SOFT_SKILLS_BUSINESS_DATASET studentSoftSkillsBusiness) {
+        this.studentSoftSkillsBusiness = studentSoftSkillsBusiness;
+    }
+
+    public FeeDetailBusinessDataSet getFeeDetailBusinessDataSet() {
+        return feeDetailBusinessDataSet;
+    }
+
+    public void setFeeDetailBusinessDataSet(FeeDetailBusinessDataSet feeDetailBusinessDataSet) {
+        this.feeDetailBusinessDataSet = feeDetailBusinessDataSet;
+    }
+
+    public FeeSummaryBusinessDataSet getFeeSummaryBusinessDataSet() {
+        return feeSummaryBusinessDataSet;
+    }
+
+    public void setFeeSummaryBusinessDataSet(FeeSummaryBusinessDataSet feeSummaryBusinessDataSet) {
+        this.feeSummaryBusinessDataSet = feeSummaryBusinessDataSet;
+    }
+
+    public FeePaymentBusinessDataSet getFeePaymentBusinessDataSet() {
+        return feePaymentBusinessDataSet;
+    }
+
+    public void setFeePaymentBusinessDataSet(FeePaymentBusinessDataSet feePaymentBusinessDataSet) {
+        this.feePaymentBusinessDataSet = feePaymentBusinessDataSet;
+    }
+
+    public StudentDetailsDataSet getStudentDetailsDataSet() {
+        return studentDetailsDataSet;
+    }
+
+    public void setStudentDetailsDataSet(StudentDetailsDataSet studentDetailsDataSet) {
+        this.studentDetailsDataSet = studentDetailsDataSet;
+    }
+
+    public BusinessReportParamsDataSet getBusinessReportParams() {
+        return businessReportParams;
+    }
+
+    public void setBusinessReportParams(BusinessReportParamsDataSet businessReportParams) {
+        this.businessReportParams = businessReportParams;
+    }
+    
+    
     
     
     

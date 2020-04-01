@@ -12,6 +12,7 @@ import com.ibd.cohesive.report.businessreport.dataModels.student.SVW_FAMILY_DETA
 import com.ibd.cohesive.report.businessreport.dataModels.student.SVW_STUDENT_MARKS_BUSINESS;
 import com.ibd.cohesive.report.businessreport.dataModels.student.SVW_STUDENT_OTHER_ACTIVITY_REPORT_BUSINESS;
 import com.ibd.cohesive.report.businessreport.dataModels.student.SVW_STUDENT_PROFILE_BUSINESS;
+import com.ibd.cohesive.report.businessreport.dataModels.student.SVW_STUDENT_SOFT_SKILLS_BUSINESS;
 import com.ibd.cohesive.report.businessreport.dataModels.student.SVW_STUDENT_TIMETABLE_DETAIL_BUSINESS;
 import com.ibd.cohesive.report.businessreport.dataModels.student.StudentAttendanceSummary;
 import com.ibd.cohesive.report.businessreport.dataModels.student.StudentFeeDetails;
@@ -402,7 +403,84 @@ public class StudentDataSetBusiness implements IStudentDataSetBusiness{
         
     }
      
+     public String getSVW_STUDENT_SOFT_SKILLS_BUSINESS_DataSet(String p_fileName,String p_instanceID)throws DBProcessingException,DBValidationException{
+         boolean l_session_created_now=false;
+         try{
+            
+          session.createSessionObject();
+          dbSession.createDBsession(session);
+          l_session_created_now=session.isI_session_created_now();
+          dbg("inside getSVW_STUDENT_SOFT_SKILLS_BUSINESS_DataSet");
+          
+          SVW_STUDENT_SOFT_SKILLS_BUSINESS_DATASET studentProfileBusiness=inject.getStudentSoftSkillsBusiness();
+          
+           
+          ArrayList<SVW_STUDENT_SOFT_SKILLS_BUSINESS>studentMarkBusiness=  studentProfileBusiness.getTableObject(p_fileName, p_instanceID, session, dbSession, inject, appInject);
+          
+          String result=this.convertSVW_STUDENT_SOFT_SKILLS_BUSINESSListToString(studentMarkBusiness, session);
+          
+          dbg("end of getSVW_STUDENT_SOFT_SKILLS_BUSINESS_DataSet--->result--->"+result);
+         return result;
+       }catch(DBProcessingException ex){
+          dbg(ex);
+          throw new DBProcessingException("DBProcessingException"+ex.toString());
+      }catch(DBValidationException ex){
+          dbg(ex);
+          throw ex;
+     }catch(Exception ex){
+         dbg(ex);
+         throw new DBProcessingException("DBProcessingException"+ex.toString());
+     }
+        finally{
+           if(l_session_created_now){  
+            session.clearSessionObject();
+            dbSession.clearSessionObject();
+           }
+        }
+        
+    } 
      
+     public String convertSVW_STUDENT_SOFT_SKILLS_BUSINESSListToString(ArrayList<SVW_STUDENT_SOFT_SKILLS_BUSINESS>studentFamily,CohesiveSession p_session) throws DBProcessingException{
+       String result=new String();
+        
+        
+        try{
+            
+            for(int i=0;i<studentFamily.size();i++){
+                SVW_STUDENT_SOFT_SKILLS_BUSINESS studentFamilyDetail=studentFamily.get(i);
+                
+                String record=studentFamilyDetail.getEXAM()+"~"+
+                              studentFamilyDetail.getCATEGORY()+"~"+
+                              studentFamilyDetail.getSTUDENT_ID()+"~"+
+                              studentFamilyDetail.getSKILL_ID()+"~"+
+                              studentFamilyDetail.getTEACHER_FEEDBACK()+"~"+
+                              studentFamilyDetail.getVERSION_NUMBER()+"~"+
+                              studentFamilyDetail.getCATEGORY_VALUE();
+                
+                if(i==0){
+                
+                   result=record;
+                }else{
+                    
+                    result=result+"#"+record;
+                    
+                }
+                
+            }
+            
+            if(studentFamily.size()==1)
+                result=result+"#";
+            
+            return result;
+//     }catch(DBProcessingException ex){
+//          dbg(ex);
+//          throw new DBProcessingException("DBProcessingException"+ex.toString());
+     }catch(Exception ex){
+         dbg(ex);
+         throw new DBProcessingException("DBProcessingException"+ex.toString());
+     }
+        
+    }
       
      public String getSVW_STUDENT_PROFILE_BUSINESS_DataSet(String p_fileName,String p_instanceID)throws DBProcessingException,DBValidationException{
          boolean l_session_created_now=false;

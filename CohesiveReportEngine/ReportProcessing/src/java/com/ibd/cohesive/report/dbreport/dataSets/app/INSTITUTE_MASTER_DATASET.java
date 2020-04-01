@@ -26,7 +26,7 @@ public class INSTITUTE_MASTER_DATASET {
 //     ArrayList<INSTITUTE_MASTER> dataset;
     
     
-    public ArrayList<INSTITUTE_MASTER> getTableObject(String p_instituteID,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject)throws DBProcessingException,DBValidationException{
+    public ArrayList<INSTITUTE_MASTER> getTableObject(String p_instituteID,CohesiveSession session,DBSession dbSession,ReportDependencyInjection inject,String businessReport)throws DBProcessingException,DBValidationException{
         
         
         try{
@@ -68,7 +68,7 @@ public class INSTITUTE_MASTER_DATASET {
         
          dbg("end of INSTITUTE_MASTER_DATASET--->getTableObject",session); 
          dbg("l_instituteMasterMap size"+l_instituteMasterMap,session);
-        return   convertDBtoReportObject(l_instituteMasterMap,session) ;
+        return   convertDBtoReportObject(l_instituteMasterMap,session,businessReport,p_instituteID) ;
 
     
     }catch(DBProcessingException ex){
@@ -87,7 +87,7 @@ public class INSTITUTE_MASTER_DATASET {
     
     
     
-    private ArrayList<INSTITUTE_MASTER> convertDBtoReportObject(Map<String,DBRecord>p_instituteMasterMap,CohesiveSession session)throws DBProcessingException{
+    private ArrayList<INSTITUTE_MASTER> convertDBtoReportObject(Map<String,DBRecord>p_instituteMasterMap,CohesiveSession session,String businessReport,String instituteID)throws DBProcessingException{
     
         ArrayList<INSTITUTE_MASTER>dataset=new ArrayList();
         try{
@@ -100,19 +100,65 @@ public class INSTITUTE_MASTER_DATASET {
              
                 Iterator<DBRecord> recordIterator=p_instituteMasterMap.values().iterator();
                 
+  
+                
                 while(recordIterator.hasNext()){
+                    
+                    
                     
                     DBRecord l_instituteTypeRecords=recordIterator.next();
                     INSTITUTE_MASTER institute=new INSTITUTE_MASTER();
                  
+                    
+                    if(businessReport==null||businessReport.isEmpty()){
+                        
+                        if(instituteID.equals(l_instituteTypeRecords.getRecord().get(0).trim())){
+                            
+                            institute.setINSTITUTE_ID(l_instituteTypeRecords.getRecord().get(0).trim());
+                           institute.setINSTITUTE_NAME(l_instituteTypeRecords.getRecord().get(1).trim());
+                            String imagePath;
+
+                    
+                    if(session.getCohesiveproperties().getProperty("TEST").equals("YES"))
+                        
+                        imagePath="https://cohesivetest.ibdtechnologies.com/"+l_instituteTypeRecords.getRecord().get(2).trim();
+                    else
+                        
+                         imagePath="https://cohesive.ibdtechnologies.com/"+l_instituteTypeRecords.getRecord().get(2).trim();
+                    
+                    institute.setIMAGE_PATH(imagePath);
+                    dataset=null;
+                    dataset=new ArrayList();
+                    dataset.add(institute);
+                    dbg("dataset size"+dataset.size(),session);
+            dbg("end of INSTITUTE_MASTER_DATASET convertDBtoReportObject",session);
+                         return dataset;
+                            
+                        }
+                        
+                         
+                    }else{
+                    
                     institute.setINSTITUTE_ID(l_instituteTypeRecords.getRecord().get(0).trim());
                     institute.setINSTITUTE_NAME(l_instituteTypeRecords.getRecord().get(1).trim());
-                    
-                    String imagePath="https://cohesive.ibdtechnologies.com/"+l_instituteTypeRecords.getRecord().get(2).trim();
+                    String imagePath;
 
-                    institute.setIMAGE_PATH(imagePath);
                     
-                    dataset.add(institute);
+                    if(session.getCohesiveproperties().getProperty("TEST").equals("YES"))
+                        
+                        imagePath="https://cohesivetest.ibdtechnologies.com/"+l_instituteTypeRecords.getRecord().get(2).trim();
+                    else
+                        
+                         imagePath="https://cohesive.ibdtechnologies.com/"+l_instituteTypeRecords.getRecord().get(2).trim();
+                    
+                    institute.setIMAGE_PATH(imagePath);
+                     dataset.add(institute);
+                    }
+                    
+                    
+                    
+                    
+                   
                     
                 }
             

@@ -42,6 +42,7 @@ import com.ibd.cohesive.report.dbreport.dataModels.institute.PAYMENT_MASTER;
 import com.ibd.cohesive.report.dbreport.dataModels.institute.RETENTION_PERIOD;
 import com.ibd.cohesive.report.dbreport.dataModels.institute.STUDENT_ASSIGNMENT_STATUS;
 import com.ibd.cohesive.report.dbreport.dataModels.institute.STUDENT_OTP_STATUS;
+import com.ibd.cohesive.report.dbreport.dataModels.institute.TODAY_NOTIFICATION;
 import com.ibd.cohesive.report.dependencyinjection.ReportDependencyInjection;
 import com.ibd.cohesive.util.exceptions.DBProcessingException;
 import com.ibd.cohesive.util.exceptions.DBValidationException;
@@ -2708,6 +2709,85 @@ public String convertRETENTION_PERIODListToString(ArrayList<RETENTION_PERIOD>app
                 String record=appEod.getDAYS()+"~"+
                               appEod.getFEATURE_NAME()+"~"+
                               appEod.getINSTITUTE_ID();
+                        
+                              
+                              
+                if(i==0){
+                
+                   result=record;
+                }else{
+                    
+                    result=result+"#"+record;
+                    
+                }
+                
+            }
+            
+            if(appEodList.size()==1)
+                result=result+"#";
+            
+            return result;
+//     }catch(DBProcessingException ex){
+//          dbg(ex);
+//          throw new DBProcessingException("DBProcessingException"+ex.toString());
+     }catch(Exception ex){
+         throw new DBProcessingException("DBProcessingException"+ex.toString());
+     }
+        
+    }
+
+
+public String getTODAY_NOTIFICATION_DataSet(String p_instanceID,String p_date)throws DBProcessingException,DBValidationException{
+        try{
+            
+          session.createSessionObject();
+          dbSession.createDBsession(session);
+          dbg("inside getTODAY_NOTIFICATION_DataSet");
+          
+          
+          
+        TODAY_NOTIFICATION_DATASET teacher=inject.getTodaynotificationDataset();
+          
+          
+          dbg("end of getTODAY_NOTIFICATION_DataSet");
+         ArrayList<TODAY_NOTIFICATION>todayNotification= teacher.getTableObject(p_instanceID, p_date, session, dbSession, inject);
+          String result=this.convertTODAY_NOTIFICATIONListToString(todayNotification, session);
+          return result;
+       }catch(DBProcessingException ex){
+          dbg(ex);
+          throw new DBProcessingException("DBProcessingException"+ex.toString());
+      }catch(DBValidationException ex){
+          dbg(ex);
+          throw ex;
+     }catch(Exception ex){
+         throw new DBProcessingException("DBProcessingException"+ex.toString());
+     }
+        finally{
+            session.clearSessionObject();
+            dbSession.clearSessionObject();
+        }
+        
+    } 
+     
+
+
+
+
+public String convertTODAY_NOTIFICATIONListToString(ArrayList<TODAY_NOTIFICATION>appEodList,CohesiveSession p_session) throws DBProcessingException{
+       String result=new String();
+        
+        
+        try{
+            
+            for(int i=0;i<appEodList.size();i++){
+                TODAY_NOTIFICATION appEod=appEodList.get(i);
+                
+                String record=appEod.getEND_POINT()+"~"+
+                              appEod.getMESSAGE()+"~"+
+                              appEod.getNOTIFICATION_TYPE()+"~"+
+                              appEod.getSTATUS()+"~"+
+                              appEod.getSTUDENT_ID()+"~"+
+                              appEod.getTITLE();
                         
                               
                               

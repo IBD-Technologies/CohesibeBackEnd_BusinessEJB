@@ -189,13 +189,9 @@ public class ClassDataSet implements IClassDataSet {
                 CLASS_ATTENDANCE_DETAIL appEod=appEodList.get(i);
                 
                 String record=appEod.getATTENDANCE()+"~"+
-                              appEod.getMONTH()+"~"+
-                              appEod.getSECTION()+"~"+
-                              appEod.getSTANDARD()+"~"+
-                              appEod.getSTUDENT_ID()+"~"+
-                              appEod.getVERSION_NUMBER()+"~"+
-                              appEod.getYEAR();
-                              
+                              appEod.getREFERENCE_NO()+"~"+
+                              appEod.getSTUDENT_ID();
+                            
                 
                 if(i==0){
                 
@@ -296,19 +292,12 @@ public class ClassDataSet implements IClassDataSet {
             for(int i=0;i<appEodList.size();i++){
                 CLASS_ATTENDANCE_MASTER appEod=appEodList.get(i);
                 
-                String record=appEod.getAUTH_STATUS()+"~"+
-                              appEod.getCHECKER_DATE_STAMP()+"~"+
-                              appEod.getCHECKER_ID()+"~"+
-                              appEod.getCHECKER_REMARKS()+"~"+
-                              appEod.getDATE()+"~"+
-                              appEod.getMAKER_DATE_STAMP()+"~"+
-                              appEod.getMAKER_ID()+"~"+
-                              appEod.getMAKER_REMARKS()+"~"+
-                              appEod.getRECORD_STATUS()+"~"+
+                String record=appEod.getAUDIT_DETAILS()+"~"+
+                              appEod.getMONTH()+"~"+
                               appEod.getSECTION()+"~"+
                               appEod.getSTANDARD()+"~"+
-                              appEod.getVERSION_NUMBER();
-                              
+                              appEod.getYEAR();
+                             
                               
                 
                 if(i==0){
@@ -989,7 +978,7 @@ public class ClassDataSet implements IClassDataSet {
      
      
      
-      public String getSTUDENT_MARKS_DataSet(String p_standard,String p_section,String p_instanceID)throws DBProcessingException,DBValidationException{
+      public String getSTUDENT_MARKS_DataSet(String p_standard,String p_section,String p_instanceID,String p_exam)throws DBProcessingException,DBValidationException{
         try{
             
           session.createSessionObject();
@@ -1002,7 +991,7 @@ public class ClassDataSet implements IClassDataSet {
           
           
           dbg("end of geSTUDENT_MARKS_DataSet");
-         ArrayList<STUDENT_MARKS>studmarks=  studentMarks.getTableObject(p_standard,p_section, p_instanceID, session, dbSession, inject);
+         ArrayList<STUDENT_MARKS>studmarks=  studentMarks.getTableObject(p_standard,p_section, p_instanceID,p_exam, session, dbSession, inject);
           String result=this.convertSTUDENT_MARKSListToString(studmarks, session);
           return result;
        }catch(DBProcessingException ex){
@@ -1076,13 +1065,13 @@ public class ClassDataSet implements IClassDataSet {
       
       
       
-       public String getSTUDENT_MARKS_DataSet(String p_standard,String p_section,String p_instanceID,CohesiveSession session)throws DBProcessingException,DBValidationException{
+       public String getSTUDENT_MARKS_DataSet(String p_standard,String p_section,String p_instanceID,String p_exam,CohesiveSession session)throws DBProcessingException,DBValidationException{
         
         CohesiveSession tempSession = this.session;
         try{
             
             this.session=session;
-            return getSTUDENT_MARKS_DataSet(p_standard,p_section,p_instanceID);
+            return getSTUDENT_MARKS_DataSet(p_standard,p_section,p_instanceID,p_exam);
             
         }catch(DBProcessingException ex){
           dbg(ex);

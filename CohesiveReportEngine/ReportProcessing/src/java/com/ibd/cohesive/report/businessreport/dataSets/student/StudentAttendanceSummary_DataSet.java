@@ -105,8 +105,12 @@ public class StudentAttendanceSummary_DataSet {
 
                     dbg("inside iteration",session);
                     CLASS_ATTENDANCE_DETAIL attendanceTableObject=studentFilteredList.get(i);
-                    int attYear=Integer.parseInt(attendanceTableObject.getYEAR());
-                    int attMonth=Integer.parseInt(attendanceTableObject.getMONTH());
+                    String refNo=attendanceTableObject.getREFERENCE_NO().replace("*", "~");
+                    String YEAR=refNo.split("~")[2];
+                    String MONTH=refNo.split("~")[3];
+                    
+                    int attYear=Integer.parseInt(YEAR);
+                    int attMonth=Integer.parseInt(MONTH);
                     dbg("attYear-->"+attYear,session);
                     dbg("attMonth-->"+attMonth,session);
 
@@ -121,9 +125,9 @@ public class StudentAttendanceSummary_DataSet {
                         dbg("second if satisfied",session);
                         StudentAttendanceSummary summary=new StudentAttendanceSummary();
                         summary.setStudentID(p_studentID);
-                        summary.setYear(attendanceTableObject.getYEAR());
-                        summary.setMonthNumber(Integer.parseInt(attendanceTableObject.getMONTH()));
-                        summary.setMonth(reportUtil.getMonthValueInString(attendanceTableObject.getMONTH()));
+                        summary.setYear(YEAR);
+                        summary.setMonthNumber(Integer.parseInt(MONTH));
+                        summary.setMonth(reportUtil.getMonthValueInString(MONTH));
                         String attendance=attendanceTableObject.getATTENDANCE();
 
                         float no_OfDaysPresent=0f;
@@ -149,7 +153,7 @@ public class StudentAttendanceSummary_DataSet {
                             summary.setNo_of_Days_Present(df.format(no_OfDaysPresent));
                             summary.setNo_of_Days_Absent(df.format(no_ofDaysAbsent));
                             summary.setNo_of_Days_Leave(df.format(no_ofDaysLeave));
-                            float workingDays=reportUtil.getNoOfWorkingDaysInMonth(l_instituteID, attendanceTableObject.getYEAR(), attendanceTableObject.getMONTH(), session, dbSession, inject,appInject);
+                            float workingDays=reportUtil.getNoOfWorkingDaysInMonth(l_instituteID, YEAR, MONTH, session, dbSession, inject,appInject);
                             float percentage=(no_OfDaysPresent/workingDays)*100;
                             summary.setNo_of_working_Days(df.format(workingDays));
                             summary.setPercentage(df.format(Math.round(percentage)));
@@ -251,11 +255,10 @@ public class StudentAttendanceSummary_DataSet {
                 String attendanceRecord= dayAttArray[0];
                 dbg("attendanceRecord"+attendanceRecord,session);
                 String l_foreNoonAttendance=attendanceRecord.split("n")[0];
-                String l_afterNoonAttendance=attendanceRecord.split("n")[1];
                 dbg("l_foreNoonAttendance"+l_foreNoonAttendance,session);
-                dbg("l_afterNoonAttendance"+l_afterNoonAttendance,session);
                 String[] foreNoonArray=  l_foreNoonAttendance.split("p");
-                String[] afterNoonArray=  l_afterNoonAttendance.split("p");
+                
+                
                 
                 Map<String,String>periodMap=new HashMap();
                 
@@ -272,7 +275,9 @@ public class StudentAttendanceSummary_DataSet {
 
                     }
 
-
+                    String l_afterNoonAttendance=attendanceRecord.split("n")[1];
+                dbg("l_afterNoonAttendance"+l_afterNoonAttendance,session);
+                String[] afterNoonArray=  l_afterNoonAttendance.split("p");
                     for(int j=1;j<afterNoonArray.length;j++){
 
                        String periodNumber=afterNoonArray[j].substring(0, 1);
@@ -288,17 +293,19 @@ public class StudentAttendanceSummary_DataSet {
                     
                     for(int j=1;j<foreNoonArray.length;j++){
 
-                       String attendance=foreNoonArray[j].substring(1);
+                       String attendance=foreNoonArray[j].substring(0,1);
                        dbg("inside foreNoon iteration-->attendance"+attendance,session);
 
                        periodMap.put("F", attendance);
 
                     }
 
-
+                     String l_afterNoonAttendance=attendanceRecord.split("n")[1];
+                dbg("l_afterNoonAttendance"+l_afterNoonAttendance,session);
+                String[] afterNoonArray=  l_afterNoonAttendance.split("p");
                     for(int j=1;j<afterNoonArray.length;j++){
 
-                               String attendance=afterNoonArray[j].substring(1);
+                               String attendance=afterNoonArray[j].substring(0,1);
                                dbg("inside afterNoon iteration-->attendance"+attendance,session);
                                periodMap.put("A", attendance);
 
@@ -310,7 +317,7 @@ public class StudentAttendanceSummary_DataSet {
                     
                      for(int j=1;j<foreNoonArray.length;j++){
 
-                       String attendance=foreNoonArray[j].substring(1);
+                       String attendance=foreNoonArray[j].substring(0,1);
                        dbg("inside foreNoon iteration-->attendance"+attendance,session);
                        periodMap.put("D", attendance);
 
@@ -367,8 +374,10 @@ public class StudentAttendanceSummary_DataSet {
                     
                     dbg("l_day.equals(p_day)",session);
                    
-                    if(dayRecord.contains(",")){
-                    
+//                    if(dayRecord.contains(",")){
+                    if(dayRecord.contains("p")){
+                        
+                        dbg("Adding records to recordsFor_a_day",session);
                        recordsFor_a_day.add(dayRecord);
                     
                     }

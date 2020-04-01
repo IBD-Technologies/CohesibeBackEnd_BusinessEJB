@@ -55,54 +55,49 @@ public class STUDENT_NOTIFICATION_EOD_STATUS_DATASET {
             }
         
         
-         try{
+         
              
             stream = Files.newDirectoryStream(ArchFolderPath);
              
             for (Path file: stream) { 
+                
+                
+                try{
+                
 
-             if(file.getFileName().toString().endsWith(fileExtension)){
-                 
-                String fileNameWithExtension= file.getFileName().toString();
-                String fileNameWithoutExtension=fileNameWithExtension.substring(0, fileNameWithExtension.indexOf(".")) ;
-                l_tableMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+"Notification"+i_db_properties.getProperty("FOLDER_DELIMITER")+fileNameWithoutExtension, "BATCH", "STUDENT_NOTIFICATION_EOD_STATUS", session, dbSession,ismaxVersionRequired);
-                ArrayList<STUDENT_NOTIFICATION_EOD_STATUS>eodList=convertDBtoReportObject(l_tableMap,session);
-      
-                for(int i=0;i<eodList.size();i++){
-                    
-                    
-                    totalEodList.add(eodList.get(i));
+                 if(file.getFileName().toString().endsWith(fileExtension)){
+
+                    String fileNameWithExtension= file.getFileName().toString();
+                    String fileNameWithoutExtension=fileNameWithExtension.substring(0, fileNameWithExtension.indexOf(".")) ;
+                    l_tableMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_businessDate+i_db_properties.getProperty("FOLDER_DELIMITER")+"BATCH"+i_db_properties.getProperty("FOLDER_DELIMITER")+"Notification"+i_db_properties.getProperty("FOLDER_DELIMITER")+fileNameWithoutExtension, "BATCH", "STUDENT_NOTIFICATION_EOD_STATUS", session, dbSession,ismaxVersionRequired);
+                    ArrayList<STUDENT_NOTIFICATION_EOD_STATUS>eodList=convertDBtoReportObject(l_tableMap,session);
+
+                    for(int i=0;i<eodList.size();i++){
+
+
+                        totalEodList.add(eodList.get(i));
+                    }
+                 }
+             
+             }catch(DBValidationException ex){
+            
+                if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
+
+                    session.getErrorhandler().removeSessionErrCode("DB_VAL_000");
+                    session.getErrorhandler().removeSessionErrCode("DB_VAL_011");
+
+                }else{
+
+                    throw ex;
                 }
-             }
+             }   
              
+          }
              
-            }
-             
-         }catch(DBValidationException ex){
-            
-            if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
-                
-//                ArrayList<STUDENT_NOTIFICATION_EOD_STATUS>dataset=new ArrayList();
-//                STUDENT_NOTIFICATION_EOD_STATUS appEod=new STUDENT_NOTIFICATION_EOD_STATUS();
-//                appEod.setINSTITUTE_ID(" ");
-//                appEod.setNOTIFICATION_ID(" ");
-//                appEod.setSTUDENT_ID(" ");
-//                appEod.setBUSINESS_DATE(" ");
-//                appEod.setSTATUS(" ");
-//                appEod.setERROR(" ");
-//                appEod.setSTART_TIME(" ");
-//                appEod.setEND_TIME(" ");
-//                
-//                dataset.add(appEod);
-//                
-//                return dataset;
-            }else{
-                
-                throw ex;
-            }
-            
-            
-        }     
+           
+         
+         
+         
                     
          if(totalEodList.isEmpty()){
              

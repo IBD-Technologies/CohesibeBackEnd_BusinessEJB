@@ -143,8 +143,7 @@ public class ClassFeeDetail_DataSet {
                                    }
 
                             }
-                            
-                        }
+                            }
                             dbg("totalPaymentAmount"+totalPaymentAmount,session);
                             float balanceAmount=Float.parseFloat(classFee.getFeeAmount())-totalPaymentAmount;
                             dbg("balanceAmount"+balanceAmount,session);
@@ -164,6 +163,21 @@ public class ClassFeeDetail_DataSet {
             }
         
         }
+        
+        if(dataset.isEmpty()){
+            
+            ClassFeeDetail classFee=new ClassFeeDetail();
+            classFee.setFeeID(" ");
+            classFee.setFeeType(" ");
+            classFee.setFeeDescription(" ");
+            classFee.setFeeAmount(" ");
+            classFee.setDueDate(" ");
+            classFee.setPaidAmount(" ");
+            classFee.setBalanceAmount(" ");
+            dataset.add(classFee);
+        }
+        
+        
         
         dbg("end of ClassFeeDetail_DataSet",session); 
     }catch(DBProcessingException ex){

@@ -37,7 +37,7 @@ public class IVW_NOTIFICATION_MASTER_DATASET {
         Map<String,DBRecord>l_contentTypeMap=null;
         try
         {
-        l_contentTypeMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID,"INSTITUTE", "IVW_NOTIFICATION_MASTER", session, dbSession);
+        l_contentTypeMap=readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+p_instanceID+i_db_properties.getProperty("FOLDER_DELIMITER")+"Notification","INSTITUTE", "IVW_NOTIFICATION_MASTER", session, dbSession);
         }
           catch(DBValidationException ex){
             
