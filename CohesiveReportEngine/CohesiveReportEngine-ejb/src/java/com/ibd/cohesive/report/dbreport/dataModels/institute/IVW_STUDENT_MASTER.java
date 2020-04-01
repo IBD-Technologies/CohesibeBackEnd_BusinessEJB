@@ -18,6 +18,13 @@ public class IVW_STUDENT_MASTER {
     String SECTION;
     String MAKER_ID;
     String CHECKER_ID;
+     String MAKER_DATE_STAMP;
+    String CHECKER_DATE_STAMP;
+    String RECORD_STATUS;
+    String AUTH_STATUS;
+    String VERSION_NUMBER;
+    String MAKER_REMARKS;
+    String CHECKER_REMARKS;
 
     public String getSTUDENT_ID() {
         return STUDENT_ID;
@@ -122,13 +129,7 @@ public class IVW_STUDENT_MASTER {
     public void setCHECKER_REMARKS(String CHECKER_REMARKS) {
         this.CHECKER_REMARKS = CHECKER_REMARKS;
     }
-    String MAKER_DATE_STAMP;
-    String CHECKER_DATE_STAMP;
-    String RECORD_STATUS;
-    String AUTH_STATUS;
-    String VERSION_NUMBER;
-    String MAKER_REMARKS;
-    String CHECKER_REMARKS;
+   
     
     
     

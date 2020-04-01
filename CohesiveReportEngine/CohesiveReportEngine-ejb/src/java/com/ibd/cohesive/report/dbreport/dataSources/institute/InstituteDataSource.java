@@ -32,6 +32,67 @@ public abstract class InstituteDataSource<T> {
     private String feeID;
     private String activityID;
     private String date;
+    private String businessDate;
+    private String studentID;
+    private String fromDate;
+    private String toDate;
+    private String notificationType;
+    private String studentStatus;
+
+    public String getStudentStatus() {
+        return studentStatus;
+    }
+
+    public void setStudentStatus(String studentStatus) {
+        this.studentStatus = studentStatus;
+    }
+    
+    
+
+    public String getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(String fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public String getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(String toDate) {
+        this.toDate = toDate;
+    }
+    
+
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+    
+    
+
+    public String getBusinessDate() {
+        return businessDate;
+    }
+
+    public void setBusinessDate(String businessDate) {
+        this.businessDate = businessDate;
+    }
+
+    public String getNotificationType() {
+        return notificationType;
+    }
+
+    public void setNotificationType(String notificationType) {
+        this.notificationType = notificationType;
+    }
+    
+    
 
     public String getDate() {
         return date;
@@ -150,6 +211,7 @@ public abstract class InstituteDataSource<T> {
                     
 	   this.instituteID=request.getParameter("instituteId");
            this.standard=request.getParameter("standard");
+           this.studentID=request.getParameter("studentID");
            
           String l_class=request.getParameter("class");
           if(l_class!=null&&!l_class.isEmpty()){ 
@@ -159,7 +221,8 @@ public abstract class InstituteDataSource<T> {
              
              this.feeID=request.getParameter("feeID");
              this.activityID=request.getParameter("activityID");
-             this.date= request.getParameter("date");       
+             this.date= request.getParameter("date");   
+             this.businessDate= request.getParameter("businessDate");
 	   System.out.print("inside institute data source"+date);
            this.nokotser=request.getParameter("nokotser");
            
@@ -168,6 +231,21 @@ public abstract class InstituteDataSource<T> {
            this.loginInstitute=request.getParameter("loginInstitute");
            
            this.service=request.getParameter("service");
+           this.fromDate=request.getParameter("fromDate");
+           this.toDate=request.getParameter("toDate");
+           this.notificationType=request.getParameter("notificationType");
+           this.studentStatus=request.getParameter("studentStatus");
+           
+           if(this.notificationType!=null){
+           
+           if(this.notificationType.contains("SSPPAA")){
+               this.notificationType=this.notificationType.replace("SSPPAA", " ");
+           }
+           
+           
+           }
+           
+           
             
            if(this.loginInstitute==null&&this.userID==null&&this.nokotser==null)
               {
@@ -192,6 +270,10 @@ for (String param: params) {
     if (key.equals("instituteId"))
     {  
     	   this.instituteID=val;
+    }
+    if (key.equals("studentID"))
+    {  
+    	   this.studentID=val;
     }
     if (key.equals("class"))
     {  
@@ -235,6 +317,29 @@ for (String param: params) {
     if(key.equals("date")) 
     {
     this.date=val;
+    }
+    if(key.equals("businessDate")) 
+    {
+    this.businessDate=val;
+    }
+    if(key.equals("fromDate")) 
+    {
+    this.fromDate=val;
+    }
+    if(key.equals("todate")) 
+    {
+    this.toDate=val;
+    }
+    if(key.equals("studentStatus")) 
+    {
+    this.toDate=val;
+    }
+    if(key.equals("notificationType")) 
+    {
+    this.notificationType=val;
+    if(this.notificationType.contains("SSPPAA")){
+               this.notificationType=this.notificationType.replace("SSPPAA", " ");
+           }
     }
     }
 }

@@ -26,6 +26,17 @@ public abstract class BatchDataSource<T> {
     private String service;
     private String loginInstitute;
     private String nokotser;
+    private String batchName;
+
+    public String getBatchName() {
+        return batchName;
+    }
+
+    public void setBatchName(String batchName) {
+        this.batchName = batchName;
+    }
+    
+    
 
     public String getBusinessDate() {
         return businessDate;
@@ -93,6 +104,8 @@ public abstract class BatchDataSource<T> {
               
                     
 	   this.businessDate=request.getParameter("businessDate");
+           
+           this.batchName=request.getParameter("batchName");
 	   
            this.nokotser=request.getParameter("nokotser");
            
@@ -126,6 +139,12 @@ for (String param: params) {
     {  
     	   this.businessDate=val;
     }
+    
+    if (key.equals("batchName"))
+    {  
+    	   this.batchName=val;
+    }
+    
     if (key.equals("nokotser"))
     {
       this.nokotser=val;

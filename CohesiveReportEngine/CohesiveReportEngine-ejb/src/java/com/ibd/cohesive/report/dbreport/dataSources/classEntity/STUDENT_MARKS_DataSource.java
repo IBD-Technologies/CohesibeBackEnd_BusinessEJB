@@ -43,7 +43,7 @@ public class STUDENT_MARKS_DataSource extends ClassDataSource<STUDENT_MARKS>{
                 if( preProcessor.preProcessing(this.getNokotser(), this.getUserID(), this.getLoginInstitute(), this.getService())){
                    IClassDataSet appDataSet=preProcessor.getClassDataset();
                    
-                  String result= appDataSet.getSTUDENT_MARKS_DataSet(standard,section,instanceID);
+                  String result= appDataSet.getSTUDENT_MARKS_DataSet(standard,section,instanceID,this.getExam());
                   
                   STUDENT_MARKS errorMaster=new STUDENT_MARKS();
                  resultset= errorMaster.convertStringToArrayList(result);  

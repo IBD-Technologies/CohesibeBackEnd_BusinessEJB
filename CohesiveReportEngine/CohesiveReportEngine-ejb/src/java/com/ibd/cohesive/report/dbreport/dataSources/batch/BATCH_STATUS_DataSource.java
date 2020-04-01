@@ -22,6 +22,7 @@ public class BATCH_STATUS_DataSource extends BatchDataSource<BATCH_STATUS>{
 
     String businessDate;
     String instituteID;
+    String batchName;
     
     @Override
       public List<BATCH_STATUS> fetch()
@@ -32,6 +33,7 @@ public class BATCH_STATUS_DataSource extends BatchDataSource<BATCH_STATUS>{
 
                 businessDate =this.getBusinessDate();
                 instituteID=this.getLoginInstitute();
+                batchName=this.getBatchName();
                 
                ArrayList<BATCH_STATUS> resultset=null;
                ReportDependencyInjection inject=new ReportDependencyInjection();
@@ -41,7 +43,7 @@ public class BATCH_STATUS_DataSource extends BatchDataSource<BATCH_STATUS>{
                 if( preProcessor.preProcessing(this.getNokotser(), this.getUserID(), this.getLoginInstitute(), this.getService())){
                    IBatchDataset batchDataSet=preProcessor.getBatchDataset();
                    
-                  String result= batchDataSet.getBATCH_STATUS_DataSet(businessDate,instituteID);
+                  String result= batchDataSet.getBATCH_STATUS_DataSet(businessDate,instituteID,batchName);
                   BATCH_STATUS obj=new BATCH_STATUS();
                   resultset= obj.convertStringToArrayList(result);
                   

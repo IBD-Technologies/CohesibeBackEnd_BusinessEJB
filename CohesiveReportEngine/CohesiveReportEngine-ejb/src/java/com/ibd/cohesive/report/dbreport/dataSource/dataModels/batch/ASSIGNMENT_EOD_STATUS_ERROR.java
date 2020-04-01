@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataSource.dataModels.batch;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -48,4 +50,36 @@ public class ASSIGNMENT_EOD_STATUS_ERROR {
     }
     
     
+    public ArrayList<ASSIGNMENT_EOD_STATUS_ERROR>convertStringToArrayList(String result){
+        
+          ArrayList<ASSIGNMENT_EOD_STATUS_ERROR> ASSIGNMENT_EOD_STATUS_ERRORList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              ASSIGNMENT_EOD_STATUS_ERROR appStatus=new ASSIGNMENT_EOD_STATUS_ERROR();
+              
+              appStatus.setASSIGNMENT_ID(record.split("~")[0]);
+              appStatus.setBUSINESS_DATE(record.split("~")[1]);
+              appStatus.setERROR(record.split("~")[2]);
+              appStatus.setINSTITUTE_ID(record.split("~")[3]);
+             
+              
+              ASSIGNMENT_EOD_STATUS_ERRORList.add(appStatus);
+          }
+          
+          
+          return ASSIGNMENT_EOD_STATUS_ERRORList;
+      }
+   
 }
+
+    
+    
+    
+    

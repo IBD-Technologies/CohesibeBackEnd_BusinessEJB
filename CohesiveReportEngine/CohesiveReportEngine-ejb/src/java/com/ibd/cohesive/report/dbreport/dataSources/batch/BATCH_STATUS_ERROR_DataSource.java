@@ -21,6 +21,7 @@ public class BATCH_STATUS_ERROR_DataSource extends BatchDataSource<BATCH_STATUS_
 
     String businessDate;
     String instituteID;
+    String batchName;
     
     @Override
       public List<BATCH_STATUS_ERROR> fetch()
@@ -31,6 +32,7 @@ public class BATCH_STATUS_ERROR_DataSource extends BatchDataSource<BATCH_STATUS_
 
                 businessDate =this.getBusinessDate();
                 instituteID=this.getLoginInstitute();
+                batchName=this.getBatchName();
 //                IBatchDataset batchDataSet=new ReportDependencyInjection().getBatchDataset();
 //                return batchDataSet.getBATCH_STATUS_ERROR_DataSet(businessDate);  
         
@@ -42,7 +44,7 @@ public class BATCH_STATUS_ERROR_DataSource extends BatchDataSource<BATCH_STATUS_
                 if( preProcessor.preProcessing(this.getNokotser(), this.getUserID(), this.getLoginInstitute(), this.getService())){
                    IBatchDataset batchDataSet=preProcessor.getBatchDataset();
                    
-                  String result= batchDataSet.getBATCH_STATUS_ERROR_DataSet(businessDate,instituteID);
+                  String result= batchDataSet.getBATCH_STATUS_ERROR_DataSet(businessDate,instituteID,batchName);
                   BATCH_STATUS_ERROR obj=new BATCH_STATUS_ERROR();
                   resultset= obj.convertStringToArrayList(result);
                   

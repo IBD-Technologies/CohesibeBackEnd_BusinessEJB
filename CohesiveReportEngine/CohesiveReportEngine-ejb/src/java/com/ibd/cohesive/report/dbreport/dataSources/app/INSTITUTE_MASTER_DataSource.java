@@ -30,7 +30,7 @@ public class INSTITUTE_MASTER_DataSource  extends AppDataSource<INSTITUTE_MASTER
             try
             {
                 //parseParameters();
-                instanceID =this.getInstituteId();
+                instanceID =this.getLoginInstitute();
                 ArrayList<INSTITUTE_MASTER> resultset=new ArrayList();
                 ReportDependencyInjection inject=new ReportDependencyInjection();
                 
@@ -39,7 +39,7 @@ public class INSTITUTE_MASTER_DataSource  extends AppDataSource<INSTITUTE_MASTER
                 if( preProcessor.preProcessing(this.getNokotser(), this.getUserID(), this.getLoginInstitute(), this.getService())){
                    IAppDataSet appDataSet=preProcessor.getAppDataset();
                    
-                  String result= appDataSet.getINSTITUTE_MASTER_DataSet(instanceID);
+                  String result= appDataSet.getINSTITUTE_MASTER_DataSet(instanceID,this.getBusinessReport());
                  
                 
                 INSTITUTE_MASTER instituteMaster=new INSTITUTE_MASTER(); 

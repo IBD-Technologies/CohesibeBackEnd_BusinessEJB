@@ -30,6 +30,7 @@ private String loginInstitute;
 private String nokotser;
 private String currdate;
 private String businessDate;
+private String businessReport;
 
     public String getBusinessDate() {
         return businessDate;
@@ -82,6 +83,14 @@ private String businessDate;
         return nokotser;
     }
 
+    public String getBusinessReport() {
+        return businessReport;
+    }
+
+    public void setBusinessReport(String businessReport) {
+        this.businessReport = businessReport;
+    }
+
 
 //
 //    public String getStudentId() {
@@ -114,9 +123,12 @@ private String businessDate;
            
            this.userID=request.getParameter("userID");
            
+           this.businessReport=request.getParameter("businessReport");
+           
            this.loginInstitute=request.getParameter("loginInstitute");
            
            this.service=request.getParameter("service");
+           
            this.currdate=request.getParameter("currdate");
            this.businessDate=request.getParameter("businessDate");
             
@@ -164,6 +176,11 @@ for (String param: params) {
      if(key.equals("businessDate")) 
     {
     this.businessDate=val;
+    
+    }
+     if(key.equals("businessReport")) 
+    {
+    this.businessReport=val;
     
     }
      if(key.equals("currdate")) 

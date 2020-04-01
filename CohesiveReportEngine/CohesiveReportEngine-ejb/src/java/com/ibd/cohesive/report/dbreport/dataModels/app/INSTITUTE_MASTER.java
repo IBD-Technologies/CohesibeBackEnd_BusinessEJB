@@ -16,6 +16,7 @@ public class INSTITUTE_MASTER  {
    // private static final long serialVersionUID = 1234567L;
     String INSTITUTE_ID;
     String INSTITUTE_NAME;
+    String IMAGE_PATH;
 
     public String getINSTITUTE_ID() {
         return INSTITUTE_ID;
@@ -32,6 +33,18 @@ public class INSTITUTE_MASTER  {
     public void setINSTITUTE_NAME(String INSTITUTE_NAME) {
         this.INSTITUTE_NAME = INSTITUTE_NAME;
     }
+
+    public String getIMAGE_PATH() {
+        return IMAGE_PATH;
+    }
+
+    public void setIMAGE_PATH(String IMAGE_PATH) {
+        this.IMAGE_PATH = IMAGE_PATH;
+    }
+    
+    
+    
+    
     
     public ArrayList<INSTITUTE_MASTER>convertStringToArrayList(String result){
         
@@ -46,10 +59,12 @@ public class INSTITUTE_MASTER  {
               String record=records[i];
               String instituteID=record.split("~")[0];
               String instituteName=record.split("~")[1];
+              String imagePath=record.split("~")[2];
               
               INSTITUTE_MASTER insMaster=new INSTITUTE_MASTER();
               insMaster.setINSTITUTE_ID(instituteID);
               insMaster.setINSTITUTE_NAME(instituteName);
+              insMaster.setIMAGE_PATH(imagePath);
               
               instituteMasterList.add(insMaster);
           }

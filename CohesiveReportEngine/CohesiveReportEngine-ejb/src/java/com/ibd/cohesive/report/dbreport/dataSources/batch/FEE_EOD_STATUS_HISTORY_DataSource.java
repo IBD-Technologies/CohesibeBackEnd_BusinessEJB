@@ -17,7 +17,7 @@ import javax.naming.NamingException;
  *
  * @author DELL
  */
-public class FEE_EOD_STATUS_HISTORY_DataSource extends BatchDataSource<FEE_EOD_STATUS_HISTORY>{
+public class FEE_EOD_STATUS_HISTORY_DataSource  extends BatchDataSource<FEE_EOD_STATUS_HISTORY>{
 
     String businessDate;
     String instituteID;

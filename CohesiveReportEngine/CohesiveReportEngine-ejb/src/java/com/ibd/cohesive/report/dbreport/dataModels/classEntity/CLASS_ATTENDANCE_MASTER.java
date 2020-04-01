@@ -14,16 +14,9 @@ import java.util.ArrayList;
 public class CLASS_ATTENDANCE_MASTER {
     String STANDARD;
     String SECTION;
-    String DATE;
-    String MAKER_ID;
-    String  CHECKER_ID;
-    String MAKER_DATE_STAMP;
-    String CHECKER_DATE_STAMP;
-    String RECORD_STATUS;
-    String AUTH_STATUS;
-    String VERSION_NUMBER;
-    String MAKER_REMARKS;
-    String CHECKER_REMARKS;
+    String YEAR;
+    String MONTH;
+    String  AUDIT_DETAILS;
 
     public String getSTANDARD() {
         return STANDARD;
@@ -41,85 +34,31 @@ public class CLASS_ATTENDANCE_MASTER {
         this.SECTION = SECTION;
     }
 
-    public String getDATE() {
-        return DATE;
+    public String getYEAR() {
+        return YEAR;
     }
 
-    public void setDATE(String DATE) {
-        this.DATE = DATE;
+    public void setYEAR(String YEAR) {
+        this.YEAR = YEAR;
     }
 
-    public String getMAKER_ID() {
-        return MAKER_ID;
+    public String getMONTH() {
+        return MONTH;
     }
 
-    public void setMAKER_ID(String MAKER_ID) {
-        this.MAKER_ID = MAKER_ID;
+    public void setMONTH(String MONTH) {
+        this.MONTH = MONTH;
     }
 
-    public String getCHECKER_ID() {
-        return CHECKER_ID;
+    public String getAUDIT_DETAILS() {
+        return AUDIT_DETAILS;
     }
 
-    public void setCHECKER_ID(String CHECKER_ID) {
-        this.CHECKER_ID = CHECKER_ID;
+    public void setAUDIT_DETAILS(String AUDIT_DETAILS) {
+        this.AUDIT_DETAILS = AUDIT_DETAILS;
     }
+    
 
-    public String getMAKER_DATE_STAMP() {
-        return MAKER_DATE_STAMP;
-    }
-
-    public void setMAKER_DATE_STAMP(String MAKER_DATE_STAMP) {
-        this.MAKER_DATE_STAMP = MAKER_DATE_STAMP;
-    }
-
-    public String getCHECKER_DATE_STAMP() {
-        return CHECKER_DATE_STAMP;
-    }
-
-    public void setCHECKER_DATE_STAMP(String CHECKER_DATE_STAMP) {
-        this.CHECKER_DATE_STAMP = CHECKER_DATE_STAMP;
-    }
-
-    public String getRECORD_STATUS() {
-        return RECORD_STATUS;
-    }
-
-    public void setRECORD_STATUS(String RECORD_STATUS) {
-        this.RECORD_STATUS = RECORD_STATUS;
-    }
-
-    public String getAUTH_STATUS() {
-        return AUTH_STATUS;
-    }
-
-    public void setAUTH_STATUS(String AUTH_STATUS) {
-        this.AUTH_STATUS = AUTH_STATUS;
-    }
-
-    public String getVERSION_NUMBER() {
-        return VERSION_NUMBER;
-    }
-
-    public void setVERSION_NUMBER(String VERSION_NUMBER) {
-        this.VERSION_NUMBER = VERSION_NUMBER;
-    }
-
-    public String getMAKER_REMARKS() {
-        return MAKER_REMARKS;
-    }
-
-    public void setMAKER_REMARKS(String MAKER_REMARKS) {
-        this.MAKER_REMARKS = MAKER_REMARKS;
-    }
-
-    public String getCHECKER_REMARKS() {
-        return CHECKER_REMARKS;
-    }
-
-    public void setCHECKER_REMARKS(String CHECKER_REMARKS) {
-        this.CHECKER_REMARKS = CHECKER_REMARKS;
-    }
     
     public ArrayList<CLASS_ATTENDANCE_MASTER>convertStringToArrayList(String result){
         
@@ -135,21 +74,12 @@ public class CLASS_ATTENDANCE_MASTER {
               
               CLASS_ATTENDANCE_MASTER appStatus=new CLASS_ATTENDANCE_MASTER();
               
-              appStatus.setAUTH_STATUS(record.split("~")[0]);
-              appStatus.setCHECKER_DATE_STAMP(record.split("~")[1]);
-              appStatus.setCHECKER_ID(record.split("~")[2]);
-              appStatus.setCHECKER_REMARKS(record.split("~")[3]);
-              appStatus.setDATE(record.split("~")[4]);
-              appStatus.setMAKER_DATE_STAMP(record.split("~")[5]);
-              appStatus.setMAKER_ID(record.split("~")[6]);
-              appStatus.setMAKER_REMARKS(record.split("~")[7]);
-              appStatus.setRECORD_STATUS(record.split("~")[8]);
-              appStatus.setSECTION(record.split("~")[9]);
-              appStatus.setSTANDARD(record.split("~")[10]);
-              appStatus.setVERSION_NUMBER(record.split("~")[11]);
-              
-              
-              
+              appStatus.setAUDIT_DETAILS(record.split("~")[0]);
+              appStatus.setMONTH(record.split("~")[1]);
+              appStatus.setSECTION(record.split("~")[2]);
+              appStatus.setSTANDARD(record.split("~")[3]);
+              appStatus.setYEAR(record.split("~")[4]);
+            
               
               
               
