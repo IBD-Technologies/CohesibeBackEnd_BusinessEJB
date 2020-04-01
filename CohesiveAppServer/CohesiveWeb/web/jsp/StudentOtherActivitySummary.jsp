@@ -168,6 +168,10 @@
          </div>
          
          
+         <c:forEach items="${cookie}" var="currentCookie">  
+                          <c:if test="${currentCookie.key=='userType'}">
+                <c:if test="${currentCookie.value.value!='P'}"> 
+         
          <div class="form-group row">
                <label for="authStatus" class="col-3 col-form-label">Auth Status</label>
                <div class="col-9">
@@ -178,6 +182,13 @@
                   </div>
                </div>
             </div>
+            </c:if>
+                
+                
+                 </c:if> 
+
+
+    </c:forEach>   
            
 			 <!--<div class="form-group row">
                             <label for="studID" class="col-3 col-form-label">ID</label>

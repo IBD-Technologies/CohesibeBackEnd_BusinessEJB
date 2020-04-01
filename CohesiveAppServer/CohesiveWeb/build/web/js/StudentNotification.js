@@ -451,6 +451,10 @@ function fnStudentNotificationMandatoryCheck(operation) {
 				return false;
 			}
 			
+                        if ($scope.notificationDate == '' || $scope.notificationDate == null) {
+				fn_Show_Exception_With_Param('FE-VAL-001', ['Notification Date']);
+				return false;
+			}
 			break;
 
 		case 'Save':

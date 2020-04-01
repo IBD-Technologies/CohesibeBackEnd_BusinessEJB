@@ -205,6 +205,17 @@
                                 
                                 
                                 
+                                <div class="form-group row">
+                                <label for="signStatus" class="col-3 col-form-label">Sign Status</label>
+                                <div class="col-9">
+                                        <div class="input-group">
+                                                <select class="custom-select" ng-disabled="signStatusreadOnly" id="signStatus" ng-model="signStatus">
+                                                        <option ng-repeat="x in signature" value="{{x.value}}">{{x.name}}</option>
+                                                </select>
+                                        </div>
+                                </div>
+		</div>
+                               
                                 
                                 
                             </div>

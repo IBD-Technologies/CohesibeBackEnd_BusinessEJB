@@ -37,6 +37,7 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 	$scope.contentPathreadOnly = true;
 	$scope.circularTypereadOnly = true;
 	$scope.circularDatereadOnly = true;
+        $scope.signStatusreadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
 	$scope.completeDatereadOnly = true;
 	$scope.messagereadOnly = true;
@@ -136,6 +137,7 @@ function fnTeacherECircularpostSelectBoxMaster()
       {    
       // $scope.Types = Institute.NotificationMaster;
 	$scope.subjects = Institute.SubjectMaster;
+        $scope.signature=Institute.ParticipateMaster;
 	window.parent.fn_hide_parentspinner();
 	  if (window.parent.TeacherECircularkey.circularID !=null && window.parent.TeacherECircularkey.circularID !='')
 	{
@@ -245,6 +247,7 @@ function fnTeacherECircularQuery() {
 	$scope.circularTypereadOnly = true;
 	$scope.circularDescriptionreadOnly = true;
 	$scope.circularDatereadOnly = true;
+        $scope.signStatusreadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
 	$scope.contentPathreadOnly = true;
 	$scope.completedDatereadOnly = true;
@@ -448,6 +451,7 @@ function fnTeacherECircularCreate() {
 	$scope.circularTypereadOnly = false;
 	$scope.circularIDreadOnly = false;
 	$scope.circularDatereadOnly = false;
+        $scope.signStatusreadOnly = false;
         $( "#circularDate" ).datepicker( "option", "disabled", false );
 	$scope.messagereadOnly = false;
 	$scope.parentCommentreadOnly = true;
@@ -490,6 +494,7 @@ function fnTeacherECircularEdit() {
 	$scope.circularIDreadOnly = false;
 	$scope.circularDescriptionreadOnly = false;
 	$scope.circularDatereadOnly = false;
+        $scope.signStatusreadOnly = false;
         $( "#circularDate" ).datepicker( "option", "disabled", false );
 	$scope.messagereadOnly = false;
 	$scope.parentCommentreadOnly = true;
@@ -521,6 +526,7 @@ function fnTeacherECircularDelete() {
 	$scope.circularTypereadOnly = true;
 	$scope.circularIDreadOnly = true;
 	$scope.circularDatereadOnly = true;
+        $scope.signStatusreadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
 	$scope.messagereadOnly = true;
 	$scope.parentCommentreadOnly = true;
@@ -553,6 +559,7 @@ function fnTeacherECircularAuth() {
 	$scope.circularTypereadOnly = true;
 	$scope.circularIDreadOnly = true;
 	$scope.circularDatereadOnly = true;
+        $scope.signStatusreadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
 	$scope.messagereadOnly = true;
 	$scope.parentCommentreadOnly = true;
@@ -589,6 +596,7 @@ function fnTeacherECircularEnroll() {
 	$scope.circularTypereadOnly = true;
 	$scope.circularIDreadOnly = true;
 	$scope.circularDatereadOnly = true;
+        $scope.signStatusreadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
 	$scope.messagereadOnly = true;
 	$scope.parentCommentreadOnly = true;
@@ -626,6 +634,7 @@ function fnTeacherECircularReject() {
 	$scope.circularTypereadOnly = true;
 	$scope.circularIDreadOnly = true;
 	$scope.circularDatereadOnly = true;
+        $scope.signStatusreadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
 	$scope.messagereadOnly = true;
 	$scope.parentCommentreadOnly = true;
@@ -672,6 +681,7 @@ function fnTeacherECircularBack() {
 		$scope.circularTypereadOnly = true;
 		$scope.circularIDreadOnly = true;
 		$scope.circularDatereadOnly = true;
+                $scope.signStatusreadOnly = true;
                 $( "#circularDate" ).datepicker( "option", "disabled", true );
 		$scope.messagereadOnly = true;
 		$scope.parentCommentreadOnly = true;
@@ -781,6 +791,7 @@ function fnTeacherECircularpostBackendCall(response)
 		$scope.circularIDreadOnly = true;
 		$scope.circularDescriptionreadOnly = true;
 		$scope.circularDatereadOnly = true;
+                $scope.signStatusreadOnly = true;
                 $( "#circularDate" ).datepicker( "option", "disabled", true );
 		$scope.messagereadOnly = true;
 		$scope.parentCommentreadOnly = true;
@@ -826,7 +837,9 @@ function fnTeacherECircularpostBackendCall(response)
 		$scope.parentComment = response.body.parentComment;
 		$scope.subjectID = response.body.subjectID;
                 $scope.contentPath = response.body.contentPath;
+                $scope.signStatus = response.body.signStatus;
                     $scope.url = response.body.url;
+                    
                     $scope.audit=response.audit;
 		//Screen Specific Response Scope Ends
                 if($scope.contentPath!=null&&$scope.contentPath!=''){

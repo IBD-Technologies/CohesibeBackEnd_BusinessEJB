@@ -28,6 +28,7 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 	$scope.StatusMaster = Institute.StatusMaster;
 	$scope.Status = Institute.StatusMaster;
 	$scope.ECircularType = Institute.ECircularTypeMaster;
+        $scope.signStatus = "";
 	$scope.studentNamereadOnly = true;
         $scope.studentNameSearchreadOnly = true;
 	$scope.studentIDreadOnly = true;
@@ -38,6 +39,7 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 	$scope.contentPathreadOnly = true;
 	$scope.circularTypereadOnly = true;
 	$scope.circularDatereadOnly = true;
+        $scope.signStatusreadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
 	$scope.completeDatereadOnly = true;
 	$scope.messagereadOnly = true;
@@ -141,6 +143,7 @@ function fnStudentECircularpostSelectBoxMaster()
       {    
       // $scope.Types = Institute.NotificationMaster;
 	$scope.subjects = Institute.SubjectMaster;
+        $scope.signature=Institute.ParticipateMaster;
 	window.parent.fn_hide_parentspinner();
 	  if (window.parent.StudentECircularkey.circularID !=null && window.parent.StudentECircularkey.circularID !='')
 	{
@@ -238,6 +241,7 @@ function fnStudentECircularQuery() {
 	$scope.contentPath = "";
 	$scope.message = "";
 	$scope.parentComment = "";
+        $scope.signStatus = "";
         $("#Institute").attr("src","");
 //           $("#studECircular").attr("src","");
 //         $("#StudentECircularFile").val(""); 
@@ -251,6 +255,7 @@ function fnStudentECircularQuery() {
 	$scope.circularTypereadOnly = true;
 	$scope.circularDescriptionreadOnly = true;
 	$scope.circularDatereadOnly = true;
+        $scope.signStatusreadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
 	$scope.contentPathreadOnly = true;
 	$scope.completedDatereadOnly = true;
@@ -284,6 +289,7 @@ function fnStudentECircularView() {
 		circularDate: "",
 		message: "",
 		contentPath: "",
+                signStatus: '',
                 url:""
 	};
 	//Screen Specific DataModel Starts
@@ -454,6 +460,7 @@ function fnStudentECircularCreate() {
 	$scope.circularTypereadOnly = false;
 	$scope.circularIDreadOnly = false;
 	$scope.circularDatereadOnly = false;
+        $scope.signStatusreadOnly = false;
         $( "#circularDate" ).datepicker( "option", "disabled", false );
 	$scope.messagereadOnly = false;
 	$scope.parentCommentreadOnly = true;
@@ -497,6 +504,7 @@ function fnStudentECircularEdit() {
 	$scope.circularDescriptionreadOnly = false;
 	$scope.circularDatereadOnly = false;
         $( "#circularDate" ).datepicker( "option", "disabled", false );
+        $scope.signStatusreadOnly = false;
 	$scope.messagereadOnly = false;
 	$scope.parentCommentreadOnly = true;
 	$scope.completedDatereadOnly = false;
@@ -528,6 +536,7 @@ function fnStudentECircularDelete() {
 	$scope.circularIDreadOnly = true;
 	$scope.circularDatereadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
+        $scope.signStatusreadOnly = true;
 	$scope.messagereadOnly = true;
 	$scope.parentCommentreadOnly = true;
 	$scope.completedDatereadOnly = true;
@@ -560,6 +569,7 @@ function fnStudentECircularAuth() {
 	$scope.circularIDreadOnly = true;
 	$scope.circularDatereadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
+        $scope.signStatusreadOnly = true;
 	$scope.messagereadOnly = true;
 	$scope.parentCommentreadOnly = true;
 	$scope.completedDatereadOnly = true;
@@ -596,6 +606,7 @@ function fnStudentECircularEnroll() {
 	$scope.circularIDreadOnly = true;
 	$scope.circularDatereadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
+        $scope.signStatusreadOnly = true;
 	$scope.messagereadOnly = true;
 	$scope.parentCommentreadOnly = true;
 	$scope.completedDatereadOnly = true;
@@ -633,6 +644,7 @@ function fnStudentECircularReject() {
 	$scope.circularIDreadOnly = true;
 	$scope.circularDatereadOnly = true;
         $( "#circularDate" ).datepicker( "option", "disabled", true );
+        $scope.signStatusreadOnly = true;
 	$scope.messagereadOnly = true;
 	$scope.parentCommentreadOnly = true;
 	$scope.completedDatereadOnly = true;
@@ -654,6 +666,7 @@ function fnStudentECircularBack() {
 		$scope.studentID = "";
 		$scope.subjectID = "";
 		$scope.subjectName = "Select option";
+                $scope.signStatus = "";
 		$scope.circularID = "";
 		$scope.circularDescription = "";
 		$scope.circularType = "";
@@ -679,6 +692,7 @@ function fnStudentECircularBack() {
 		$scope.circularIDreadOnly = true;
 		$scope.circularDatereadOnly = true;
                 $( "#circularDate" ).datepicker( "option", "disabled", true );
+                $scope.signStatusreadOnly = true;
 		$scope.messagereadOnly = true;
 		$scope.parentCommentreadOnly = true;
 		$scope.completedDatereadOnly = true;
@@ -788,6 +802,7 @@ function fnStudentECircularpostBackendCall(response)
 		$scope.circularDescriptionreadOnly = true;
 		$scope.circularDatereadOnly = true;
                 $( "#circularDate" ).datepicker( "option", "disabled", true );
+                $scope.signStatusreadOnly = true;
 		$scope.messagereadOnly = true;
 		$scope.parentCommentreadOnly = true;
 		$scope.completedDatereadOnly = true;
@@ -816,6 +831,7 @@ function fnStudentECircularpostBackendCall(response)
                 $scope.subjectID ="";
                  $scope.contentPath ="";
                   $scope.url ="";
+                  $scope.signStatus = "";
                 $scope.audit = {};
 		 }
                 else
@@ -833,6 +849,7 @@ function fnStudentECircularpostBackendCall(response)
 		$scope.subjectID = response.body.subjectID;
                 $scope.contentPath = response.body.contentPath;
                     $scope.url = response.body.url;
+                    $scope.signStatus = response.body.signStatus;
                     $scope.audit=response.audit;
 		//Screen Specific Response Scope Ends
                 if($scope.contentPath!=null&&$scope.contentPath!=''){
