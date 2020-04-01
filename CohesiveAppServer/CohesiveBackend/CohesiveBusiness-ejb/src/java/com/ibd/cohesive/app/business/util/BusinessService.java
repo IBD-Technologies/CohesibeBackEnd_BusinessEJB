@@ -7356,6 +7356,75 @@ public String getInstituteShortName(String p_instituteID, CohesiveSession sessio
        
        
    }  
+   
+   
+     public boolean checkStudentExistenceInTheGroup(String instituteID, String p_studentID, String groupID, CohesiveSession session, DBSession dbSession, AppDependencyInjection inject) throws BSProcessingException, BSValidationException, DBValidationException, DBProcessingException {
+
+        try {
+            dbg("inside checkStudentExistenceInTheGroup");
+            boolean status = false;
+            IPDataService pds = inject.getPdataservice();
+            String[] Pkey = {p_studentID};
+            ArrayList<String>studentList = pds.readRecordPData(session, dbSession, "INSTITUTE" + i_db_properties.getProperty("FOLDER_DELIMITER") + instituteID + i_db_properties.getProperty("FOLDER_DELIMITER") + instituteID, "INSTITUTE", "IVW_STUDENT_MASTER", Pkey);
+            String standard = studentList.get(2).trim();
+            String section = studentList.get(3).trim();
+
+            Map<String, ArrayList<String>> l_detailMap = pds.readTablePData("INSTITUTE" + i_db_properties.getProperty("FOLDER_DELIMITER") + instituteID + i_db_properties.getProperty("FOLDER_DELIMITER") + instituteID, "INSTITUTE", "IVW_GROUP_MAPPING_DETAIL", session, dbSession);
+            dbg("l_detailMap" + l_detailMap.size());
+            List<ArrayList<String>> filteredList = l_detailMap.values().stream().filter(rec -> rec.get(1).trim().equals(groupID)).collect(Collectors.toList());
+            dbg("filteredList" + filteredList.size());
+
+            Iterator<ArrayList<String>> valueIterator = filteredList.iterator();
+            while (valueIterator.hasNext()) {
+
+                ArrayList<String> value = valueIterator.next();
+                String l_standard = value.get(2).trim();
+                String l_section = value.get(3).trim();
+                String l_studentID = value.get(4).trim();
+                dbg("l_standard" + l_standard);
+                dbg("l_section" + l_section);
+                dbg("l_studentID" + l_studentID);
+
+                if (l_standard.equals(standard) && l_section.equals(section)) {
+
+                    status = true;
+
+                } else if (!l_studentID.equals("dum")) {
+
+                    String[] studentPkey = {l_studentID};
+                    ArrayList<String> l_studentList = pds.readRecordPData(session, dbSession, "INSTITUTE" + i_db_properties.getProperty("FOLDER_DELIMITER") + instituteID + i_db_properties.getProperty("FOLDER_DELIMITER") + instituteID, "INSTITUTE", "IVW_STUDENT_MASTER", studentPkey);
+                    l_standard = l_studentList.get(2).trim();
+                    l_section = l_studentList.get(3).trim();
+
+                    if (l_standard.equals(standard) && l_section.equals(section)) {
+
+                        status = true;
+
+                    }
+                }
+
+            }
+
+            dbg("status" + status);
+            dbg("END OF checkStudentExistenceInTheGroup");
+            return status;
+        } catch (DBValidationException ex) {
+            throw ex;
+        } catch (DBProcessingException ex) {
+            dbg(ex);
+            throw new DBProcessingException("DBProcessingException" + ex.toString());
+        } catch (Exception ex) {
+            dbg(ex);
+            throw new BSProcessingException(ex.toString());
+        }
+    }
+    
+
+   
+   
+   
+   
+   
     public void dbg(String p_Value) {
 
         this.debug.dbg(p_Value);
