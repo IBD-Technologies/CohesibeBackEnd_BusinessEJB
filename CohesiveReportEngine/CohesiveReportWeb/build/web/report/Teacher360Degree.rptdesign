@@ -71,19 +71,6 @@
             </list-property>
             <property name="pojoDataSetClassPath">DataSource/CohesiveReportEngine-ejb.jar;</property>
         </oda-data-source>
-        <oda-data-source extensionID="org.eclipse.birt.data.oda.pojo" name="TVW_TEACHER_TIMETABLE_DETAIL_BUSINESS" id="1809">
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>SynchronizeClassPath</name>
-                    <value>true</value>
-                </ex-property>
-                <ex-property>
-                    <name>pojoClassPath</name>
-                    <value>DataSource/CohesiveReportEngine-ejb.jar;</value>
-                </ex-property>
-            </list-property>
-            <property name="pojoDataSetClassPath">DataSource/CohesiveReportEngine-ejb.jar;</property>
-        </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.data.oda.pojo.dataSet" name="INSTITUTE_MASTER" id="1017">
@@ -1899,322 +1886,6 @@
                 </ex-property>
             </list-property>
         </oda-data-set>
-        <oda-data-set extensionID="org.eclipse.birt.data.oda.pojo.dataSet" name="TVW_TEACHER_TIMETABLE_DETAIL_BUSINESS" id="1810">
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">DAY</property>
-                    <text-property name="heading">DAY</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">DAY_NUMBER</property>
-                    <text-property name="heading">DAY_NUMBER</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">PERIOD_NO</property>
-                    <text-property name="heading">PERIOD_NO</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">STANDARD</property>
-                    <text-property name="heading">STANDARD</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">SECTION</property>
-                    <text-property name="heading">SECTION</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">SUBJECT_ID</property>
-                    <text-property name="heading">SUBJECT_ID</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">StartTime</property>
-                    <text-property name="heading">StartTime</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">EndTime</property>
-                    <text-property name="heading">EndTime</text-property>
-                </structure>
-            </list-property>
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">DAY</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">DAY_NUMBER</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">PERIOD_NO</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">STANDARD</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">SECTION</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">SUBJECT_ID</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">StartTime</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">EndTime</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <property name="dataSource">TVW_TEACHER_TIMETABLE_DETAIL_BUSINESS</property>
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">DAY</property>
-                    <property name="nativeName">DAY</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">DAY_NUMBER</property>
-                    <property name="nativeName">DAY_NUMBER</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">PERIOD_NO</property>
-                    <property name="nativeName">PERIOD_NO</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">STANDARD</property>
-                    <property name="nativeName">STANDARD</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">SECTION</property>
-                    <property name="nativeName">SECTION</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">SUBJECT_ID</property>
-                    <property name="nativeName">SUBJECT_ID</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">StartTime</property>
-                    <property name="nativeName">StartTime</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">EndTime</property>
-                    <property name="nativeName">EndTime</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-            </list-property>
-            <xml-property name="queryText"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<PojoQuery appContextKey="APP_CONTEXT_KEY_TVW_TEACHER_TIMETABLE_DETAIL_BUSINESS" dataSetClass="com.ibd.cohesive.report.businessreport.dataSources.teacher.TVW_TEACHER_TIMETABLE_DETAIL_BUSINESS_DataSource" version="1.0">
-    <ColumnMapping index="1" name="DAY" odaDataType="String">
-        <Method name="getDAY"/>
-    </ColumnMapping>
-    <ColumnMapping index="2" name="DAY_NUMBER" odaDataType="String">
-        <Method name="getDAY_NUMBER"/>
-    </ColumnMapping>
-    <ColumnMapping index="3" name="PERIOD_NO" odaDataType="String">
-        <Method name="getPERIOD_NO"/>
-    </ColumnMapping>
-    <ColumnMapping index="4" name="STANDARD" odaDataType="String">
-        <Method name="getSTANDARD"/>
-    </ColumnMapping>
-    <ColumnMapping index="5" name="SECTION" odaDataType="String">
-        <Method name="getSECTION"/>
-    </ColumnMapping>
-    <ColumnMapping index="6" name="SUBJECT_ID" odaDataType="String">
-        <Method name="getSUBJECT_ID"/>
-    </ColumnMapping>
-    <ColumnMapping index="7" name="StartTime" odaDataType="String">
-        <Method name="getStartTime"/>
-    </ColumnMapping>
-    <ColumnMapping index="8" name="EndTime" odaDataType="String">
-        <Method name="getEndTime"/>
-    </ColumnMapping>
-</PojoQuery>
-]]></xml-property>
-            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
-  <Version>2.0</Version>
-  <design:ResultSets derivedMetaData="true">
-    <design:resultSetDefinitions>
-      <design:resultSetColumns>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>DAY</design:name>
-              <design:position>1</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>DAY</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>DAY_NUMBER</design:name>
-              <design:position>2</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>DAY_NUMBER</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>PERIOD_NO</design:name>
-              <design:position>3</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>PERIOD_NO</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>STANDARD</design:name>
-              <design:position>4</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>STANDARD</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>SECTION</design:name>
-              <design:position>5</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>SECTION</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>SUBJECT_ID</design:name>
-              <design:position>6</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>SUBJECT_ID</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>StartTime</design:name>
-              <design:position>7</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>StartTime</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>EndTime</design:name>
-              <design:position>8</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>EndTime</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-      </design:resultSetColumns>
-      <design:criteria/>
-    </design:resultSetDefinitions>
-  </design:ResultSets>
-</model:DesignValues>]]></xml-property>
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>methodNameRegx</name>
-                    <value>get*</value>
-                </ex-property>
-                <ex-property>
-                    <name>pojoClass</name>
-                    <value>com.ibd.cohesive.report.businessreport.dataSources.dataModels.teacher.TVW_TEACHER_TIMETABLE_DETAIL_BUSINESS</value>
-                </ex-property>
-            </list-property>
-        </oda-data-set>
     </data-sets>
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
@@ -3215,7 +2886,7 @@
             <Components>
               <Type>Orthogonal_Value</Type>
             </Components>
-            <Suffix>%</Suffix>
+            <Suffix></Suffix>
             <Separator>, </Separator>
           </DataPoint>
           <LabelPosition>Outside</LabelPosition>
@@ -4080,8 +3751,97 @@
                         <column id="1741"/>
                         <row id="1742">
                             <cell id="1743">
-                                <extended-item extensionName="Chart" id="1745">
-                                    <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
+                                <table id="1885">
+                                    <property name="dataSet">TeacherMarksSummary</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">Standard</property>
+                                            <text-property name="displayName">Standard</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Standard"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">Section</property>
+                                            <text-property name="displayName">Section</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Section"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">Exam</property>
+                                            <text-property name="displayName">Exam</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Exam"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">SubjectID</property>
+                                            <text-property name="displayName">SubjectID</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["SubjectID"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">Grade</property>
+                                            <text-property name="displayName">Grade</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["Grade"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">No_of_Students</property>
+                                            <text-property name="displayName">No_of_Students</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["No_of_Students"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">TeacherID</property>
+                                            <text-property name="displayName">TeacherID</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["TeacherID"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">OrderNo</property>
+                                            <text-property name="displayName">OrderNo</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["OrderNo"]</expression>
+                                            <property name="dataType">integer</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">GradePercentage</property>
+                                            <text-property name="displayName">GradePercentage</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["GradePercentage"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">SubjectName</property>
+                                            <text-property name="displayName">SubjectName</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["SubjectName"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <column id="1892"/>
+                                    <header>
+                                        <row id="1886">
+                                            <cell id="1887"/>
+                                        </row>
+                                    </header>
+                                    <group id="1893">
+                                        <property name="groupName">NewTableGroup1</property>
+                                        <expression name="keyExpr" type="javascript">row["Standard"].concat(row["Section"]).concat("/").concat(row["SubjectName"])</expression>
+                                        <property name="hideDetail">false</property>
+                                        <header>
+                                            <row id="1894">
+                                                <cell id="1895">
+                                                    <text-data id="1901">
+                                                        <property name="fontFamily">"Arial"</property>
+                                                        <property name="fontWeight">bold</property>
+                                                        <property name="color">black</property>
+                                                        <property name="textAlign">center</property>
+                                                        <expression name="valueExpr">row["Standard"].concat(row["Section"]).concat("/").concat(row["SubjectName"])</expression>
+                                                        <property name="contentType">html</property>
+                                                    </text-data>
+                                                </cell>
+                                            </row>
+                                            <row id="1898">
+                                                <cell id="1899">
+                                                    <extended-item extensionName="Chart" id="1900">
+                                                        <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
   <Version>2.6.1</Version>
   <Type>Bar Chart</Type>
   <SubType>Side-by-side</SubType>
@@ -4114,12 +3874,12 @@
         </Color>
         <Visible>false</Visible>
       </Outline>
-      <Visible>true</Visible>
+      <Visible>false</Visible>
       <Label>
         <Caption>
-          <Value>Gradewise Performance</Value>
+          <Value>Chart Title</Value>
           <Font>
-            <Size>10.0</Size>
+            <Size>16.0</Size>
             <Bold>true</Bold>
             <Alignment>
               <horizontalAlignment>Center</horizontalAlignment>
@@ -4309,7 +4069,7 @@
     <Bounds>
       <Left>0.0</Left>
       <Top>0.0</Top>
-      <Width>561.75</Width>
+      <Width>556.5</Width>
       <Height>130.0</Height>
     </Bounds>
     <Insets>
@@ -4704,7 +4464,6 @@
             <Components>
               <Type>Orthogonal_Value</Type>
             </Components>
-            <Suffix>%</Suffix>
             <Separator>, </Separator>
           </DataPoint>
           <LabelPosition>Outside</LabelPosition>
@@ -4725,10 +4484,6 @@
           <GroupType>Text</GroupType>
           <AggregateExpression>Sum</AggregateExpression>
         </Grouping>
-        <Sorting>Ascending</Sorting>
-        <SortKey>
-          <Definition>row[&quot;OrderNo&quot;]</Definition>
-        </SortKey>
       </SeriesDefinitions>
       <Orientation>Vertical</Orientation>
       <LineAttributes>
@@ -5068,7 +4823,7 @@
           <Visible>false</Visible>
         </Label>
         <DataDefinition>
-          <Definition>row[&quot;Exam&quot;].concat(&quot;/&quot;).concat(row[&quot;Standard&quot;].concat(row[&quot;Section&quot;])).concat(&quot;/&quot;).concat(row[&quot;SubjectID&quot;])</Definition>
+          <Definition>row[&quot;Exam&quot;]</Definition>
         </DataDefinition>
         <SeriesIdentifier></SeriesIdentifier>
         <DataPoint>
@@ -5085,10 +4840,6 @@
         <GroupType>Text</GroupType>
         <AggregateExpression>Sum</AggregateExpression>
       </Grouping>
-      <Sorting>Ascending</Sorting>
-      <SortKey>
-        <Definition>row[&quot;OrderNo&quot;]</Definition>
-      </SortKey>
     </SeriesDefinitions>
     <Orientation>Horizontal</Orientation>
     <LineAttributes>
@@ -5106,7 +4857,6 @@
       <Caption>
         <Value></Value>
         <Font>
-          <Size>10.0</Size>
           <Alignment/>
         </Font>
       </Caption>
@@ -5210,86 +4960,122 @@
   </Rotation>
 </model:ChartWithAxes>
 ]]></xml-property>
-                                    <property name="outputFormat">SVG</property>
-                                    <property name="inheritColumns">false</property>
-                                    <property name="height">130pt</property>
-                                    <property name="width">561.75pt</property>
-                                    <property name="dataSet">TeacherMarksSummary</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">Standard</property>
-                                            <text-property name="displayName">Standard</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["Standard"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">Section</property>
-                                            <text-property name="displayName">Section</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["Section"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">Exam</property>
-                                            <text-property name="displayName">Exam</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["Exam"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">SubjectID</property>
-                                            <text-property name="displayName">SubjectID</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["SubjectID"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">TopMark</property>
-                                            <text-property name="displayName">TopMark</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["TopMark"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">LowMark</property>
-                                            <text-property name="displayName">LowMark</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["LowMark"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">AverageMark</property>
-                                            <text-property name="displayName">AverageMark</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["AverageMark"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">Grade</property>
-                                            <text-property name="displayName">Grade</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["Grade"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">No_of_Students</property>
-                                            <text-property name="displayName">No_of_Students</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["No_of_Students"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">TeacherID</property>
-                                            <text-property name="displayName">TeacherID</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["TeacherID"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">OrderNo</property>
-                                            <text-property name="displayName">OrderNo</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["OrderNo"]</expression>
-                                            <property name="dataType">integer</property>
-                                        </structure>
-                                        <structure>
-                                            <property name="name">GradePercentage</property>
-                                            <text-property name="displayName">GradePercentage</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["GradePercentage"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                    </list-property>
-                                </extended-item>
+                                                        <property name="outputFormat">SVG</property>
+                                                        <list-property name="filter">
+                                                            <structure>
+                                                                <property name="operator">eq</property>
+                                                                <expression name="expr" type="javascript">row["Standard"].concat(row["Section"]).concat("/").concat(row["SubjectName"])</expression>
+                                                                <simple-property-list name="value1">
+                                                                    <value>row._outer["Standard"].concat(row._outer["Section"]).concat("/").concat(row._outer["SubjectName"])</value>
+                                                                </simple-property-list>
+                                                                <property name="updateAggregation">true</property>
+                                                            </structure>
+                                                        </list-property>
+                                                        <property name="inheritColumns">false</property>
+                                                        <property name="height">130pt</property>
+                                                        <property name="width">556.5pt</property>
+                                                        <property name="dataSet">TeacherMarksSummary</property>
+                                                        <list-property name="boundDataColumns">
+                                                            <structure>
+                                                                <property name="name">Standard</property>
+                                                                <text-property name="displayName">Standard</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["Standard"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">Section</property>
+                                                                <text-property name="displayName">Section</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["Section"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">Exam</property>
+                                                                <text-property name="displayName">Exam</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["Exam"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">SubjectID</property>
+                                                                <text-property name="displayName">SubjectID</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["SubjectID"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">TopMark</property>
+                                                                <text-property name="displayName">TopMark</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["TopMark"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">LowMark</property>
+                                                                <text-property name="displayName">LowMark</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["LowMark"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">AverageMark</property>
+                                                                <text-property name="displayName">AverageMark</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["AverageMark"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">Grade</property>
+                                                                <text-property name="displayName">Grade</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["Grade"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">No_of_Students</property>
+                                                                <text-property name="displayName">No_of_Students</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["No_of_Students"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">TeacherID</property>
+                                                                <text-property name="displayName">TeacherID</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["TeacherID"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">OrderNo</property>
+                                                                <text-property name="displayName">OrderNo</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["OrderNo"]</expression>
+                                                                <property name="dataType">integer</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">GradePercentage</property>
+                                                                <text-property name="displayName">GradePercentage</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["GradePercentage"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                            <structure>
+                                                                <property name="name">SubjectName</property>
+                                                                <text-property name="displayName">SubjectName</text-property>
+                                                                <expression name="expression" type="javascript">dataSetRow["SubjectName"]</expression>
+                                                                <property name="dataType">string</property>
+                                                            </structure>
+                                                        </list-property>
+                                                    </extended-item>
+                                                </cell>
+                                            </row>
+                                        </header>
+                                        <footer>
+                                            <row id="1896">
+                                                <cell id="1897"/>
+                                            </row>
+                                        </footer>
+                                    </group>
+                                    <detail>
+                                        <row id="1888">
+                                            <cell id="1889"/>
+                                        </row>
+                                    </detail>
+                                    <footer>
+                                        <row id="1890">
+                                            <cell id="1891"/>
+                                        </row>
+                                    </footer>
+                                </table>
                             </cell>
                         </row>
                     </grid>
@@ -5842,578 +5628,6 @@
                                     <property name="textAlign">center</property>
                                     <data id="1790">
                                         <property name="resultSetColumn">AverageMark</property>
-                                    </data>
-                                </cell>
-                            </row>
-                        </detail>
-                    </table>
-                </cell>
-            </row>
-        </grid>
-        <grid id="380">
-            <property name="borderBottomStyle">solid</property>
-            <property name="borderBottomWidth">medium</property>
-            <property name="borderTopStyle">solid</property>
-            <property name="borderTopWidth">medium</property>
-            <property name="width">100%</property>
-            <column id="381"/>
-            <row id="382">
-                <cell id="383">
-                    <label id="384">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="fontWeight">bold</property>
-                        <property name="textAlign">center</property>
-                        <text-property name="text">Mark Detail</text-property>
-                    </label>
-                </cell>
-            </row>
-        </grid>
-        <table id="1644">
-            <property name="pageBreakAfter">always</property>
-            <property name="dataSet">TeacherMarksDetail</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">STANDARD</property>
-                    <text-property name="displayName">Class</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["STANDARD"]+dataSetRow["SECTION"]</expression>
-                    <property name="dataType">string</property>
-                    <property name="allowExport">true</property>
-                </structure>
-                <structure>
-                    <property name="name">SECTION</property>
-                    <text-property name="displayName">SECTION</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["SECTION"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">EXAM</property>
-                    <text-property name="displayName">EXAM</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["EXAM"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">SUBJECT_ID</property>
-                    <text-property name="displayName">SUBJECT_ID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["SUBJECT_ID"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">STUDENT_ID</property>
-                    <text-property name="displayName">STUDENT_ID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["STUDENT_ID"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">MARK</property>
-                    <text-property name="displayName">MARK</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["MARK"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">GRADE</property>
-                    <text-property name="displayName">GRADE</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["GRADE"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">TEACHERID</property>
-                    <text-property name="displayName">TEACHERID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["TEACHERID"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">StudentName</property>
-                    <text-property name="displayName">StudentName</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["StudentName"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">SubjectName</property>
-                    <text-property name="displayName">SubjectName</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["SubjectName"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-            </list-property>
-            <column id="1688"/>
-            <column id="1690"/>
-            <column id="1691"/>
-            <column id="1692"/>
-            <column id="1693"/>
-            <column id="1694"/>
-            <header>
-                <row id="1645">
-                    <list-property name="highlightRules">
-                        <structure>
-                            <property name="operator">eq</property>
-                            <property name="backgroundColor">#808080</property>
-                            <expression name="testExpr" type="javascript">1</expression>
-                            <simple-property-list name="value1">
-                                <value type="javascript">1</value>
-                            </simple-property-list>
-                        </structure>
-                    </list-property>
-                    <cell id="1646">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <label id="1647">
-                            <text-property name="text">Class</text-property>
-                        </label>
-                    </cell>
-                    <cell id="1650">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <label id="1651">
-                            <text-property name="text">Exam</text-property>
-                        </label>
-                    </cell>
-                    <cell id="1652">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <label id="1653">
-                            <text-property name="text">Subject</text-property>
-                        </label>
-                    </cell>
-                    <cell id="1654">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <label id="1655">
-                            <text-property name="text">Student</text-property>
-                        </label>
-                    </cell>
-                    <cell id="1656">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <label id="1657">
-                            <text-property name="text">Mark</text-property>
-                        </label>
-                    </cell>
-                    <cell id="1658">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <label id="1659">
-                            <text-property name="text">Grade</text-property>
-                        </label>
-                    </cell>
-                </row>
-            </header>
-            <detail>
-                <row id="1662">
-                    <cell id="1663">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <data id="1664">
-                            <property name="resultSetColumn">STANDARD</property>
-                        </data>
-                    </cell>
-                    <cell id="1667">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <data id="1668">
-                            <property name="resultSetColumn">EXAM</property>
-                        </data>
-                    </cell>
-                    <cell id="1669">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <data id="1808">
-                            <property name="resultSetColumn">SubjectName</property>
-                        </data>
-                    </cell>
-                    <cell id="1671">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <data id="1807">
-                            <property name="resultSetColumn">StudentName</property>
-                        </data>
-                    </cell>
-                    <cell id="1673">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <data id="1674">
-                            <property name="resultSetColumn">MARK</property>
-                        </data>
-                    </cell>
-                    <cell id="1675">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <property name="textAlign">center</property>
-                        <data id="1676">
-                            <property name="resultSetColumn">GRADE</property>
-                        </data>
-                    </cell>
-                </row>
-            </detail>
-        </table>
-        <grid id="981">
-            <property name="borderBottomStyle">solid</property>
-            <property name="borderBottomWidth">medium</property>
-            <property name="borderTopStyle">solid</property>
-            <property name="borderTopWidth">medium</property>
-            <property name="width">100%</property>
-            <column id="982"/>
-            <row id="983">
-                <cell id="984">
-                    <label id="985">
-                        <property name="fontFamily">"Arial"</property>
-                        <property name="fontWeight">bold</property>
-                        <property name="textAlign">center</property>
-                        <text-property name="text">Time Table</text-property>
-                    </label>
-                </cell>
-            </row>
-        </grid>
-        <grid id="1811">
-            <column id="1812"/>
-            <row id="1813">
-                <cell id="1814">
-                    <table id="1815">
-                        <property name="dataSet">TVW_TEACHER_TIMETABLE_DETAIL_BUSINESS</property>
-                        <list-property name="boundDataColumns">
-                            <structure>
-                                <property name="name">DAY</property>
-                                <text-property name="displayName">DAY</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["DAY"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">DAY_NUMBER</property>
-                                <text-property name="displayName">DAY_NUMBER</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["DAY_NUMBER"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">PERIOD_NO</property>
-                                <text-property name="displayName">PERIOD_NO</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["PERIOD_NO"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">STANDARD</property>
-                                <text-property name="displayName">Class</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["STANDARD"]+dataSetRow["SECTION"]</expression>
-                                <property name="dataType">string</property>
-                                <property name="allowExport">true</property>
-                            </structure>
-                            <structure>
-                                <property name="name">SECTION</property>
-                                <text-property name="displayName">SECTION</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["SECTION"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">SUBJECT_ID</property>
-                                <text-property name="displayName">SUBJECT_ID</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["SUBJECT_ID"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">StartTime</property>
-                                <text-property name="displayName">StartTime</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["StartTime"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">EndTime</property>
-                                <text-property name="displayName">EndTime</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["EndTime"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                        </list-property>
-                        <column id="1859"/>
-                        <column id="1861"/>
-                        <column id="1862"/>
-                        <column id="1864"/>
-                        <column id="1865"/>
-                        <column id="1866"/>
-                        <header>
-                            <row id="1816">
-                                <list-property name="highlightRules">
-                                    <structure>
-                                        <property name="operator">eq</property>
-                                        <property name="backgroundColor">#808080</property>
-                                        <expression name="testExpr" type="javascript">1</expression>
-                                        <simple-property-list name="value1">
-                                            <value type="javascript">1</value>
-                                        </simple-property-list>
-                                    </structure>
-                                </list-property>
-                                <cell id="1817">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <label id="1818">
-                                        <text-property name="text">Day</text-property>
-                                    </label>
-                                </cell>
-                                <cell id="1821">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <label id="1822">
-                                        <text-property name="text">Period No</text-property>
-                                    </label>
-                                </cell>
-                                <cell id="1823">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <label id="1824">
-                                        <text-property name="text">Class</text-property>
-                                    </label>
-                                </cell>
-                                <cell id="1827">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <label id="1828">
-                                        <text-property name="text">Subject</text-property>
-                                    </label>
-                                </cell>
-                                <cell id="1829">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <label id="1830">
-                                        <text-property name="text">StartTime</text-property>
-                                    </label>
-                                </cell>
-                                <cell id="1831">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <label id="1832">
-                                        <text-property name="text">EndTime</text-property>
-                                    </label>
-                                </cell>
-                            </row>
-                        </header>
-                        <detail>
-                            <row id="1833">
-                                <cell id="1834">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <data id="1835">
-                                        <property name="resultSetColumn">DAY</property>
-                                    </data>
-                                </cell>
-                                <cell id="1838">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <data id="1839">
-                                        <property name="resultSetColumn">PERIOD_NO</property>
-                                    </data>
-                                </cell>
-                                <cell id="1840">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <data id="1841">
-                                        <property name="resultSetColumn">STANDARD</property>
-                                    </data>
-                                </cell>
-                                <cell id="1844">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <data id="1845">
-                                        <property name="resultSetColumn">SUBJECT_ID</property>
-                                    </data>
-                                </cell>
-                                <cell id="1846">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <data id="1847">
-                                        <property name="resultSetColumn">StartTime</property>
-                                    </data>
-                                </cell>
-                                <cell id="1848">
-                                    <property name="fontFamily">"Arial"</property>
-                                    <property name="borderBottomStyle">solid</property>
-                                    <property name="borderBottomWidth">thin</property>
-                                    <property name="borderLeftStyle">solid</property>
-                                    <property name="borderLeftWidth">thin</property>
-                                    <property name="borderRightStyle">solid</property>
-                                    <property name="borderRightWidth">thin</property>
-                                    <property name="borderTopStyle">solid</property>
-                                    <property name="borderTopWidth">thin</property>
-                                    <property name="textAlign">center</property>
-                                    <data id="1849">
-                                        <property name="resultSetColumn">EndTime</property>
                                     </data>
                                 </cell>
                             </row>
