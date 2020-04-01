@@ -61,9 +61,9 @@ public interface IClassDataSet {
     
     public String getCLASS_TIMETABLE_MASTER_DataSet(String p_standard,String p_section,String p_instanceID)throws DBProcessingException,DBValidationException;
     
-    public String getSTUDENT_MARKS_DataSet(String p_standard,String p_section,String p_instanceID)throws DBProcessingException,DBValidationException;
+    public String getSTUDENT_MARKS_DataSet(String p_standard,String p_section,String p_instanceID,String p_exam)throws DBProcessingException,DBValidationException;
     
-    public String getSTUDENT_MARKS_DataSet(String p_standard,String p_section,String p_instanceID,CohesiveSession session)throws DBProcessingException,DBValidationException;
+    public String getSTUDENT_MARKS_DataSet(String p_standard,String p_section,String p_instanceID,String p_exam,CohesiveSession session)throws DBProcessingException,DBValidationException;
     
     public String getCLASS_TIMETABLE_DETAIL_DataSet(String p_standard,String p_section,String p_instanceID,CohesiveSession session)throws DBProcessingException,DBValidationException;
     

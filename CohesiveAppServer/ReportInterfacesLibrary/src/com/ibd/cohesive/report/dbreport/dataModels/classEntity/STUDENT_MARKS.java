@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataModels.classEntity;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author IBD Technologies
@@ -91,5 +93,44 @@ public class STUDENT_MARKS {
     public void setVERSION_NUMBER(String VERSION_NUMBER) {
         this.VERSION_NUMBER = VERSION_NUMBER;
     }
+    
+     public ArrayList<STUDENT_MARKS>convertStringToArrayList(String result){
+        
+          ArrayList<STUDENT_MARKS> STUDENT_MARKSList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              STUDENT_MARKS appStatus=new STUDENT_MARKS();
+              
+              appStatus.setEXAM(record.split("~")[0]);
+              appStatus.setFEEDBACK(record.split("~")[1]);
+              appStatus.setGRADE(record.split("~")[2]);
+              appStatus.setMARK(record.split("~")[3]);
+              appStatus.setSECTION(record.split("~")[4]);
+              appStatus.setSTANDARD(record.split("~")[5]);
+              appStatus.setSTUDENT_ID(record.split("~")[6]);
+              appStatus.setSUBJECT_ID(record.split("~")[7]);
+              appStatus.setVERSION_NUMBER(record.split("~")[8]);
+             
+              
+              
+              
+              
+              
+           STUDENT_MARKSList.add(appStatus);
+          }
+          
+        return STUDENT_MARKSList;
+           
+      
+}
+    
+    
     
 }

@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataModels.institute;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ibdtech
@@ -103,7 +105,42 @@ public class IVW_SOFT_SKILL_CONFIGURATION_MASTER {
     
     
             
-            
+       public ArrayList<IVW_SOFT_SKILL_CONFIGURATION_MASTER>convertStringToArrayList(String result){
+        
+          ArrayList<IVW_SOFT_SKILL_CONFIGURATION_MASTER> IVW_SOFT_SKILL_CONFIGURATION_MASTERList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              IVW_SOFT_SKILL_CONFIGURATION_MASTER appStatus=new IVW_SOFT_SKILL_CONFIGURATION_MASTER();
+              
+              appStatus.setAUTH_STATUS(record.split("~")[0]);
+              appStatus.setCHECKER_DATE_STAMP(record.split("~")[1]);
+              appStatus.setCHECKER_ID(record.split("~")[2]);
+              appStatus.setCHECKER_REMARKS(record.split("~")[3]);
+              appStatus.setINSTITUTE_ID(record.split("~")[4]);
+              appStatus.setMAKER_DATE_STAMP(record.split("~")[5]);
+              appStatus.setMAKER_ID(record.split("~")[6]);
+              appStatus.setMAKER_REMARKS(record.split("~")[7]);
+              appStatus.setRECORD_STATUS(record.split("~")[8]);
+              appStatus.setVERSION_NUMBER(record.split("~")[9]);
+              
+              
+              
+           IVW_SOFT_SKILL_CONFIGURATION_MASTERList.add(appStatus);
+          }
+          
+        return IVW_SOFT_SKILL_CONFIGURATION_MASTERList;
+           
+      
+}
+    
+              
             
             
             

@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataModels.institute;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ibdtech
@@ -39,7 +41,35 @@ public class RETENTION_PERIOD {
     }
     
     
-    
+       public ArrayList<RETENTION_PERIOD>convertStringToArrayList(String result){
+        
+          ArrayList<RETENTION_PERIOD> RETENTION_PERIODList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              RETENTION_PERIOD appStatus=new RETENTION_PERIOD();
+              
+              appStatus.setDAYS(record.split("~")[0]);
+              appStatus.setFEATURE_NAME(record.split("~")[1]);
+              appStatus.setINSTITUTE_ID(record.split("~")[2]);
+              
+              
+              
+              
+           RETENTION_PERIODList.add(appStatus);
+          }
+          
+        return RETENTION_PERIODList;
+           
+      
+}
+ 
     
     
 }

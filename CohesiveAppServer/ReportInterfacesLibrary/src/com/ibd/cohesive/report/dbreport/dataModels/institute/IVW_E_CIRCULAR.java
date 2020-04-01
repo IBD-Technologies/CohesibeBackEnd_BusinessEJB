@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataModels.institute;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ibdtech
@@ -150,7 +152,46 @@ public class IVW_E_CIRCULAR {
     
     
     
+      public ArrayList<IVW_E_CIRCULAR>convertStringToArrayList(String result){
+        
+          ArrayList<IVW_E_CIRCULAR> IVW_E_CIRCULARList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              IVW_E_CIRCULAR appStatus=new IVW_E_CIRCULAR();
+              
+              appStatus.setAUTH_STATUS(record.split("~")[0]);
+              appStatus.setCHECKER_DATE_STAMP(record.split("~")[1]);
+              appStatus.setCHECKER_ID(record.split("~")[2]);
+              appStatus.setCHECKER_REMARKS(record.split("~")[3]);
+              appStatus.setCONTENT_PATH(record.split("~")[4]);
+              appStatus.setDESCRIPTION(record.split("~")[5]);
+              appStatus.setE_CIRCULAR_ID(record.split("~")[6]);
+              appStatus.setGROUP_ID(record.split("~")[7]);
+              appStatus.setINSTITUTE_ID(record.split("~")[8]);
+              appStatus.setMAKER_DATE_STAMP(record.split("~")[9]);
+              appStatus.setMAKER_ID(record.split("~")[10]);
+              appStatus.setMAKER_REMARKS(record.split("~")[11]);
+              appStatus.setRECORD_STATUS(record.split("~")[12]);
+              appStatus.setURL(record.split("~")[13]);
+              appStatus.setVERSION_NUMBER(record.split("~")[14]);
+              
+              
+           IVW_E_CIRCULARList.add(appStatus);
+          }
+          
+        return IVW_E_CIRCULARList;
+           
+      
+}
     
+  
     
     
     

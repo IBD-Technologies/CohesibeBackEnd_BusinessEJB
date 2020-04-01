@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -57,6 +59,34 @@ public class STUDENT_ASSIGNMENT_EOD_STATUS_ERROR {
     public void setERROR(String ERROR) {
         this.ERROR = ERROR;
     }
-    
+    public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_ERROR>convertStringToArrayList(String result){
+        
+          ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_ERROR> STUDENT_ASSIGNMENT_EOD_STATUS_ERRORList=new ArrayList();
+          
+         
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              STUDENT_ASSIGNMENT_EOD_STATUS_ERROR appStatus=new STUDENT_ASSIGNMENT_EOD_STATUS_ERROR();
+              
+              appStatus.setASSIGNMENT_ID(record.split("~")[0]);
+              appStatus.setBUSINESS_DATE(record.split("~")[1]);
+              appStatus.setERROR(record.split("~")[2]);
+              appStatus.setINSTITUTE_ID(record.split("~")[3]);
+              appStatus.setSTUDENT_ID(record.split("~")[4]);
+              
+              
+              STUDENT_ASSIGNMENT_EOD_STATUS_ERRORList.add(appStatus);
+          }
+          
+          
+          return STUDENT_ASSIGNMENT_EOD_STATUS_ERRORList;
+      
+      }
     
 }

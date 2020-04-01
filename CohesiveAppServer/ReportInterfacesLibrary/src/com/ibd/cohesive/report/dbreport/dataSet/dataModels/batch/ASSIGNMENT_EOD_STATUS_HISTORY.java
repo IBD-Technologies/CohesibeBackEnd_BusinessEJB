@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -110,5 +112,36 @@ public class ASSIGNMENT_EOD_STATUS_HISTORY {
         this.SEQUENCE_NO = SEQUENCE_NO;
     }
     
-    
+     public ArrayList<ASSIGNMENT_EOD_STATUS_HISTORY>convertStringToArrayList(String result){
+        
+          ArrayList<ASSIGNMENT_EOD_STATUS_HISTORY> ASSIGNMENT_EOD_STATUS_HISTORYList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              ASSIGNMENT_EOD_STATUS_HISTORY appStatus=new ASSIGNMENT_EOD_STATUS_HISTORY();
+              
+              appStatus.setASSIGNMENT_ID(record.split("~")[0]);
+              appStatus.setBUSINESS_DATE(record.split("~")[1]);
+              appStatus.setEND_TIME(record.split("~")[2]);
+              appStatus.setERROR(record.split("~")[3]);
+              appStatus.setGROUP_ID(record.split("~")[4]);
+              appStatus.setINSTITUTE_ID(record.split("~")[5]);
+              appStatus.setNO_FAILURES(record.split("~")[6]);
+              appStatus.setNO_OF_SUCCESS(record.split("~")[7]);
+              appStatus.setSEQUENCE_NO(record.split("~")[8]);
+              appStatus.setSTART_TIME(record.split("~")[9]);
+              appStatus.setSTATUS(record.split("~")[10]);
+       
+              ASSIGNMENT_EOD_STATUS_HISTORYList.add(appStatus);
+          }
+          
+          
+          return ASSIGNMENT_EOD_STATUS_HISTORYList;
+      }  
 }

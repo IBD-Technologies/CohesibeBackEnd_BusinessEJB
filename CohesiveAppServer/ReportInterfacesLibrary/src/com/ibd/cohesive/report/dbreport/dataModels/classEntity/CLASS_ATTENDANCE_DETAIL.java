@@ -12,32 +12,18 @@ import java.util.ArrayList;
  * @author IBD Technologies
  */
 public class CLASS_ATTENDANCE_DETAIL {
-    String STANDARD;
-    String SECTION;
-    String YEAR;
-    String MONTH;
-//    String DAY;
+     String REFERENCE_NO;
     String STUDENT_ID;
     String ATTENDANCE;
-    String VERSION_NUMBER;
 
-    public String getSTANDARD() {
-        return STANDARD;
+    public String getREFERENCE_NO() {
+        return REFERENCE_NO;
     }
 
-    public void setSTANDARD(String STANDARD) {
-        this.STANDARD = STANDARD;
+    public void setREFERENCE_NO(String REFERENCE_NO) {
+        this.REFERENCE_NO = REFERENCE_NO;
     }
 
-    public String getSECTION() {
-        return SECTION;
-    }
-
-    public void setSECTION(String SECTION) {
-        this.SECTION = SECTION;
-    }
-
-    
     public String getSTUDENT_ID() {
         return STUDENT_ID;
     }
@@ -53,42 +39,10 @@ public class CLASS_ATTENDANCE_DETAIL {
     public void setATTENDANCE(String ATTENDANCE) {
         this.ATTENDANCE = ATTENDANCE;
     }
-
-    public String getVERSION_NUMBER() {
-        return VERSION_NUMBER;
-    }
-
-    public void setVERSION_NUMBER(String VERSION_NUMBER) {
-        this.VERSION_NUMBER = VERSION_NUMBER;
-    }
-
-    public String getYEAR() {
-        return YEAR;
-    }
-
-    public void setYEAR(String YEAR) {
-        this.YEAR = YEAR;
-    }
-
-    public String getMONTH() {
-        return MONTH;
-    }
-
-    public void setMONTH(String MONTH) {
-        this.MONTH = MONTH;
-    }
-
-//    public String getDAY() {
-//        return DAY;
-//    }
-//
-//    public void setDAY(String DAY) {
-//        this.DAY = DAY;
-//    }
     
+
+  
     
-    
-     
     public ArrayList<CLASS_ATTENDANCE_DETAIL>convertStringToArrayList(String result){
         
           ArrayList<CLASS_ATTENDANCE_DETAIL> CLASS_ATTENDANCE_DETAILList=new ArrayList();
@@ -104,12 +58,9 @@ public class CLASS_ATTENDANCE_DETAIL {
               CLASS_ATTENDANCE_DETAIL appStatus=new CLASS_ATTENDANCE_DETAIL();
               
               appStatus.setATTENDANCE(record.split("~")[0]);
-              appStatus.setMONTH(record.split("~")[1]);
-              appStatus.setSECTION(record.split("~")[2]);
-              appStatus.setSTANDARD(record.split("~")[3]);
-              appStatus.setSTUDENT_ID(record.split("~")[4]);
-              appStatus.setVERSION_NUMBER(record.split("~")[5]);
-              appStatus.setYEAR(record.split("~")[6]);
+              appStatus.setREFERENCE_NO(record.split("~")[1]);
+              appStatus.setSTUDENT_ID(record.split("~")[2]);
+              
               
               
               
@@ -123,6 +74,7 @@ public class CLASS_ATTENDANCE_DETAIL {
            
       
 }
+    
     
     
    

@@ -119,6 +119,8 @@ public interface IInstituteDataSet {
     public String getINSTITUTE_CURRENT_DATE_DataSet(String p_instanceID)throws DBProcessingException,DBValidationException;
     
     public String getINSTITUTE_OTHER_ACTIVITY_TRACKING_DataSet(String p_instanceID,String p_activityID)throws DBProcessingException,DBValidationException;
+    
+    public String getTODAY_NOTIFICATION_DataSet(String p_instanceID,String p_date)throws DBProcessingException,DBValidationException;
 
 
 

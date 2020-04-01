@@ -21,7 +21,7 @@ import javax.ejb.Remote;
 public interface IAppDataSet {
     public String getERROR_MASTER_DataSet(String p_instituteID)throws DBProcessingException,DBValidationException;
     
-    public String getINSTITUTE_MASTER_DataSet(String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getINSTITUTE_MASTER_DataSet(String p_instituteID,String businessReport)throws DBProcessingException,DBValidationException;
     
     public String getSERVICE_TYPE_MASTER_DataSet(String p_instituteID)throws DBProcessingException,DBValidationException;
     

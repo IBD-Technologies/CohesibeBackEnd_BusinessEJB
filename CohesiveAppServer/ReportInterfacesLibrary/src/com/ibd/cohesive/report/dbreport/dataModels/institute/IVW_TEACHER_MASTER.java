@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataModels.institute;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author IBD Technologies
@@ -136,6 +138,48 @@ public class IVW_TEACHER_MASTER {
     public void setCHECKER_REMARKS(String CHECKER_REMARKS) {
         this.CHECKER_REMARKS = CHECKER_REMARKS;
     }
+    
+    
+    public ArrayList<IVW_TEACHER_MASTER>convertStringToArrayList(String result){
+        
+          ArrayList<IVW_TEACHER_MASTER> IVW_TEACHER_MASTERList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              IVW_TEACHER_MASTER appStatus=new IVW_TEACHER_MASTER();
+              
+              appStatus.setAUTH_STATUS(record.split("~")[0]);
+              appStatus.setCHECKER_DATE_STAMP(record.split("~")[1]);
+              appStatus.setCHECKER_ID(record.split("~")[2]);
+              appStatus.setCHECKER_REMARKS(record.split("~")[3]);
+              appStatus.setMAKER_DATE_STAMP(record.split("~")[4]);
+              appStatus.setMAKER_ID(record.split("~")[5]);
+              appStatus.setMAKER_REMARKS(record.split("~")[6]);
+              appStatus.setRECORD_STATUS(record.split("~")[7]);
+              appStatus.setSECTION(record.split("~")[8]);
+              appStatus.setSTANDARD(record.split("~")[9]);
+              appStatus.setTEACHER_ID(record.split("~")[10]);
+              appStatus.setTEACHER_NAME(record.split("~")[11]);
+              appStatus.setTEACHER_SHORT_NAME(record.split("~")[12]);
+              appStatus.setVERSION_NUMBER(record.split("~")[13]);
+
+              
+              
+              
+           IVW_TEACHER_MASTERList.add(appStatus);
+          }
+          
+        return IVW_TEACHER_MASTERList;
+           
+      
+}
+
     
 
 }

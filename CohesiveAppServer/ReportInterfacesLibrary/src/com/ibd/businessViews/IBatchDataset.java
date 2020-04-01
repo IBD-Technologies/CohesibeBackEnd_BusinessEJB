@@ -11,19 +11,12 @@ import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.ASSIGNMENT_EOD_
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.ATTENDANCE_BATCH_STATUS;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.ATTENDANCE_BATCH_STATUS_ERROR;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.ATTENDANCE_BATCH_STATUS_HISTORY;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.BATCH_CONFIG;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.EXAM_BATCH_STATUS;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.EXAM_BATCH_STATUS_ERROR;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.EXAM_BATCH_STATUS_HISTORY;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.INSTITUTE_ASSIGNMENT_ARCH_BATCH_STATUS;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.INSTITUTE_ASSIGNMENT_ARCH_BATCH_STATUS_ERROR;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.INSTITUTE_ASSIGNMENT_ARCH_BATCH_STATUS_HISTORY;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.MARK_BATCH_STATUS;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.MARK_BATCH_STATUS_ERROR;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.MARK_BATCH_STATUS_HISTORY;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.OTHER_ACTIVITY_EOD_STATUS;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.OTHER_ACTIVITY_EOD_STATUS_ERROR;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.OTHER_ACTIVITY_EOD_STATUS_HISTORY;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_ASSIGNMENT_ARCH_BATCH_STATUS;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_ASSIGNMENT_ARCH_BATCH_STATUS_ERROR;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_ASSIGNMENT_ARCH_BATCH_STATUS_HISTORY;
@@ -39,9 +32,6 @@ import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_EXAM_BA
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_MARK_BATCH_STATUS;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_MARK_BATCH_STATUS_ERROR;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_MARK_BATCH_STATUS_HISTORY;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_OTHER_ACTIVITY_EOD_STATUS;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_OTHER_ACTIVITY_EOD_STATUS_ERROR;
-import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_OTHER_ACTIVITY_EOD_STATUS_HISTORY;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_TIMETABLE_BATCH_STATUS;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_TIMETABLE_BATCH_STATUS_ERROR;
 import com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch.STUDENT_TIMETABLE_BATCH_STATUS_HISTORY;
@@ -62,9 +52,6 @@ public interface IBatchDataset {
 //    public ArrayList<APP_EOD_STATUS>getAPP_EOD_STATUS_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<APP_EOD_STATUS_ERROR>getAPP_EOD_STATUS_ERROR_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<APP_EOD_STATUS_HISTORY>getAPP_EOD_STATUS_HISTORY_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
-    public ArrayList<ASSIGNMENT_EOD_STATUS>getASSIGNMENT_EOD_STATUS_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
-    public ArrayList<ASSIGNMENT_EOD_STATUS_ERROR>getASSIGNMENT_EOD_STATUS_ERROR_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
-    public ArrayList<ASSIGNMENT_EOD_STATUS_HISTORY>getASSIGNMENT_EOD_STATUS_HISTORY_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<BATCH_CONFIG>getBATCH_CONFIG_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<BATCH_STATUS>getBATCH_STATUS_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<BATCH_STATUS_ERROR>getBATCH_STATUS_ERROR_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
@@ -72,9 +59,9 @@ public interface IBatchDataset {
 //    public ArrayList<INSTITUTE_EOD_STATUS>getINSTITUTE_EOD_STATUS_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<INSTITUTE_EOD_STATUS_ERROR>getINSTITUTE_EOD_STATUS_ERROR_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<INSTITUTE_EOD_STATUS_HISTORY>getINSTITUTE_EOD_STATUS_HISTORY_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
-    public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS>getSTUDENT_ASSIGNMENT_EOD_STATUS_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
-    public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_ERROR>getSTUDENT_ASSIGNMENT_EOD_STATUS_ERROR_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
-    public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY>getSTUDENT_ASSIGNMENT_EOD_STATUS_HISTORY_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
+//    public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS>getSTUDENT_ASSIGNMENT_EOD_STATUS_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
+//    public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_ERROR>getSTUDENT_ASSIGNMENT_EOD_STATUS_ERROR_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
+//    public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY>getSTUDENT_ASSIGNMENT_EOD_STATUS_HISTORY_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<OTHER_ACTIVITY_EOD_STATUS>getOTHER_ACTIVITY_EOD_STATUS_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<OTHER_ACTIVITY_EOD_STATUS_ERROR>getOTHER_ACTIVITY_EOD_STATUS_ERROR_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
 //    public ArrayList<OTHER_ACTIVITY_EOD_STATUS_HISTORY>getOTHER_ACTIVITY_EOD_STATUS_HISTORY_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
@@ -128,9 +115,9 @@ public interface IBatchDataset {
     public String getAPP_EOD_STATUS_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
     public String  getAPP_EOD_STATUS_ERROR_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
     public String  getAPP_EOD_STATUS_HISTORY_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
-    public String  getBATCH_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
-    public String  getBATCH_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
-    public String  getBATCH_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String  getBATCH_STATUS_DataSet(String p_businessDate,String p_instituteID,String batchName)throws DBProcessingException,DBValidationException;
+    public String  getBATCH_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID,String batchName)throws DBProcessingException,DBValidationException;
+    public String  getBATCH_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID,String batchName)throws DBProcessingException,DBValidationException;
     public String  getINSTITUTE_EOD_STATUS_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
     public String  getINSTITUTE_EOD_STATUS_ERROR_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
     public String  getINSTITUTE_EOD_STATUS_HISTORY_DataSet(String p_businessDate)throws DBProcessingException,DBValidationException;
@@ -145,8 +132,20 @@ public interface IBatchDataset {
 
 
     public String getFEE_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getFEE_NOTIFICATION_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+
     public String getFEE_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+   
     public String getFEE_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getFEE_NOTIFICATION_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getFEE_NOTIFICATION_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getSTUDENT_FEE_NOTIFICATION_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+
+    public String getSTUDENT_FEE_NOTIFICATION_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    
+    public String getSTUDENT_FEE_NOTIFICATION_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    
+    
     public String getSTUDENT_FEE_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
     public String getSTUDENT_FEE_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
     public String getSTUDENT_FEE_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
@@ -159,7 +158,43 @@ public interface IBatchDataset {
     public String getSTUDENT_OTHER_ACTIVITY_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
     public String getSTUDENT_OTHER_ACTIVITY_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
     
+    public String getASSIGNMENT_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getASSIGNMENT_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getASSIGNMENT_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getSTUDENT_ASSIGNMENT_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getSTUDENT_ASSIGNMENT_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getSTUDENT_ASSIGNMENT_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    
+    public String getSTUDENT_EVENT_NOTIFICATION_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+
+public String getSTUDENT_EVENT_NOTIFICATION_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+
+
+public String getSTUDENT_EVENT_NOTIFICATION_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    
+    
+    
+    
     public String getMARK_BATCH_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
     public String getMARK_BATCH_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
     public String getMARK_BATCH_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+
+
+    public String getE_CIRCULAR_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getE_CIRCULAR_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getE_CIRCULAR_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getSTUDENT_E_CIRCULAR_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getSTUDENT_E_CIRCULAR_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getSTUDENT_E_CIRCULAR_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    
+    public String getTEACHER_E_CIRCULAR_EOD_STATUS_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getTEACHER_E_CIRCULAR_EOD_STATUS_ERROR_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+    public String getTEACHER_E_CIRCULAR_EOD_STATUS_HISTORY_DataSet(String p_businessDate,String p_instituteID)throws DBProcessingException,DBValidationException;
+
+
+
+
+
+
+
 }

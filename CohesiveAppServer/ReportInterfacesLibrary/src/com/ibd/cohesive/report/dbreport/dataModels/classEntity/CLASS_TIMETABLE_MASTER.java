@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataModels.classEntity;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author IBD Technologies
@@ -109,4 +111,46 @@ public class CLASS_TIMETABLE_MASTER {
     public void setCHECKER_REMARKS(String CHECKER_REMARKS) {
         this.CHECKER_REMARKS = CHECKER_REMARKS;
     }
+    
+     
+     public ArrayList<CLASS_TIMETABLE_MASTER>convertStringToArrayList(String result){
+        
+          ArrayList<CLASS_TIMETABLE_MASTER> CLASS_TIMETABLE_MASTERList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              CLASS_TIMETABLE_MASTER appStatus=new CLASS_TIMETABLE_MASTER();
+              
+              appStatus.setAUTH_STATUS(record.split("~")[0]);
+              appStatus.setCHECKER_DATE_STAMP(record.split("~")[1]);
+              appStatus.setCHECKER_ID(record.split("~")[2]);
+              appStatus.setCHECKER_REMARKS(record.split("~")[3]);
+              appStatus.setMAKER_DATE_STAMP(record.split("~")[4]);
+              appStatus.setMAKER_ID(record.split("~")[5]);
+              appStatus.setMAKER_REMARKS(record.split("~")[6]);
+              appStatus.setRECORD_STATUS(record.split("~")[7]);
+              appStatus.setSECTION(record.split("~")[8]);
+              appStatus.setSTANDARD(record.split("~")[9]);
+              appStatus.setVERSION_NUMBER(record.split("~")[10]);
+              
+              
+              
+              
+              
+           CLASS_TIMETABLE_MASTERList.add(appStatus);
+          }
+          
+        return CLASS_TIMETABLE_MASTERList;
+           
+      
+}
+   
+    
+    
 }

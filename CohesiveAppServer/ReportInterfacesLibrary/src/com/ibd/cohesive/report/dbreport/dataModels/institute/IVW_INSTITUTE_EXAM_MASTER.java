@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataModels.institute;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author IBD Technologies
@@ -19,4 +21,39 @@ public class IVW_INSTITUTE_EXAM_MASTER {
     public void setEXAM(String EXAM) {
         this.EXAM = EXAM;
     }
+    
+    
+    
+    
+     public ArrayList<IVW_INSTITUTE_EXAM_MASTER>convertStringToArrayList(String result){
+        
+          ArrayList<IVW_INSTITUTE_EXAM_MASTER> IVW_INSTITUTE_EXAM_MASTERList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              IVW_INSTITUTE_EXAM_MASTER appStatus=new IVW_INSTITUTE_EXAM_MASTER();
+              
+              appStatus.setEXAM(record.split("~")[0]);
+              
+              
+              
+              
+              
+           IVW_INSTITUTE_EXAM_MASTERList.add(appStatus);
+          }
+          
+        return IVW_INSTITUTE_EXAM_MASTERList;
+           
+      
+}
+    
+    
+    
+    
 }

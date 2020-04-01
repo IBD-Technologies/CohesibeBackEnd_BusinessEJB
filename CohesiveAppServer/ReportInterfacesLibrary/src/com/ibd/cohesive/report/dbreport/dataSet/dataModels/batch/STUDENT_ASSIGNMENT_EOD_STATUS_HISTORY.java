@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataSet.dataModels.batch;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -92,5 +94,38 @@ public class STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY {
         this.SEQUENCE_NO = SEQUENCE_NO;
     }
     
-    
+    public ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY>convertStringToArrayList(String result){
+        
+          ArrayList<STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY> STUDENT_ASSIGNMENT_EOD_STATUS_HISTORYList=new ArrayList();
+          
+         
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY appStatus=new STUDENT_ASSIGNMENT_EOD_STATUS_HISTORY();
+              
+              appStatus.setASSIGNMENT_ID(record.split("~")[0]);
+              appStatus.setBUSINESS_DATE(record.split("~")[1]);
+              appStatus.setEND_TIME(record.split("~")[2]);
+              appStatus.setERROR(record.split("~")[3]);
+              appStatus.setINSTITUTE_ID(record.split("~")[4]);
+              appStatus.setSEQUENCE_NO(record.split("~")[5]);
+              appStatus.setSTART_TIME(record.split("~")[6]);
+              appStatus.setSTATUS(record.split("~")[7]);
+              appStatus.setSTUDENT_ID(record.split("~")[8]);
+              
+              
+              
+              STUDENT_ASSIGNMENT_EOD_STATUS_HISTORYList.add(appStatus);
+          }
+          
+          
+          return STUDENT_ASSIGNMENT_EOD_STATUS_HISTORYList;
+      
+      }  
 }

@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataModels.institute;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author IBD Technologies
@@ -16,6 +18,14 @@ public class IVW_STUDENT_MASTER {
     String SECTION;
     String MAKER_ID;
     String CHECKER_ID;
+    String MAKER_DATE_STAMP;
+    String CHECKER_DATE_STAMP;
+    String RECORD_STATUS;
+    String AUTH_STATUS;
+    String VERSION_NUMBER;
+    String MAKER_REMARKS;
+    String CHECKER_REMARKS;
+    
 
     public String getSTUDENT_ID() {
         return STUDENT_ID;
@@ -120,11 +130,53 @@ public class IVW_STUDENT_MASTER {
     public void setCHECKER_REMARKS(String CHECKER_REMARKS) {
         this.CHECKER_REMARKS = CHECKER_REMARKS;
     }
-    String MAKER_DATE_STAMP;
-    String CHECKER_DATE_STAMP;
-    String RECORD_STATUS;
-    String AUTH_STATUS;
-    String VERSION_NUMBER;
-    String MAKER_REMARKS;
-    String CHECKER_REMARKS;
+    
+    
+    
+    
+    
+      public ArrayList<IVW_STUDENT_MASTER>convertStringToArrayList(String result){
+        
+          ArrayList<IVW_STUDENT_MASTER> IVW_STUDENT_MASTERList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              IVW_STUDENT_MASTER appStatus=new IVW_STUDENT_MASTER();
+              
+              appStatus.setAUTH_STATUS(record.split("~")[0]);
+              appStatus.setCHECKER_DATE_STAMP(record.split("~")[1]);
+              appStatus.setCHECKER_ID(record.split("~")[2]);
+              appStatus.setCHECKER_REMARKS(record.split("~")[3]);
+              appStatus.setMAKER_DATE_STAMP(record.split("~")[4]);
+              appStatus.setMAKER_ID(record.split("~")[5]);
+              appStatus.setMAKER_REMARKS(record.split("~")[6]);
+              appStatus.setRECORD_STATUS(record.split("~")[7]);
+              appStatus.setSECTION(record.split("~")[8]);
+              appStatus.setSTANDARD(record.split("~")[9]);
+              appStatus.setSTUDENT_ID(record.split("~")[10]);
+              appStatus.setSTUDENT_NAME(record.split("~")[11]);
+              appStatus.setVERSION_NUMBER(record.split("~")[12]);
+
+
+              
+              
+              
+           IVW_STUDENT_MASTERList.add(appStatus);
+          }
+          
+        return IVW_STUDENT_MASTERList;
+           
+      
+}
+    
+  
+    
+    
+    
 }

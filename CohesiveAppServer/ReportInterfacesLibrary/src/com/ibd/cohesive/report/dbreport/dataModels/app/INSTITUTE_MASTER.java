@@ -55,10 +55,12 @@ public class INSTITUTE_MASTER  {
               String record=records[i];
               String instituteID=record.split("~")[0];
               String instituteName=record.split("~")[1];
+              String imagePath=record.split("~")[2];
               
               INSTITUTE_MASTER insMaster=new INSTITUTE_MASTER();
               insMaster.setINSTITUTE_ID(instituteID);
               insMaster.setINSTITUTE_NAME(instituteName);
+              insMaster.setIMAGE_PATH(imagePath);
               
               instituteMasterList.add(insMaster);
           }

@@ -27,5 +27,5 @@ public interface IStudentDataSetBusiness {
       public String getStudentRank_DataSet(String p_fileName,String p_instanceID)throws DBProcessingException,DBValidationException;
        public String getStudentOtherActivityDetail_DataSet(String p_fileName,String p_instanceID)throws DBProcessingException,DBValidationException;
 public String getStudentOtherActivityDetail_DataSet(String p_fileName,String p_instanceID,CohesiveSession session)throws DBProcessingException,DBValidationException;
-
+public String getSVW_STUDENT_SOFT_SKILLS_BUSINESS_DataSet(String p_fileName,String p_instanceID)throws DBProcessingException,DBValidationException;
 }

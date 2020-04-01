@@ -5,6 +5,8 @@
  */
 package com.ibd.cohesive.report.dbreport.dataModels.institute;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ibdtech
@@ -38,7 +40,36 @@ public class IVW_TEACHER_LEAVE_DETAILS {
         this.NOON = NOON;
     }
     
-    
+      public ArrayList<IVW_TEACHER_LEAVE_DETAILS>convertStringToArrayList(String result){
+        
+          ArrayList<IVW_TEACHER_LEAVE_DETAILS> IVW_TEACHER_LEAVE_DETAILSList=new ArrayList();
+          
+          
+          String[] records=result.split("#");
+          
+          for(int i=0;i<records.length;i++){
+              
+              String record=records[i];
+
+              
+              IVW_TEACHER_LEAVE_DETAILS appStatus=new IVW_TEACHER_LEAVE_DETAILS();
+              
+              appStatus.setFULL_DAY(record.split("~")[0]);
+              appStatus.setNOON(record.split("~")[1]);
+              appStatus.setTEACHER_ID(record.split("~")[2]);
+              
+              
+              
+              
+           IVW_TEACHER_LEAVE_DETAILSList.add(appStatus);
+          }
+          
+        return IVW_TEACHER_LEAVE_DETAILSList;
+           
+      
+}
+
+   
     
     
 }
