@@ -18,6 +18,17 @@ public class StudentECircular {
     String circularDate;
     String circularType;
     String message;
+    String signStatus;
+
+    public String getSignStatus() {
+        return signStatus;
+    }
+
+    public void setSignStatus(String signStatus) {
+        this.signStatus = signStatus;
+    }
+    
+    
 
     public String getCircularDate() {
         return circularDate;

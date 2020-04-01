@@ -501,7 +501,7 @@ public class InstituteFeeManagementService implements IInstituteFeeManagementSer
         }
         
        }
-     public void  view()throws DBValidationException,DBProcessingException,BSProcessingException{
+     public void  view()throws DBValidationException,DBProcessingException,BSProcessingException,BSValidationException{
         
                 
         try{
@@ -540,8 +540,10 @@ public class InstituteFeeManagementService implements IInstituteFeeManagementSer
            
             
          
-          dbg("end of  InstituteFeeManagementService--->tableRead");               
+          dbg("end of  InstituteFeeManagementService--->tableRead");  
         }catch(DBValidationException ex){
+            throw ex;  
+        }catch(BSValidationException ex){
             throw ex;
         }catch(DBProcessingException ex){
             dbg(ex);

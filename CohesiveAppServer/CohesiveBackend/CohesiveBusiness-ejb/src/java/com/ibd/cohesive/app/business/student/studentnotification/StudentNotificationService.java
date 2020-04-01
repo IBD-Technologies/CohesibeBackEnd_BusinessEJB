@@ -701,7 +701,10 @@ public class StudentNotificationService implements IStudentNotificationService{
              errhandler.log_app_error("BS_VAL_002","notificationID");  
          }
           
-          
+          if(studentNotification.getNotificationDate()==null||studentNotification.getNotificationDate().isEmpty()){
+             status=false;  
+             errhandler.log_app_error("BS_VAL_002","notification Date");  
+         }
         dbg("end of student notification master mandatory validation");
         }catch (Exception ex) {
             dbg(ex);

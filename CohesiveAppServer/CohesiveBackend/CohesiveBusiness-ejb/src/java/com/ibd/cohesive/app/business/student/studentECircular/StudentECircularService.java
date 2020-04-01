@@ -563,7 +563,7 @@ public class StudentECircularService implements IStudentECircularService{
             }
             
             if(recordExistence){
-                
+                studentECircular.setSignStatus("Y");
                 request.getReqAudit().setMakerID(signRecord.getRecord().get(2).trim());
                 request.getReqAudit().setCheckerID(signRecord.getRecord().get(3).trim());
                 request.getReqAudit().setMakerDateStamp(signRecord.getRecord().get(4).trim());
@@ -578,6 +578,7 @@ public class StudentECircularService implements IStudentECircularService{
                 
             }else{
             
+                studentECircular.setSignStatus("N");
                 request.getReqAudit().setMakerID("System");
                 request.getReqAudit().setCheckerID("System");
                 request.getReqAudit().setMakerDateStamp("");
@@ -625,6 +626,7 @@ public class StudentECircularService implements IStudentECircularService{
                                        .add("circularDate", studentECircular.getCircularDate())
                                        .add("circularType", studentECircular.getCircularType())
                                        .add("message", studentECircular.getMessage())
+                                      .add("signStatus", studentECircular.getSignStatus())
 //                                       .add("url", studentECircular.getUrl())
                                        .build();
                                             
