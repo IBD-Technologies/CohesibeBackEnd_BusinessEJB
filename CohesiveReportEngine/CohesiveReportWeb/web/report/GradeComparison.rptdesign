@@ -1507,7 +1507,7 @@
               <Bottom>0.0</Bottom>
               <Right>3.0</Right>
             </Insets>
-            <Visible>true</Visible>
+            <Visible>false</Visible>
           </Label>
           <DataDefinition>
             <Definition>row[&quot;GradePercentage&quot;]</Definition>
@@ -1586,6 +1586,11 @@
         </Insets>
         <Visible>true</Visible>
       </Label>
+      <FormatSpecifier xsi:type="attribute:NumberFormatSpecifier">
+        <Prefix></Prefix>
+        <Suffix>%</Suffix>
+        <FractionDigits>2</FractionDigits>
+      </FormatSpecifier>
       <LabelPosition>Left</LabelPosition>
       <MajorGrid>
         <LineAttributes>

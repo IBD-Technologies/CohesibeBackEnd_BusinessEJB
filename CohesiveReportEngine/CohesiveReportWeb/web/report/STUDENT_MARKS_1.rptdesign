@@ -6,7 +6,7 @@
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.data.oda.pojo" name="CLASS_SKILL_ENTRY" id="4">
+        <oda-data-source extensionID="org.eclipse.birt.data.oda.pojo" name="STUDENT_MARKS" id="4">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>SynchronizeClassPath</name>
@@ -21,7 +21,7 @@
         </oda-data-source>
     </data-sources>
     <data-sets>
-        <oda-data-set extensionID="org.eclipse.birt.data.oda.pojo.dataSet" name="CLASS_SKILL_ENTRY" id="5">
+        <oda-data-set extensionID="org.eclipse.birt.data.oda.pojo.dataSet" name="STUDENT_MARKS" id="5">
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">STANDARD</property>
@@ -36,44 +36,28 @@
                     <text-property name="heading">EXAM</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">SKILL_ID</property>
-                    <text-property name="heading">SKILL_ID</text-property>
+                    <property name="columnName">SUBJECT_ID</property>
+                    <text-property name="heading">SUBJECT_ID</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">MAKER_ID</property>
-                    <text-property name="heading">MAKER_ID</text-property>
+                    <property name="columnName">STUDENT_ID</property>
+                    <text-property name="heading">STUDENT_ID</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">CHECKER_ID</property>
-                    <text-property name="heading">CHECKER_ID</text-property>
+                    <property name="columnName">GRADE</property>
+                    <text-property name="heading">GRADE</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">MAKER_DATE_STAMP</property>
-                    <text-property name="heading">MAKER_DATE_STAMP</text-property>
+                    <property name="columnName">MARK</property>
+                    <text-property name="heading">MARK</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">CHECKER_DATE_STAMP</property>
-                    <text-property name="heading">CHECKER_DATE_STAMP</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">RECORD_STATUS</property>
-                    <text-property name="heading">RECORD_STATUS</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">AUTH_STATUS</property>
-                    <text-property name="heading">AUTH_STATUS</text-property>
+                    <property name="columnName">FEEDBACK</property>
+                    <text-property name="heading">FEEDBACK</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">VERSION_NUMBER</property>
                     <text-property name="heading">VERSION_NUMBER</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">MAKER_REMARKS</property>
-                    <text-property name="heading">MAKER_REMARKS</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">CHECKER_REMARKS</property>
-                    <text-property name="heading">CHECKER_REMARKS</text-property>
                 </structure>
             </list-property>
             <structure name="cachedMetaData">
@@ -95,57 +79,37 @@
                     </structure>
                     <structure>
                         <property name="position">4</property>
-                        <property name="name">SKILL_ID</property>
+                        <property name="name">SUBJECT_ID</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">5</property>
-                        <property name="name">MAKER_ID</property>
+                        <property name="name">STUDENT_ID</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">6</property>
-                        <property name="name">CHECKER_ID</property>
+                        <property name="name">GRADE</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">7</property>
-                        <property name="name">MAKER_DATE_STAMP</property>
+                        <property name="name">MARK</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">8</property>
-                        <property name="name">CHECKER_DATE_STAMP</property>
+                        <property name="name">FEEDBACK</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">9</property>
-                        <property name="name">RECORD_STATUS</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">10</property>
-                        <property name="name">AUTH_STATUS</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">11</property>
                         <property name="name">VERSION_NUMBER</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">12</property>
-                        <property name="name">MAKER_REMARKS</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">13</property>
-                        <property name="name">CHECKER_REMARKS</property>
                         <property name="dataType">string</property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">CLASS_SKILL_ENTRY</property>
+            <property name="dataSource">STUDENT_MARKS</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -170,77 +134,49 @@
                 </structure>
                 <structure>
                     <property name="position">4</property>
-                    <property name="name">SKILL_ID</property>
-                    <property name="nativeName">SKILL_ID</property>
+                    <property name="name">SUBJECT_ID</property>
+                    <property name="nativeName">SUBJECT_ID</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">1</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
-                    <property name="name">MAKER_ID</property>
-                    <property name="nativeName">MAKER_ID</property>
+                    <property name="name">STUDENT_ID</property>
+                    <property name="nativeName">STUDENT_ID</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">1</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
-                    <property name="name">CHECKER_ID</property>
-                    <property name="nativeName">CHECKER_ID</property>
+                    <property name="name">GRADE</property>
+                    <property name="nativeName">GRADE</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">1</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
-                    <property name="name">MAKER_DATE_STAMP</property>
-                    <property name="nativeName">MAKER_DATE_STAMP</property>
+                    <property name="name">MARK</property>
+                    <property name="nativeName">MARK</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">1</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
-                    <property name="name">CHECKER_DATE_STAMP</property>
-                    <property name="nativeName">CHECKER_DATE_STAMP</property>
+                    <property name="name">FEEDBACK</property>
+                    <property name="nativeName">FEEDBACK</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">1</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
-                    <property name="name">RECORD_STATUS</property>
-                    <property name="nativeName">RECORD_STATUS</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">AUTH_STATUS</property>
-                    <property name="nativeName">AUTH_STATUS</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
                     <property name="name">VERSION_NUMBER</property>
                     <property name="nativeName">VERSION_NUMBER</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">1</property>
                 </structure>
-                <structure>
-                    <property name="position">12</property>
-                    <property name="name">MAKER_REMARKS</property>
-                    <property name="nativeName">MAKER_REMARKS</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
-                <structure>
-                    <property name="position">13</property>
-                    <property name="name">CHECKER_REMARKS</property>
-                    <property name="nativeName">CHECKER_REMARKS</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">1</property>
-                </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<PojoQuery appContextKey="APP_CONTEXT_KEY_CLASS_SKILL_ENTRY" dataSetClass="com.ibd.cohesive.report.dbreport.dataSources.classEntity.CLASS_SKILL_ENTRY_DataSource" version="1.0">
+<PojoQuery appContextKey="APP_CONTEXT_KEY_STUDENT_MARKS" dataSetClass="com.ibd.cohesive.report.dbreport.dataSources.classEntity.STUDENT_MARKS_DataSource" version="1.0">
     <ColumnMapping index="1" name="STANDARD" odaDataType="String">
         <Method name="getSTANDARD"/>
     </ColumnMapping>
@@ -250,35 +186,23 @@
     <ColumnMapping index="3" name="EXAM" odaDataType="String">
         <Method name="getEXAM"/>
     </ColumnMapping>
-    <ColumnMapping index="4" name="SKILL_ID" odaDataType="String">
-        <Method name="getSKILL_ID"/>
+    <ColumnMapping index="4" name="SUBJECT_ID" odaDataType="String">
+        <Method name="getSUBJECT_ID"/>
     </ColumnMapping>
-    <ColumnMapping index="5" name="MAKER_ID" odaDataType="String">
-        <Method name="getMAKER_ID"/>
+    <ColumnMapping index="5" name="STUDENT_ID" odaDataType="String">
+        <Method name="getSTUDENT_ID"/>
     </ColumnMapping>
-    <ColumnMapping index="6" name="CHECKER_ID" odaDataType="String">
-        <Method name="getCHECKER_ID"/>
+    <ColumnMapping index="6" name="GRADE" odaDataType="String">
+        <Method name="getGRADE"/>
     </ColumnMapping>
-    <ColumnMapping index="7" name="MAKER_DATE_STAMP" odaDataType="String">
-        <Method name="getMAKER_DATE_STAMP"/>
+    <ColumnMapping index="7" name="MARK" odaDataType="String">
+        <Method name="getMARK"/>
     </ColumnMapping>
-    <ColumnMapping index="8" name="CHECKER_DATE_STAMP" odaDataType="String">
-        <Method name="getCHECKER_DATE_STAMP"/>
+    <ColumnMapping index="8" name="FEEDBACK" odaDataType="String">
+        <Method name="getFEEDBACK"/>
     </ColumnMapping>
-    <ColumnMapping index="9" name="RECORD_STATUS" odaDataType="String">
-        <Method name="getRECORD_STATUS"/>
-    </ColumnMapping>
-    <ColumnMapping index="10" name="AUTH_STATUS" odaDataType="String">
-        <Method name="getAUTH_STATUS"/>
-    </ColumnMapping>
-    <ColumnMapping index="11" name="VERSION_NUMBER" odaDataType="String">
+    <ColumnMapping index="9" name="VERSION_NUMBER" odaDataType="String">
         <Method name="getVERSION_NUMBER"/>
-    </ColumnMapping>
-    <ColumnMapping index="12" name="MAKER_REMARKS" odaDataType="String">
-        <Method name="getMAKER_REMARKS"/>
-    </ColumnMapping>
-    <ColumnMapping index="13" name="CHECKER_REMARKS" odaDataType="String">
-        <Method name="getCHECKER_REMARKS"/>
     </ColumnMapping>
 </PojoQuery>
 ]]></xml-property>
@@ -339,7 +263,7 @@
         <design:resultColumnDefinitions>
           <design:attributes>
             <design:identifier>
-              <design:name>SKILL_ID</design:name>
+              <design:name>SUBJECT_ID</design:name>
               <design:position>4</design:position>
             </design:identifier>
             <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
@@ -348,14 +272,14 @@
             <design:nullability>Unknown</design:nullability>
           </design:attributes>
           <design:usageHints>
-            <design:label>SKILL_ID</design:label>
+            <design:label>SUBJECT_ID</design:label>
             <design:formattingHints/>
           </design:usageHints>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
             <design:identifier>
-              <design:name>MAKER_ID</design:name>
+              <design:name>STUDENT_ID</design:name>
               <design:position>5</design:position>
             </design:identifier>
             <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
@@ -364,14 +288,14 @@
             <design:nullability>Unknown</design:nullability>
           </design:attributes>
           <design:usageHints>
-            <design:label>MAKER_ID</design:label>
+            <design:label>STUDENT_ID</design:label>
             <design:formattingHints/>
           </design:usageHints>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
             <design:identifier>
-              <design:name>CHECKER_ID</design:name>
+              <design:name>GRADE</design:name>
               <design:position>6</design:position>
             </design:identifier>
             <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
@@ -380,14 +304,14 @@
             <design:nullability>Unknown</design:nullability>
           </design:attributes>
           <design:usageHints>
-            <design:label>CHECKER_ID</design:label>
+            <design:label>GRADE</design:label>
             <design:formattingHints/>
           </design:usageHints>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
             <design:identifier>
-              <design:name>MAKER_DATE_STAMP</design:name>
+              <design:name>MARK</design:name>
               <design:position>7</design:position>
             </design:identifier>
             <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
@@ -396,14 +320,14 @@
             <design:nullability>Unknown</design:nullability>
           </design:attributes>
           <design:usageHints>
-            <design:label>MAKER_DATE_STAMP</design:label>
+            <design:label>MARK</design:label>
             <design:formattingHints/>
           </design:usageHints>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
             <design:identifier>
-              <design:name>CHECKER_DATE_STAMP</design:name>
+              <design:name>FEEDBACK</design:name>
               <design:position>8</design:position>
             </design:identifier>
             <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
@@ -412,14 +336,14 @@
             <design:nullability>Unknown</design:nullability>
           </design:attributes>
           <design:usageHints>
-            <design:label>CHECKER_DATE_STAMP</design:label>
+            <design:label>FEEDBACK</design:label>
             <design:formattingHints/>
           </design:usageHints>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
             <design:identifier>
-              <design:name>RECORD_STATUS</design:name>
+              <design:name>VERSION_NUMBER</design:name>
               <design:position>9</design:position>
             </design:identifier>
             <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
@@ -428,71 +352,7 @@
             <design:nullability>Unknown</design:nullability>
           </design:attributes>
           <design:usageHints>
-            <design:label>RECORD_STATUS</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>AUTH_STATUS</design:name>
-              <design:position>10</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>AUTH_STATUS</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>VERSION_NUMBER</design:name>
-              <design:position>11</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
             <design:label>VERSION_NUMBER</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>MAKER_REMARKS</design:name>
-              <design:position>12</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>MAKER_REMARKS</design:label>
-            <design:formattingHints/>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>CHECKER_REMARKS</design:name>
-              <design:position>13</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>1</design:nativeDataTypeCode>
-            <design:precision>-1</design:precision>
-            <design:scale>-1</design:scale>
-            <design:nullability>Unknown</design:nullability>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>CHECKER_REMARKS</design:label>
             <design:formattingHints/>
           </design:usageHints>
         </design:resultColumnDefinitions>
@@ -508,7 +368,7 @@
                 </ex-property>
                 <ex-property>
                     <name>pojoClass</name>
-                    <value>com.ibd.cohesive.report.dbreport.dataModels.classEntity.CLASS_SKILL_ENTRY</value>
+                    <value>com.ibd.cohesive.report.dbreport.dataModels.classEntity.STUDENT_MARKS</value>
                 </ex-property>
             </list-property>
         </oda-data-set>
@@ -550,14 +410,14 @@ return wrappedText;
                 <cell id="22">
                     <text id="24">
                         <property name="contentType">html</property>
-                        <text-property name="content"><![CDATA[<H6>Table Name: <B>CLASS_SKILL_ENTRY</B> </H6>]]></text-property>
+                        <text-property name="content"><![CDATA[<H6>Table Name: <B>STUDENT_MARKS</B> </H6>]]></text-property>
                     </text>
                 </cell>
             </row>
         </grid>
         <table id="25">
             <property name="textAlign">center</property>
-            <property name="dataSet">CLASS_SKILL_ENTRY</property>
+            <property name="dataSet">STUDENT_MARKS</property>
             <list-property name="boundDataColumns">
                 <structure>
                     <property name="name">STANDARD</property>
@@ -578,45 +438,33 @@ return wrappedText;
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">SKILL_ID</property>
-                    <text-property name="displayName">SKILL_ID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["SKILL_ID"]</expression>
+                    <property name="name">SUBJECT_ID</property>
+                    <text-property name="displayName">SUBJECT_ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SUBJECT_ID"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">MAKER_ID</property>
-                    <text-property name="displayName">MAKER_ID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["MAKER_ID"]</expression>
+                    <property name="name">STUDENT_ID</property>
+                    <text-property name="displayName">STUDENT_ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["STUDENT_ID"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">CHECKER_ID</property>
-                    <text-property name="displayName">CHECKER_ID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["CHECKER_ID"]</expression>
+                    <property name="name">GRADE</property>
+                    <text-property name="displayName">GRADE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["GRADE"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">MAKER_DATE_STAMP</property>
-                    <text-property name="displayName">MAKER_DATE_STAMP</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["MAKER_DATE_STAMP"]</expression>
+                    <property name="name">MARK</property>
+                    <text-property name="displayName">MARK</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MARK"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">CHECKER_DATE_STAMP</property>
-                    <text-property name="displayName">CHECKER_DATE_STAMP</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["CHECKER_DATE_STAMP"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">RECORD_STATUS</property>
-                    <text-property name="displayName">RECORD_STATUS</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["RECORD_STATUS"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">AUTH_STATUS</property>
-                    <text-property name="displayName">AUTH_STATUS</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["AUTH_STATUS"]</expression>
+                    <property name="name">FEEDBACK</property>
+                    <text-property name="displayName">FEEDBACK</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FEEDBACK"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
@@ -625,32 +473,16 @@ return wrappedText;
                     <expression name="expression" type="javascript">dataSetRow["VERSION_NUMBER"]</expression>
                     <property name="dataType">string</property>
                 </structure>
-                <structure>
-                    <property name="name">MAKER_REMARKS</property>
-                    <text-property name="displayName">MAKER_REMARKS</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["MAKER_REMARKS"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">CHECKER_REMARKS</property>
-                    <text-property name="displayName">CHECKER_REMARKS</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["CHECKER_REMARKS"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
             </list-property>
-            <column id="94"/>
-            <column id="95"/>
-            <column id="96"/>
-            <column id="97"/>
-            <column id="98"/>
-            <column id="99"/>
-            <column id="100"/>
-            <column id="101"/>
-            <column id="102"/>
-            <column id="103"/>
-            <column id="104"/>
-            <column id="105"/>
-            <column id="106"/>
+            <column id="74"/>
+            <column id="75"/>
+            <column id="76"/>
+            <column id="77"/>
+            <column id="78"/>
+            <column id="79"/>
+            <column id="80"/>
+            <column id="81"/>
+            <column id="82"/>
             <header>
                 <row id="26">
                     <cell id="27">
@@ -702,7 +534,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <label id="34">
-                            <text-property name="text">SKILL_ID</text-property>
+                            <text-property name="text">SUBJECT_ID</text-property>
                         </label>
                     </cell>
                     <cell id="35">
@@ -715,7 +547,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <label id="36">
-                            <text-property name="text">MAKER_ID</text-property>
+                            <text-property name="text">STUDENT_ID</text-property>
                         </label>
                     </cell>
                     <cell id="37">
@@ -728,7 +560,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <label id="38">
-                            <text-property name="text">CHECKER_ID</text-property>
+                            <text-property name="text">GRADE</text-property>
                         </label>
                     </cell>
                     <cell id="39">
@@ -741,7 +573,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <label id="40">
-                            <text-property name="text">MAKER_DATE_STAMP</text-property>
+                            <text-property name="text">MARK</text-property>
                         </label>
                     </cell>
                     <cell id="41">
@@ -754,7 +586,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <label id="42">
-                            <text-property name="text">CHECKER_DATE_STAMP</text-property>
+                            <text-property name="text">FEEDBACK</text-property>
                         </label>
                     </cell>
                     <cell id="43">
@@ -767,65 +599,65 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <label id="44">
-                            <text-property name="text">RECORD_STATUS</text-property>
-                        </label>
-                    </cell>
-                    <cell id="45">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <label id="46">
-                            <text-property name="text">AUTH_STATUS</text-property>
-                        </label>
-                    </cell>
-                    <cell id="47">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <label id="48">
                             <text-property name="text">VERSION_NUMBER</text-property>
-                        </label>
-                    </cell>
-                    <cell id="49">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <label id="50">
-                            <text-property name="text">MAKER_REMARKS</text-property>
-                        </label>
-                    </cell>
-                    <cell id="51">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <label id="52">
-                            <text-property name="text">CHECKER_REMARKS</text-property>
                         </label>
                     </cell>
                 </row>
             </header>
             <detail>
-                <row id="53">
+                <row id="45">
+                    <cell id="46">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="47">
+                            <property name="resultSetColumn">STANDARD</property>
+                        </data>
+                    </cell>
+                    <cell id="48">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="49">
+                            <property name="resultSetColumn">SECTION</property>
+                        </data>
+                    </cell>
+                    <cell id="50">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="51">
+                            <property name="resultSetColumn">EXAM</property>
+                        </data>
+                    </cell>
+                    <cell id="52">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="53">
+                            <property name="resultSetColumn">SUBJECT_ID</property>
+                        </data>
+                    </cell>
                     <cell id="54">
                         <property name="borderBottomStyle">solid</property>
                         <property name="borderBottomWidth">thin</property>
@@ -836,7 +668,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <data id="55">
-                            <property name="resultSetColumn">STANDARD</property>
+                            <property name="resultSetColumn">STUDENT_ID</property>
                         </data>
                     </cell>
                     <cell id="56">
@@ -849,7 +681,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <data id="57">
-                            <property name="resultSetColumn">SECTION</property>
+                            <property name="resultSetColumn">GRADE</property>
                         </data>
                     </cell>
                     <cell id="58">
@@ -862,7 +694,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <data id="59">
-                            <property name="resultSetColumn">EXAM</property>
+                            <property name="resultSetColumn">MARK</property>
                         </data>
                     </cell>
                     <cell id="60">
@@ -875,7 +707,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <data id="61">
-                            <property name="resultSetColumn">SKILL_ID</property>
+                            <property name="resultSetColumn">FEEDBACK</property>
                         </data>
                     </cell>
                     <cell id="62">
@@ -888,111 +720,7 @@ return wrappedText;
                         <property name="borderTopStyle">solid</property>
                         <property name="borderTopWidth">thin</property>
                         <data id="63">
-                            <property name="resultSetColumn">MAKER_ID</property>
-                        </data>
-                    </cell>
-                    <cell id="64">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <data id="65">
-                            <property name="resultSetColumn">CHECKER_ID</property>
-                        </data>
-                    </cell>
-                    <cell id="66">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <data id="67">
-                            <property name="resultSetColumn">MAKER_DATE_STAMP</property>
-                        </data>
-                    </cell>
-                    <cell id="68">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <data id="69">
-                            <property name="resultSetColumn">CHECKER_DATE_STAMP</property>
-                        </data>
-                    </cell>
-                    <cell id="70">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <data id="71">
-                            <property name="resultSetColumn">RECORD_STATUS</property>
-                        </data>
-                    </cell>
-                    <cell id="72">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <data id="73">
-                            <property name="resultSetColumn">AUTH_STATUS</property>
-                        </data>
-                    </cell>
-                    <cell id="74">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <data id="75">
                             <property name="resultSetColumn">VERSION_NUMBER</property>
-                        </data>
-                    </cell>
-                    <cell id="76">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <data id="77">
-                            <property name="resultSetColumn">MAKER_REMARKS</property>
-                        </data>
-                    </cell>
-                    <cell id="78">
-                        <property name="borderBottomStyle">solid</property>
-                        <property name="borderBottomWidth">thin</property>
-                        <property name="borderLeftStyle">solid</property>
-                        <property name="borderLeftWidth">thin</property>
-                        <property name="borderRightStyle">solid</property>
-                        <property name="borderRightWidth">thin</property>
-                        <property name="borderTopStyle">solid</property>
-                        <property name="borderTopWidth">thin</property>
-                        <data id="79">
-                            <property name="resultSetColumn">CHECKER_REMARKS</property>
                         </data>
                     </cell>
                 </row>
