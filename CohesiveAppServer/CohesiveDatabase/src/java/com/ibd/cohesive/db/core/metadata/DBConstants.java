@@ -417,6 +417,10 @@ public class DBConstants {
     public static  String[][] IVW_TEACHER_E_CIRCULAR_SIGNATURE;
     public static  String[][] IVW_INSITUTE_OTHER_DETAILS;
     public static  String[][] INSTITUTE_PAYMENT_MASTER;
+    public static  String[][] STUDENT_NOTIFICATION_MESSAGE;
+    public static  String[][] IVW_MESSAGE_TEMPLATE_MASTER;
+    public static  String[][] IVW_MESSAGE_TEMPLATE_DETAIL;
+    
     public static void setDBConstants() throws IOException{
         
         try{
@@ -797,6 +801,9 @@ public class DBConstants {
             IVW_TEACHER_E_CIRCULAR_SIGNATURE=getArray("IVW_TEACHER_E_CIRCULAR_SIGNATURE",ibdproperties);
             IVW_INSITUTE_OTHER_DETAILS=getArray("IVW_INSITUTE_OTHER_DETAILS",ibdproperties);
             INSTITUTE_PAYMENT_MASTER=getArray("INSTITUTE_PAYMENT_MASTER",ibdproperties);
+            STUDENT_NOTIFICATION_MESSAGE=getArray("STUDENT_NOTIFICATION_MESSAGE",ibdproperties);
+            IVW_MESSAGE_TEMPLATE_MASTER=getArray("IVW_MESSAGE_TEMPLATE_MASTER",ibdproperties);
+            IVW_MESSAGE_TEMPLATE_DETAIL=getArray("IVW_MESSAGE_TEMPLATE_DETAIL",ibdproperties);
        }catch(Exception ex){
             throw ex;
         }    
@@ -1174,6 +1181,9 @@ public class DBConstants {
         IVW_TEACHER_E_CIRCULAR_SIGNATURE=null;
         IVW_INSITUTE_OTHER_DETAILS=null;
         INSTITUTE_PAYMENT_MASTER=null;
+        STUDENT_NOTIFICATION_MESSAGE=null;
+        IVW_MESSAGE_TEMPLATE_MASTER=null;
+        IVW_MESSAGE_TEMPLATE_DETAIL=null;
     }catch(Exception ex){
             throw ex;
         }    
