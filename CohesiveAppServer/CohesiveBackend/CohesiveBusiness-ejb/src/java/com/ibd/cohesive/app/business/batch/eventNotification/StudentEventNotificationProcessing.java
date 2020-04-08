@@ -160,93 +160,104 @@ public class StudentEventNotificationProcessing implements IStudentEventNotifica
                Map<String,List<DBRecord>>titleGroup=smsRecords.stream().collect(Collectors.groupingBy(rec->rec.getRecord().get(5)));
                
                
-               if(titleGroup.containsKey("Exam Result")){
-                
-                   
-                   List<DBRecord>examResultRecord=titleGroup.get("Exam Result");
-                   
-                   message=message.concat("Exam Result:"+ getMessageForTheTitle("Exam Result",examResultRecord));
-                   
-               }
-               if(titleGroup.containsKey("School Fees")){
-                
-                   List<DBRecord>schoolFeesRecord=titleGroup.get("School Fees");
-                   
-                   message=message.concat("School Fees:"+getMessageForTheTitle("School Fees",schoolFeesRecord));
-                   
-               }
-               if(titleGroup.containsKey("Attendance")){
-                
-                   List<DBRecord>attendanceRecord=titleGroup.get("Attendance");
-                   
-                   message=message.concat("Attendance:"+getMessageForTheTitle("Attendance",attendanceRecord));
-                   
-               }
-               if(titleGroup.containsKey("Disciplinary action")){
-                
-                   List<DBRecord>disciplinaryActionRecord=titleGroup.get("Disciplinary action");
-                   
-                   message=message.concat("Disciplinary action:"+getMessageForTheTitle("Disciplinary action",disciplinaryActionRecord));
-                   
-               }
-               if(titleGroup.containsKey("Video")){
-                
-                   List<DBRecord>videoRecord=titleGroup.get("Video");
-                   
-                   message=message.concat("Video:"+getMessageForTheTitle("Video",videoRecord));
-                   
-               }
-               if(titleGroup.containsKey("Homework")){
-                
-                   List<DBRecord>homeWorkRecord=titleGroup.get("Homework");
-                   
-                   message=message.concat("Homework:"+getMessageForTheTitle("Homework",homeWorkRecord));
-                   
-               }
+//               if(titleGroup.containsKey("Exam Result")){
+//                
+//                   
+//                   List<DBRecord>examResultRecord=titleGroup.get("Exam Result");
+//                   
+//                   message=message.concat("Exam Result:"+ getMessageForTheTitle("Exam Result",examResultRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("School Fees")){
+//                
+//                   List<DBRecord>schoolFeesRecord=titleGroup.get("School Fees");
+//                   
+//                   message=message.concat("School Fees:"+getMessageForTheTitle("School Fees",schoolFeesRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("Attendance")){
+//                
+//                   List<DBRecord>attendanceRecord=titleGroup.get("Attendance");
+//                   
+//                   message=message.concat("Attendance:"+getMessageForTheTitle("Attendance",attendanceRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("Disciplinary action")){
+//                
+//                   List<DBRecord>disciplinaryActionRecord=titleGroup.get("Disciplinary action");
+//                   
+//                   message=message.concat("Disciplinary action:"+getMessageForTheTitle("Disciplinary action",disciplinaryActionRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("Video")){
+//                
+//                   List<DBRecord>videoRecord=titleGroup.get("Video");
+//                   
+//                   message=message.concat("Video:"+getMessageForTheTitle("Video",videoRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("Homework")){
+//                
+//                   List<DBRecord>homeWorkRecord=titleGroup.get("Homework");
+//                   
+//                   message=message.concat("Homework:"+getMessageForTheTitle("Homework",homeWorkRecord));
+//                   
+//               }
+//               
+//               
+//               
+//               if(titleGroup.containsKey("தேர்வு முடிவு")){
+//                
+//                   
+//                   List<DBRecord>examResultRecord=titleGroup.get("தேர்வு முடிவு");
+//                   
+//                   message=message.concat("தேர்வு முடிவு:"+ getMessageForTheTitle("தேர்வு முடிவு",examResultRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("பள்ளி கட்டணம்")){
+//                
+//                   List<DBRecord>schoolFeesRecord=titleGroup.get("பள்ளி கட்டணம்");
+//                   
+//                   message=message.concat("பள்ளி கட்டணம்:"+getMessageForTheTitle("பள்ளி கட்டணம்",schoolFeesRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("வருகை")){
+//                
+//                   List<DBRecord>attendanceRecord=titleGroup.get("வருகை");
+//                   
+//                   message=message.concat("வருகை:"+getMessageForTheTitle("வருகை",attendanceRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("ஒழுங்கு நடவடிக்கை")){
+//                
+//                   List<DBRecord>disciplinaryActionRecord=titleGroup.get("ஒழுங்கு நடவடிக்கை");
+//                   
+//                   message=message.concat("ஒழுங்கு நடவடிக்கை:"+getMessageForTheTitle("ஒழுங்கு நடவடிக்கை",disciplinaryActionRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("வீடியோ")){
+//                
+//                   List<DBRecord>videoRecord=titleGroup.get("வீடியோ");
+//                   
+//                   message=message.concat("வீடியோ:"+getMessageForTheTitle("வீடியோ",videoRecord));
+//                   
+//               }
+//               if(titleGroup.containsKey("வீட்டு பாடம்")){
+//                
+//                   List<DBRecord>homeWorkRecord=titleGroup.get("வீட்டு பாடம்");
+//                   
+//                   message=message.concat("வீட்டு பாடம்:"+getMessageForTheTitle("வீட்டு பாடம்",homeWorkRecord));
+//                   
+//               }
                
-               
-               
-               if(titleGroup.containsKey("தேர்வு முடிவு")){
+               Iterator<String>titleIterator=titleGroup.keySet().iterator();
                 
+               while(titleIterator.hasNext()){
                    
-                   List<DBRecord>examResultRecord=titleGroup.get("தேர்வு முடிவு");
-                   
-                   message=message.concat("தேர்வு முடிவு:"+ getMessageForTheTitle("தேர்வு முடிவு",examResultRecord));
-                   
-               }
-               if(titleGroup.containsKey("பள்ளி கட்டணம்")){
-                
-                   List<DBRecord>schoolFeesRecord=titleGroup.get("பள்ளி கட்டணம்");
-                   
-                   message=message.concat("பள்ளி கட்டணம்:"+getMessageForTheTitle("பள்ளி கட்டணம்",schoolFeesRecord));
-                   
-               }
-               if(titleGroup.containsKey("வருகை")){
-                
-                   List<DBRecord>attendanceRecord=titleGroup.get("வருகை");
-                   
-                   message=message.concat("வருகை:"+getMessageForTheTitle("வருகை",attendanceRecord));
-                   
-               }
-               if(titleGroup.containsKey("ஒழுங்கு நடவடிக்கை")){
-                
-                   List<DBRecord>disciplinaryActionRecord=titleGroup.get("ஒழுங்கு நடவடிக்கை");
-                   
-                   message=message.concat("ஒழுங்கு நடவடிக்கை:"+getMessageForTheTitle("ஒழுங்கு நடவடிக்கை",disciplinaryActionRecord));
-                   
-               }
-               if(titleGroup.containsKey("வீடியோ")){
-                
-                   List<DBRecord>videoRecord=titleGroup.get("வீடியோ");
-                   
-                   message=message.concat("வீடியோ:"+getMessageForTheTitle("வீடியோ",videoRecord));
-                   
-               }
-               if(titleGroup.containsKey("வீட்டு பாடம்")){
-                
-                   List<DBRecord>homeWorkRecord=titleGroup.get("வீட்டு பாடம்");
-                   
-                   message=message.concat("வீட்டு பாடம்:"+getMessageForTheTitle("வீட்டு பாடம்",homeWorkRecord));
+                   String title=titleIterator.next();
+                   List<DBRecord>titleRecord=titleGroup.get(title);
+//                   
+                   message=message.concat(title+getMessageForTheTitle(title,titleRecord));
                    
                }
                
@@ -286,6 +297,7 @@ public class StudentEventNotificationProcessing implements IStudentEventNotifica
 
                                         this.updateEventNotificationStatus(instituteID, studentID, "S", session, dbSession, inject,"S");
                                          batchUtil.updateStudentNotificationStatusTable(studentID, "Event", l_businessDate, mobileNo, "S", " ", instituteID, inject, session, dbSession);
+                                         this.studentLevelMessageUpdate(studentID, l_businessDate, messageToSend,instituteID);
                                          tc.commit(session, dbSession);
                                      }else {
                                          tc.rollBack(session, dbSession);
@@ -638,6 +650,82 @@ public class StudentEventNotificationProcessing implements IStudentEventNotifica
            throw new BSProcessingException(ex.toString());
         }
     }
+    private void studentLevelMessageUpdate(String studentID,String date,String message,String instituteID)throws  BSProcessingException,DBValidationException,DBProcessingException,BSValidationException {
+    
+    try{
+        
+        
+        dbg("inside studentLevelMessageUpdate");
+        dbg("inside studentLevelMessageUpdate--->message-->"+message);
+        
+        String[] dateArr=date.split("-");
+        String notificationID="E"+dateArr[0]+dateArr[1]+dateArr[2];
+        
+        String[] statusPKey={studentID,notificationID,date};
+        IDBReadBufferService readBuffer=inject.getDBReadBufferService();
+        IBDProperties i_db_properties=session.getCohesiveproperties();
+        IDBTransactionService dbts=inject.getDBTransactionService();
+        boolean recordExistence=false;
+        
+        try{
+            
+            
+            
+           
+            
+            readBuffer.readRecord("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"STUDENT"+i_db_properties.getProperty("FOLDER_DELIMITER")+studentID+i_db_properties.getProperty("FOLDER_DELIMITER")+"Notification","STUDENT", "STUDENT_NOTIFICATION_MESSAGE", statusPKey, session, dbSession);
+            
+            recordExistence=true;
+            
+        }catch(DBValidationException ex){
+                    if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
+                        session.getErrorhandler().removeSessionErrCode("DB_VAL_011");
+                        session.getErrorhandler().removeSessionErrCode("DB_VAL_000");
+                        recordExistence=false;
+                    }else{
+                        
+                        throw ex;
+                    }
+            }
+        
+        dbg("inside studentLevelMessageUpdate--->recordExistence-->"+recordExistence);
+        
+        if(recordExistence){
+            
+            Map<String,String>l_column_to_update=new HashMap();
+            l_column_to_update.put("4", message);
+            
+             dbts.updateColumn("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"STUDENT"+i_db_properties.getProperty("FOLDER_DELIMITER")+studentID+i_db_properties.getProperty("FOLDER_DELIMITER")+"Notification","STUDENT", "STUDENT_NOTIFICATION_MESSAGE", statusPKey, l_column_to_update, session);
+        }else{
+            
+            
+           dbts.createRecord(session,"INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"STUDENT"+i_db_properties.getProperty("FOLDER_DELIMITER")+studentID+i_db_properties.getProperty("FOLDER_DELIMITER")+"Notification","STUDENT",358,studentID,notificationID,date,message);
+            
+        }
+        
+        
+        
+        dbg("end of student level message update");
+        
+    }catch(DBValidationException ex){
+            throw ex;
+        }catch(DBProcessingException ex){
+            dbg(ex);
+            throw new DBProcessingException("DBProcessingException"+ex.toString());
+        }catch (Exception ex) {
+            dbg(ex);
+            throw new BSProcessingException("Exception" + ex.toString());
+        }
+    
+    
+    
+    
+    
+}
+
+
+
+
   
 //    private void buildRequestAndCallStudentFee(String l_studentID,String l_eventNotificationID,int p_versionNumber,String instituteID,String businessDate)throws BSProcessingException,DBValidationException,DBProcessingException,BSValidationException{  
 //     ITransactionControlService tc=null;

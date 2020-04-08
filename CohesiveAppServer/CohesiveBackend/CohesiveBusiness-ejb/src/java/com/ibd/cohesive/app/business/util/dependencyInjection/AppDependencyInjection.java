@@ -139,6 +139,7 @@ import com.ibd.cohesive.app.business.batch.feeNotification.IFeeNotificationBatch
 import com.ibd.cohesive.app.business.batch.feeNotification.IFeeNotificationProcessing;
 import com.ibd.cohesive.app.business.batch.feeNotification.IStudentFeeNotificationProcessing;
 import com.ibd.cohesive.app.business.batch.unAuth.IUnAuthBatchProcessing;
+import com.ibd.cohesive.app.business.classentity.classattendance.IAttendanceNotificationService;
 import com.ibd.cohesive.app.business.notification.INotificationTransferService;
 import com.ibd.cohesive.app.business.util.NotificationUtil;
 
@@ -1074,6 +1075,15 @@ public IPDataService getPdataservice() throws NamingException { //EJB Integratio
 
             
             return amazonSMS;
+    }
+  
+  
+  public IAttendanceNotificationService getAttendanceNotificationService() throws NamingException{ //EJB Integration change
+    
+        IAttendanceNotificationService businessLock = (IAttendanceNotificationService)
+         contxt.lookup("java:app/CohesiveBusiness-ejb/AttendanceNotificationService!com.ibd.cohesive.app.business.classentity.classattendance.IAttendanceNotificationService");
+        return businessLock;
+        
     }
   
 //  public ITeacherTimeTableService getTeacherTimeTableService() throws NamingException{
