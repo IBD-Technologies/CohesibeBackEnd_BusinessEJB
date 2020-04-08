@@ -6,6 +6,8 @@
 package com.ibd.cohesive.report.businessreport.dataSets.institute;
 
 import com.ibd.cohesive.app.business.util.BusinessService;
+import com.ibd.cohesive.app.business.util.EndPoint;
+import com.ibd.cohesive.app.business.util.NotificationUtil;
 import com.ibd.cohesive.app.business.util.dependencyInjection.AppDependencyInjection;
 import com.ibd.cohesive.db.core.pdata.IPDataService;
 import com.ibd.cohesive.db.readbuffer.DBRecord;
@@ -151,6 +153,112 @@ public class NotificationDetailBusinessDataSet {
             }
         
         }
+      dbg("event notification processing started",session);  
+        
+        ArrayList<String>studentsList=this.getStudentsList(p_studentID, standard, section, l_instituteID, session, dbSession, appInject);
+        
+        for(int i=0;i<studentsList.size();i++){
+            
+            String studentID=studentsList.get(i);
+            Map<String,DBRecord>studentMessageMap=null;;
+            dbg("event notification processing studentID--->"+studentID,session);
+            
+            try{
+                        
+                        studentMessageMap= readBuffer.readTable("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+l_instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"STUDENT"+i_db_properties.getProperty("FOLDER_DELIMITER")+studentID+i_db_properties.getProperty("FOLDER_DELIMITER")+"Notification","STUDENT", "STUDENT_NOTIFICATION_MESSAGE", session, dbSession);
+                        
+                        
+                        }catch(DBValidationException ex){
+                                dbg("exception in view operation"+ex,session);
+                                if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
+                                    session.getErrorhandler().removeSessionErrCode("DB_VAL_011");
+                                    session.getErrorhandler().removeSessionErrCode("DB_VAL_000");
+        //                            session.getErrorhandler().log_app_error("BS_VAL_013", l_notificationID);
+        //                            throw new BSValidationException("BSValidationException");
+
+                                }else{
+
+                                    throw ex;
+                                }
+                            }
+            
+            
+            if(studentMessageMap!=null){
+                
+                dbg("student messagemap not null",session);
+                
+               List<DBRecord>studentRecords= studentMessageMap.values().stream().collect(Collectors.toList());
+                
+               Iterator<DBRecord>valueIterator=studentRecords.iterator();
+               String dateFormat=session.getCohesiveproperties().getProperty("DATE_FORMAT");
+               SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+               
+               while(valueIterator.hasNext()){
+                   
+                   DBRecord  messageRecord=valueIterator.next();
+                   String l_notificationDate=messageRecord.getRecord().get(2);
+                   Date notificationDate=formatter.parse(l_notificationDate);
+                   Date l_fromDate=formatter.parse(fromDate);
+                   Date l_toDate=formatter.parse(toDate);
+                   String l_notificationID=messageRecord.getRecord().get(1);
+                   dbg("notificationDate"+notificationDate,session);
+                   dbg("l_notificationID"+l_notificationID,session);
+                
+                if(notificationDate.compareTo(l_fromDate)>=0){
+                    dbg("from date suceess",session);
+                    
+                    if(notificationDate.compareTo(l_toDate)<=0){
+                        dbg("to date suceess",session);
+                        
+                        
+                         
+                         String l_message=messageRecord.getRecord().get(3);
+                         String[] studentPkey = {studentID};
+                         ArrayList<String> l_studentList = pds.readRecordPData(session, dbSession, "INSTITUTE" + i_db_properties.getProperty("FOLDER_DELIMITER") + l_instituteID + i_db_properties.getProperty("FOLDER_DELIMITER") + l_instituteID, "INSTITUTE", "IVW_STUDENT_MASTER", studentPkey);
+                         String l_standard = l_studentList.get(2).trim();
+                         String l_section = l_studentList.get(3).trim();
+                         
+                         String status=this.getStatus(studentID, l_notificationID, l_notificationDate, l_instituteID, session, dbSession, appInject);
+                         
+                         
+                         
+                         
+                         NotificationDetailBusiness notificationDetail=new NotificationDetailBusiness();
+                                 
+                                 notificationDetail.setDate(l_notificationDate);
+                                 notificationDetail.setNotificationType("Event");
+                                 notificationDetail.setSection(l_section);
+                                 notificationDetail.setStandard(l_standard);
+                                 notificationDetail.setStatus(status);
+                                 notificationDetail.setStudentID(studentID);
+                                 notificationDetail.setStudentName(bs.getStudentName(studentID, l_instituteID, session, dbSession, appInject));
+                                 notificationDetail.setMessage(l_message);
+                                 notificationDetail.setSerialNumber(Integer.toString(k));
+                                 dataset.add(notificationDetail);
+                        
+                    }
+                    
+                
+                    }
+                
+                
+                
+                
+                   
+               }
+               
+               
+                
+            }
+            
+            
+            
+            
+        }
+        
+        
+        
+        
         
         if(dataset.isEmpty()){
             
@@ -185,6 +293,124 @@ public class NotificationDetailBusinessDataSet {
        return dataset;
     }
     
+    private String getStatus(String studentID,String notificationID,String notificationDate,String instituteID,CohesiveSession session, DBSession dbSession,AppDependencyInjection appInject)throws DBProcessingException,DBValidationException,BSProcessingException,BSValidationException{
+        
+        try{
+        
+            dbg("inside getStatus",session);
+            String status;
+            IBDProperties i_db_properties=session.getCohesiveproperties();
+            IDBReadBufferService readBuffer=appInject.getDBReadBufferService();
+            String mobileStatus;
+            String emailStatus=new String();
+            
+            NotificationUtil notificationUtil=appInject.getNotificationUtil(session);
+                         EndPoint endPoint=notificationUtil.getEndPoints(instituteID, studentID, session, dbSession, appInject);
+                         String mobileNo=endPoint.getMobileNo();
+                         String[] mobileStatusPKey={studentID,notificationID,notificationDate,mobileNo};
+                         
+                         
+                         DBRecord mobileStatusRecord=readBuffer.readRecord("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"STUDENT"+i_db_properties.getProperty("FOLDER_DELIMITER")+studentID+i_db_properties.getProperty("FOLDER_DELIMITER")+"Notification","STUDENT", "STUDENT_NOTIFICATION_STATUS", mobileStatusPKey, session, dbSession);
+                         
+                         
+                         mobileStatus=mobileStatusRecord.getRecord().get(3).trim();
+            try{
+            
+            String email=endPoint.getEmailID();
+                         String[] emailStatusPKey={studentID,notificationID,notificationDate,email};
+                         
+                         DBRecord emailStatusRecord=readBuffer.readRecord("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+"STUDENT"+i_db_properties.getProperty("FOLDER_DELIMITER")+studentID+i_db_properties.getProperty("FOLDER_DELIMITER")+"Notification","STUDENT", "STUDENT_NOTIFICATION_STATUS", emailStatusPKey, session, dbSession);
+                         
+                         
+                         emailStatus=emailStatusRecord.getRecord().get(3).trim();
+                
+                
+            }catch(DBValidationException ex){
+                                dbg("exception in view operation"+ex,session);
+                                if(ex.toString().contains("DB_VAL_011")||ex.toString().contains("DB_VAL_000")){
+                                    session.getErrorhandler().removeSessionErrCode("DB_VAL_011");
+                                    session.getErrorhandler().removeSessionErrCode("DB_VAL_000");
+        //                            session.getErrorhandler().log_app_error("BS_VAL_013", l_notificationID);
+        //                            throw new BSValidationException("BSValidationException");
+
+                                }else{
+
+                                    throw ex;
+                                }
+                            }
+            
+            
+            if(mobileStatus.equals("F")||emailStatus.equals("F")){
+                
+                status="F";
+            }else if(mobileStatus.equals("W")||emailStatus.equals("W")){
+                
+                status="W";
+            }else{
+                status="S";
+            }
+            
+            
+            dbg("end of getStatus",session); 
+        return status;
+        }catch(DBProcessingException ex){
+          dbg(ex,session);
+          throw new DBProcessingException("DBProcessingException"+ex.toString());
+      }catch(DBValidationException ex){
+          dbg(ex,session);
+          throw ex;
+     }catch(Exception ex){
+         dbg(ex,session);
+         throw new DBProcessingException("DBProcessingException"+ex.toString());
+     }
+    }
+    
+    
+    
+    
+    
+    
+    private ArrayList<String>getStudentsList(String studentID,String standard,String section,String instituteID,CohesiveSession session, DBSession dbSession,AppDependencyInjection appInject)throws DBProcessingException,DBValidationException,BSProcessingException,BSValidationException{
+        
+        try{
+        
+            ArrayList<String>studentsList=new ArrayList();
+            IPDataService pds=appInject.getPdataservice();
+            BusinessService bs=appInject.getBusinessService(session);
+            IBDProperties i_db_properties=session.getCohesiveproperties();
+            
+            if(studentID!=null&&!studentID.isEmpty()){
+                
+                studentsList.add(studentID);
+            }else if(standard!=null&&!standard.isEmpty()&&section!=null&&!section.isEmpty()){
+            
+            Map<String,ArrayList<String>>studentMasterMap=pds.readTablePData("INSTITUTE"+i_db_properties.getProperty("FOLDER_DELIMITER")+instituteID+i_db_properties.getProperty("FOLDER_DELIMITER")+instituteID, "INSTITUTE", "IVW_STUDENT_MASTER", session, dbSession);
+        dbg("studentMasterMap size"+studentMasterMap.size(),session);
+        Map<String,List<ArrayList<String>>>l_studentGroup=studentMasterMap.values().stream().filter(rec->rec.get(2).trim().equals(standard)&&rec.get(3).trim().equals(section)&&rec.get(8).trim().equals("O")).collect(Collectors.groupingBy(rec->rec.get(0).trim()));
+        dbg("l_studentGroup size"+l_studentGroup.size(),session);
+        
+        studentsList=new ArrayList(l_studentGroup.keySet());
+        
+        
+        }else{
+                
+               studentsList =bs.getStudentsOfTheInstitute(instituteID, session, dbSession, appInject);
+                
+            }
+            
+            
+        return studentsList;
+        }catch(DBProcessingException ex){
+          dbg(ex,session);
+          throw new DBProcessingException("DBProcessingException"+ex.toString());
+      }catch(DBValidationException ex){
+          dbg(ex,session);
+          throw ex;
+     }catch(Exception ex){
+         dbg(ex,session);
+         throw new DBProcessingException("DBProcessingException"+ex.toString());
+     }
+    }
     
     
     private List<DBRecord>getFilteredNotificationRecords(String notificationType,String standard,String section,String studentID,String instituteID,Map<String,DBRecord>instituteNotificationMap,CohesiveSession session,AppDependencyInjection appInject,DBSession dbSession,String p_fromDate,String p_toDate)throws DBProcessingException,DBValidationException,BSProcessingException,BSValidationException{
