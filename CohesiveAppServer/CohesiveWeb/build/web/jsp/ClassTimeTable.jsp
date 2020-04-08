@@ -86,25 +86,19 @@
                     <div id="detailSection" ng-show="!searchShow&&detailshow">
                         <ul class="nav nav-tabs mb-4 " id="myTab" role="tablist">
                             <li class="nav-item cohesiveTabPadding">
-                                <a class="nav-link active ContentTabNavlink1" id="mondayTab" data-toggle="tab" href="#monday" role="tab" aria-selected="false">Mo</a>
+                                <a class="nav-link active ContentTabNavlink1" id="mondayTab" data-toggle="tab" href="#monday" role="tab" aria-selected="false">Mon</a>
                             </li>
                             <li class="nav-item cohesiveTabPadding">
-                                <a class="nav-link ContentTabNavlink1" id="tuesdayTab" data-toggle="tab" href="#tuesday" role="tab" aria-selected="false">Tu</a>
+                                <a class="nav-link ContentTabNavlink1" id="tuesdayTab" data-toggle="tab" href="#tuesday" role="tab" aria-selected="false">Tue</a>
                             </li>
                             <li class="nav-item cohesiveTabPadding">
-                                <a class="nav-link ContentTabNavlink1" id="wednesdayTab" data-toggle="tab" href="#wednesday" role="tab" aria-selected="false">We</a>
+                                <a class="nav-link ContentTabNavlink1" id="wednesdayTab" data-toggle="tab" href="#wednesday" role="tab" aria-selected="false">Wed</a>
                             </li>
                             <li class="nav-item cohesiveTabPadding">
-                                <a class="nav-link ContentTabNavlink1" id="thursdayTab" data-toggle="tab" href="#thursday" role="tab" aria-selected="true">Th </a>
+                                <a class="nav-link ContentTabNavlink1" id="thursdayTab" data-toggle="tab" href="#thursday" role="tab" aria-selected="true">Thu </a>
                             </li>
                             <li class="nav-item cohesiveTabPadding">
-                                <a class="nav-link ContentTabNavlink1" id="fridayTab" data-toggle="tab" href="#friday" role="tab" aria-selected="false">Fr</a>
-                            </li>
-                            <li class="nav-item cohesiveTabPadding">
-                                <a class="nav-link ContentTabNavlink1" id="saturdayTab" data-toggle="tab" href="#saturday" role="tab" aria-selected="false">Sa</a>
-                            </li>
-                            <li class="nav-item cohesiveTabPadding">
-                                <a class="nav-link ContentTabNavlink1" id="sundayTab" data-toggle="tab" href="#sunday" role="tab" aria-selected="false">Su</a>
+                                <a class="nav-link ContentTabNavlink1" id="fridayTab" data-toggle="tab" href="#friday" role="tab" aria-selected="false">Fri</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -488,162 +482,6 @@
 
                                 </div>
                             </div>
-                            
-                            
-                            <div class="tab-pane fade" id="saturday" role="tabpanel" aria-labelledby="saturdayTab">
-                                <div class="text-center contentDetailTab">Saturday Time Table</div>
-                                <nav class="navbar navbar-light bg-light contentDetailTabNav">
-                                    <ul class="pagination pagination-sm   mb-0">
-                                        <li class="page-item"><a class="page-link page_style svwRecCount"><span class="svwRecCount">{{fnSvwGetCurrentPage('saturdayTable')}}</span></a></li>
-                                        <li class="page-item"><a class="page-link page_style svwRecCount"><span class="svwRecCount">of</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link page_style svwRecCount">
-                                                <span class="svwRecCount">{{fnSvwGetTotalPage('saturdayTable')}}</span></a>
-                                        </li>
-                                    </ul>
-                                    <div>
-                                    </div>
-                                    <ul class="pagination pagination-sm justify-content-end mb-0">
-                                        <li class="page-item"><a id="backwardButton" ng-click="fnSvwBackward('saturdayTable',$event)" class="page-link page_style"><span class="badge badge-light cohesive_badge"><i class="fas fa-chevron-left"></i></span></a></li>
-                                        <li class="page-item"><a id="forwardButton" ng-click="fnSvwForward('saturdayTable',$event)" class="page-link page_style"><span class="badge badge-light cohesive_badge"><i class="fas fa-chevron-right"></i></span></a></li>
-                                        <li class="page-item">
-                                            <a id="addButton" ng-click="fnSvwAddRow('saturdayTable',$event)" class="page-link page_style"> <span class="badge badge-light cohesive_badge"><i class="fas fa-plus"></i></span></a>
-                                        </li>
-                                        <li class="page-item"><a id="deleteButton" ng-click="fnSvwDeleteRow('saturdayTable',$event)" class="page-link page_style"><span class="badge badge-light cohesive_badge"><i class="fas fa-minus"></i></span></a></li>
-                                    </ul>
-                                </nav>
-                                <div ng-show="SaturdayShowObject" id="saturdayTable">
-                                    <div class="form-group row">
-                                        <label for="periodNumber" class="col-3 col-form-label">Period Number</label>
-                                        <div class="col-9">
-                                            <div class="input-group">
-                                                <select class="custom-select" id="periodNumber5" ng-disabled="periodNumberReadonly" ng-model="SaturdayRecord.periodNumber">
-                                                    <option ng-repeat="x in period" value="{{x}}">{{x}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row ">
-                                        <label for="subject" class="col-3 col-form-label">Subject</label>
-                                        <div class="col-9">
-                                            <div class=" input-group">
-                                                <select class="custom-select" id="subject5" ng-disabled="subjectNamereadOnly" ng-model="SaturdayRecord.subjectID">
-                                                    <option ng-repeat="x in subjects" value="{{x.id}}">{{x.name}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                                                        <div class="form-group row">
-                                        <label for="teacherName" class="col-3 col-form-label">Staff Name</label>
-                                        <div class="col-9">
-                                            <div class="input-group">
-                                                <input id="teacherName" type="text" ng-readonly="teacherNameInputReadonly" ng-model="SaturdayRecord.teacherName" class="form-control">
-                                                <div class="input-group-append">
-                                                    <button type="button" class="btn btn-primary" ng-disabled="teacherNameReadonly" ng-click="fnTeacherSearch()"><i class="fas fa-search"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="from" class="col-3 col-form-label">Start Time</label>
-                                        <div class="col-9">
-                                            <div class="input-group">
-                                                <input type="text" ng-model="SaturdayRecord.startTime.hour" ng-readonly="startTimereadOnly" class="form-control">
-                                                <input type="text" ng-model="SaturdayRecord.startTime.min" ng-readonly="startTimereadOnly" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="from" class="col-3 col-form-label">End Time</label>
-                                        <div class="col-9">
-                                            <div class="input-group">
-                                                <input type="text" ng-model="SaturdayRecord.endTime.hour" ng-readonly="endTimereadOnly" class="form-control">
-                                                <input type="text" ng-model="SaturdayRecord.endTime.min" ng-readonly="endTimereadOnly" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            
-                            <div class="tab-pane fade" id="sunday" role="tabpanel" aria-labelledby="sundayTab">
-                                <div class="text-center contentDetailTab">Sunday Time Table</div>
-                                <nav class="navbar navbar-light bg-light contentDetailTabNav">
-                                    <ul class="pagination pagination-sm   mb-0">
-                                        <li class="page-item"><a class="page-link page_style svwRecCount"><span class="svwRecCount">{{fnSvwGetCurrentPage('sundayTable')}}</span></a></li>
-                                        <li class="page-item"><a class="page-link page_style svwRecCount"><span class="svwRecCount">of</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link page_style svwRecCount">
-                                                <span class="svwRecCount">{{fnSvwGetTotalPage('sundayTable')}}</span></a>
-                                        </li>
-                                    </ul>
-                                    <div>
-                                    </div>
-                                    <ul class="pagination pagination-sm justify-content-end mb-0">
-                                        <li class="page-item"><a id="backwardButton" ng-click="fnSvwBackward('sundayTable',$event)" class="page-link page_style"><span class="badge badge-light cohesive_badge"><i class="fas fa-chevron-left"></i></span></a></li>
-                                        <li class="page-item"><a id="forwardButton" ng-click="fnSvwForward('sundayTable',$event)" class="page-link page_style"><span class="badge badge-light cohesive_badge"><i class="fas fa-chevron-right"></i></span></a></li>
-                                        <li class="page-item">
-                                            <a id="addButton" ng-click="fnSvwAddRow('sundayTable',$event)" class="page-link page_style"> <span class="badge badge-light cohesive_badge"><i class="fas fa-plus"></i></span></a>
-                                        </li>
-                                        <li class="page-item"><a id="deleteButton" ng-click="fnSvwDeleteRow('sundayTable',$event)" class="page-link page_style"><span class="badge badge-light cohesive_badge"><i class="fas fa-minus"></i></span></a></li>
-                                    </ul>
-                                </nav>
-                                <div ng-show="SundayShowObject" id="sundayTable">
-                                    <div class="form-group row">
-                                        <label for="periodNumber" class="col-3 col-form-label">Period Number</label>
-                                        <div class="col-9">
-                                            <div class="input-group">
-                                                <select class="custom-select" id="periodNumber5" ng-disabled="periodNumberReadonly" ng-model="SundayRecord.periodNumber">
-                                                    <option ng-repeat="x in period" value="{{x}}">{{x}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row ">
-                                        <label for="subject" class="col-3 col-form-label">Subject</label>
-                                        <div class="col-9">
-                                            <div class=" input-group">
-                                                <select class="custom-select" id="subject5" ng-disabled="subjectNamereadOnly" ng-model="SundayRecord.subjectID">
-                                                    <option ng-repeat="x in subjects" value="{{x.id}}">{{x.name}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                                                        <div class="form-group row">
-                                        <label for="teacherName" class="col-3 col-form-label">Staff Name</label>
-                                        <div class="col-9">
-                                            <div class="input-group">
-                                                <input id="teacherName" type="text" ng-readonly="teacherNameInputReadonly" ng-model="SundayRecord.teacherName" class="form-control">
-                                                <div class="input-group-append">
-                                                    <button type="button" class="btn btn-primary" ng-disabled="teacherNameReadonly" ng-click="fnTeacherSearch()"><i class="fas fa-search"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="from" class="col-3 col-form-label">Start Time</label>
-                                        <div class="col-9">
-                                            <div class="input-group">
-                                                <input type="text" ng-model="SundayRecord.startTime.hour" ng-readonly="startTimereadOnly" class="form-control">
-                                                <input type="text" ng-model="SundayRecord.startTime.min" ng-readonly="startTimereadOnly" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="from" class="col-3 col-form-label">End Time</label>
-                                        <div class="col-9">
-                                            <div class="input-group">
-                                                <input type="text" ng-model="SundayRecord.endTime.hour" ng-readonly="endTimereadOnly" class="form-control">
-                                                <input type="text" ng-model="SundayRecord.endTime.min" ng-readonly="endTimereadOnly" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            
-                            
-                            
                         </div>
                     </div>
                     <div id="Auditlogsection" ng-show="!searchShow&&auditshow">

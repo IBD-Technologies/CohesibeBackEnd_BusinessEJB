@@ -110,33 +110,7 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 	$scope.FridayTable = null;
 	$scope.FridayCurIndex = 0;
 	$scope.FridayShowObject = false;
-        
-        
-	$scope.SaturdayRecord = {
-	            periodNumber:"Select option",
-                subjectID:"Select option",
-			    teacherName: "",
-			    teacherID: "",
-				startTime:{hour:"Hour",min:"Min"},
-				endTime:{hour:"Hour",min:"Min"}  
-	}
-	$scope.SaturdayTable = null;
-	$scope.SaturdayCurIndex = 0;
-	$scope.SaturdayShowObject = false;
-        
-        $scope.SundayRecord = {
-	            periodNumber:"Select option",
-                subjectID:"Select option",
-			    teacherName: "",
-			    teacherID: "",
-				startTime:{hour:"Hour",min:"Min"},
-				endTime:{hour:"Hour",min:"Min"}  
-	}
-	$scope.SundayTable = null;
-	$scope.SundayCurIndex = 0;
-	$scope.SundayShowObject = false;
-        
-        
+	
 	//single View Ends
 	//Scope Levle Single View functions starts 
 	$scope.fnSvwBackward = function (tableName, $event) {
@@ -203,32 +177,6 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 				$scope.FridayCurIndex = lsvwObject.curIndex;
 				$scope.FridayTable = lsvwObject.tableObject;
 				$scope.FridayRecord = $scope.FridayTable[$scope.FridayCurIndex];
-				//var SelectedArray= ['subject5','periodNumber5'];
-				//fnSelectRefresh(SelectedArray);
-			}
-		}else if (tableName == 'saturdayTable') {
-			if ($scope.SaturdayTable != null && $scope.SaturdayTable.length != 0) {
-				var lsvwObject = new Object();
-				lsvwObject.curIndex = $scope.SaturdayCurIndex;
-				lsvwObject.tableObject = $scope.SaturdayTable;
-
-				TableViewCallService.backwardSvwClick(lsvwObject);
-				$scope.SaturdayCurIndex = lsvwObject.curIndex;
-				$scope.SaturdayTable = lsvwObject.tableObject;
-				$scope.SaturdayRecord = $scope.SaturdayTable[$scope.SaturdayCurIndex];
-				//var SelectedArray= ['subject5','periodNumber5'];
-				//fnSelectRefresh(SelectedArray);
-			}
-		}else if (tableName == 'sundayTable') {
-			if ($scope.SundayTable != null && $scope.SundayTable.length != 0) {
-				var lsvwObject = new Object();
-				lsvwObject.curIndex = $scope.SundayCurIndex;
-				lsvwObject.tableObject = $scope.SundayTable;
-
-				TableViewCallService.backwardSvwClick(lsvwObject);
-				$scope.SundayCurIndex = lsvwObject.curIndex;
-				$scope.SundayTable = lsvwObject.tableObject;
-				$scope.SundayRecord = $scope.SundayTable[$scope.SundayCurIndex];
 				//var SelectedArray= ['subject5','periodNumber5'];
 				//fnSelectRefresh(SelectedArray);
 			}
@@ -304,34 +252,6 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 				$scope.FridayCurIndex = lsvwObject.curIndex;
 				$scope.FridayTable = lsvwObject.tableObject;
 				$scope.FridayRecord = $scope.FridayTable[$scope.FridayCurIndex];
-				//var SelectedArray= ['subject5','periodNumber5'];
-				//fnSelectRefresh(SelectedArray);
-			}
-		}else if (tableName == 'saturdayTable') {
-			if ($scope.SaturdayTable != null && $scope.SaturdayTable.length != 0) {
-				var lsvwObject = new Object();
-
-				lsvwObject.curIndex = $scope.SaturdayCurIndex;
-				lsvwObject.tableObject = $scope.SaturdayTable;
-
-				TableViewCallService.forwardSvwClick(lsvwObject);
-				$scope.SaturdayCurIndex = lsvwObject.curIndex;
-				$scope.SaturdayTable = lsvwObject.tableObject;
-				$scope.SaturdayRecord = $scope.SaturdayTable[$scope.SaturdayCurIndex];
-				//var SelectedArray= ['subject5','periodNumber5'];
-				//fnSelectRefresh(SelectedArray);
-			}
-		}else if (tableName == 'sundayTable') {
-			if ($scope.SundayTable != null && $scope.SundayTable.length != 0) {
-				var lsvwObject = new Object();
-
-				lsvwObject.curIndex = $scope.SundayCurIndex;
-				lsvwObject.tableObject = $scope.SundayTable;
-
-				TableViewCallService.forwardSvwClick(lsvwObject);
-				$scope.SundayCurIndex = lsvwObject.curIndex;
-				$scope.SundayTable = lsvwObject.tableObject;
-				$scope.SundayRecord = $scope.SundayTable[$scope.SundayCurIndex];
 				//var SelectedArray= ['subject5','periodNumber5'];
 				//fnSelectRefresh(SelectedArray);
 			}
@@ -483,62 +403,6 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 				//var SelectedArray= ['subject5','periodNumber5'];
 				//fnSelectRefresh(SelectedArray);
 
-			}else if (tableName == 'saturdayTable') {
-			   emptyTableRec = {
-				idx:0,
-				periodNumber:"Select option",
-                subjectID:"Select option",
-			    teacherName: "",
-			    teacherID: "",
-				startTime:{hour:"Hour",min:"Min"},
-				endTime:{hour:"Hour",min:"Min"}  
-				};
-				if ($scope.SaturdayTable == null)
-					$scope.SaturdayTable = new Array();
-				var lsvwObject = new Object();
-
-				lsvwObject.tableShow = $scope.SaturdayShowObject;
-				lsvwObject.curIndex = $scope.SaturdayCurIndex;
-				lsvwObject.tableObject = $scope.SaturdayTable;
-
-
-				TableViewCallService.addSvwRowClick(emptyTableRec, lsvwObject);
-
-				$scope.SaturdayShowObject = lsvwObject.tableShow;
-				$scope.SaturdayCurIndex = lsvwObject.curIndex;
-				$scope.SaturdayTable = lsvwObject.tableObject;
-				$scope.SaturdayRecord = $scope.SaturdayTable[$scope.SaturdayCurIndex];
-				//var SelectedArray= ['subject5','periodNumber5'];
-				//fnSelectRefresh(SelectedArray);
-
-			}else if (tableName == 'sundayTable') {
-			   emptyTableRec = {
-				idx:0,
-				periodNumber:"Select option",
-                subjectID:"Select option",
-			    teacherName: "",
-			    teacherID: "",
-				startTime:{hour:"Hour",min:"Min"},
-				endTime:{hour:"Hour",min:"Min"}  
-				};
-				if ($scope.SundayTable == null)
-					$scope.SundayTable = new Array();
-				var lsvwObject = new Object();
-
-				lsvwObject.tableShow = $scope.SundayShowObject;
-				lsvwObject.curIndex = $scope.SundayCurIndex;
-				lsvwObject.tableObject = $scope.SundayTable;
-
-
-				TableViewCallService.addSvwRowClick(emptyTableRec, lsvwObject);
-
-				$scope.SundayShowObject = lsvwObject.tableShow;
-				$scope.SundayCurIndex = lsvwObject.curIndex;
-				$scope.SundayTable = lsvwObject.tableObject;
-				$scope.SundayRecord = $scope.SundayTable[$scope.SundayCurIndex];
-				//var SelectedArray= ['subject5','periodNumber5'];
-				//fnSelectRefresh(SelectedArray);
-
 			}
 
 
@@ -624,36 +488,6 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 				$scope.FridayRecord = $scope.FridayTable[$scope.FridayCurIndex];
 				//var SelectedArray= ['subject5','periodNumber5'];
 				//fnSelectRefresh(SelectedArray);
-			}else if (tableName == 'saturdayTable') {
-				var lsvwObject = new Object();
-
-				lsvwObject.tableShow = $scope.SaturdayShowObject;
-				lsvwObject.curIndex = $scope.SaturdayCurIndex;
-				lsvwObject.tableObject = $scope.SaturdayTable;
-
-
-				TableViewCallService.deleteSvwRowClick(lsvwObject)
-				$scope.SaturdayShowObject = lsvwObject.tableShow;
-				$scope.SaturdayCurIndex = lsvwObject.curIndex;
-				$scope.SaturdayTable = lsvwObject.tableObject;
-				$scope.SaturdayRecord = $scope.SaturdayTable[$scope.SaturdayCurIndex];
-				//var SelectedArray= ['subject5','periodNumber5'];
-				//fnSelectRefresh(SelectedArray);
-			}else if (tableName == 'sundayTable') {
-				var lsvwObject = new Object();
-
-				lsvwObject.tableShow = $scope.SundayShowObject;
-				lsvwObject.curIndex = $scope.SundayCurIndex;
-				lsvwObject.tableObject = $scope.SundayTable;
-
-
-				TableViewCallService.deleteSvwRowClick(lsvwObject)
-				$scope.SundayShowObject = lsvwObject.tableShow;
-				$scope.SundayCurIndex = lsvwObject.curIndex;
-				$scope.SundayTable = lsvwObject.tableObject;
-				$scope.SundayRecord = $scope.SundayTable[$scope.SundayCurIndex];
-				//var SelectedArray= ['subject5','periodNumber5'];
-				//fnSelectRefresh(SelectedArray);
 			}
 		}
 	};
@@ -700,22 +534,6 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 			lsvwObject.tableShow = $scope.FridayShowObject;
 			lsvwObject.curIndex = $scope.FridayCurIndex;
 			lsvwObject.tableObject = $scope.FridayTable;
-			return TableViewCallService.SvwGetCurrentPage(lsvwObject);
-
-		}else if (tableName == 'saturdayTable') {
-			var lsvwObject = new Object();
-
-			lsvwObject.tableShow = $scope.SaturdayShowObject;
-			lsvwObject.curIndex = $scope.SaturdayCurIndex;
-			lsvwObject.tableObject = $scope.SaturdayTable;
-			return TableViewCallService.SvwGetCurrentPage(lsvwObject);
-
-		}else if (tableName == 'sundayTable') {
-			var lsvwObject = new Object();
-
-			lsvwObject.tableShow = $scope.SaturdayShowObject;
-			lsvwObject.curIndex = $scope.SundayCurIndex;
-			lsvwObject.tableObject = $scope.SundayTable;
 			return TableViewCallService.SvwGetCurrentPage(lsvwObject);
 
 		}
@@ -768,24 +586,6 @@ app.controller('SubScreenCtrl', function ($scope, $compile, $timeout, appServerC
 			return TableViewCallService.SvwGetTotalPage(lsvwObject);
 
 
-		}else if (tableName == 'saturdayTable') {
-			var lsvwObject = new Object();
-
-			lsvwObject.tableShow = $scope.SaturdayShowObject;
-			lsvwObject.curIndex = $scope.SaturdayCurIndex;
-			lsvwObject.tableObject = $scope.SaturdayTable;
-			return TableViewCallService.SvwGetTotalPage(lsvwObject);
-
-
-		}else if (tableName == 'sundayTable') {
-			var lsvwObject = new Object();
-
-			lsvwObject.tableShow = $scope.SundayShowObject;
-			lsvwObject.curIndex = $scope.SundayCurIndex;
-			lsvwObject.tableObject = $scope.SundayTable;
-			return TableViewCallService.SvwGetTotalPage(lsvwObject);
-
-
 		}
 	};
 
@@ -821,14 +621,6 @@ $(document).ready(function () {
 	 $("#fridayTab").on('show.bs.tab', function (e) {
 	day = "Fri";
 	tabClick= "Friday";
-  });
-   $("#saturdayTab").on('show.bs.tab', function (e) {
-	day = "Fri";
-	tabClick= "Saturday";
-  });
-   $("#sundayTab").on('show.bs.tab', function (e) {
-	day = "Fri";
-	tabClick= "Sunday";
   });
 });
 
@@ -1072,47 +864,6 @@ function fnClassTimeTableMandatoryCheck(operation) {
 				}
 			}
 
-
-                         if ($scope.SatdayTable == null || $scope.SaturdayTable.length == 0) {
-
-				fn_Show_Exception_With_Param('FE-VAL-001', ['Saturday Timetable']);
-				return false;
-			}
-			for (i = 0; i < $scope.SaturdayTable.length; i++) {
-				if ($scope.SaturdayTable[i].periodNumber == '' || $scope.SaturdayTable[i].periodNumber == null || $scope.SaturdayTable[i].periodNumber == 'Select option') {
-					fn_Show_Exception_With_Param('FE-VAL-001', ['Saturday Period Number ' +  'record ' + (i+1)]);
-					return false;
-				}
-				if ($scope.SaturdayTable[i].subjectID == '' || $scope.SaturdayTable[i].subjectID == null || $scope.SaturdayTable[i].subjectID == 'Select option') {
-				fn_Show_Exception_With_Param('FE-VAL-001', ['Saturday subjectName ' + 'record ' + (i+1)]);
-					return false;
-				}
-					if ($scope.SaturdayTable[i].teacherName == '' || $scope.SaturdayTable[i].teacherName == null) {
-					fn_Show_Exception_With_Param('FE-VAL-001', ['Saturday Teacher Name ' + 'record ' + (i+1)]);
-					return false;
-				}
-			}
-
-
-                        if ($scope.SundayTable == null || $scope.SundayTable.length == 0) {
-
-				fn_Show_Exception_With_Param('FE-VAL-001', ['Sunday Timetable']);
-				return false;
-			}
-			for (i = 0; i < $scope.SundayTable.length; i++) {
-				if ($scope.SundayTable[i].periodNumber == '' || $scope.SundayTable[i].periodNumber == null || $scope.SundayTable[i].periodNumber == 'Select option') {
-					fn_Show_Exception_With_Param('FE-VAL-001', ['Sunday Period Number ' +  'record ' + (i+1)]);
-					return false;
-				}
-				if ($scope.SundayTable[i].subjectID == '' || $scope.SundayTable[i].subjectID == null || $scope.SundayTable[i].subjectID == 'Select option') {
-				fn_Show_Exception_With_Param('FE-VAL-001', ['Sunday subjectName ' + 'record ' + (i+1)]);
-					return false;
-				}
-					if ($scope.SundayTable[i].teacherName == '' || $scope.SundayTable[i].teacherName == null) {
-					fn_Show_Exception_With_Param('FE-VAL-001', ['Sunday Teacher Name ' + 'record ' + (i+1)]);
-					return false;
-				}
-			}
 			break;
 
 
@@ -1257,30 +1008,6 @@ function fnClassTimeTableCreate() {
 	$scope.FridayTable = null;
 	$scope.FridayCurIndex = 0;
 	$scope.FridayShowObject = false;
-        
-        $scope.SaturdayRecord = {
-	            periodNumber:"Select option",
-                subjectID:"Select option",
-			    teacherName: "",
-			    teacherID: "",
-				startTime:{hour:"Hour",min:"Min"},
-				endTime:{hour:"Hour",min:"Min"}  
-	}
-	$scope.SaturdayTable = null;
-	$scope.SaturdayCurIndex = 0;
-	$scope.SaturdayShowObject = false;
-        
-        $scope.SundayRecord = {
-	            periodNumber:"Select option",
-                subjectID:"Select option",
-			    teacherName: "",
-			    teacherID: "",
-				startTime:{hour:"Hour",min:"Min"},
-				endTime:{hour:"Hour",min:"Min"}  
-	}
-	$scope.SundayTable = null;
-	$scope.SundayCurIndex = 0;
-	$scope.SundayShowObject = false;
 	//single View Ends
 	return true;
 }
@@ -1449,13 +1176,6 @@ function fnClassTimeTableSave() {
 	dataModel.timeTable[4].day="Fri";
 	dataModel.timeTable[4].dayNumber=5;
 	dataModel.timeTable[4].period=$scope.FridayTable;
-        dataModel.timeTable[4].day="Sat";
-	dataModel.timeTable[4].dayNumber=6;
-	dataModel.timeTable[4].period=$scope.SaturdayTable;
-        dataModel.timeTable[4].day="Sun";
-	dataModel.timeTable[4].dayNumber=7;
-	dataModel.timeTable[4].period=$scope.SundayTable;
-        
 	dataModel.audit = $scope.audit;
 	//Screen Specific DataModel Ends
 	var response = fncallBackend('ClassTimeTable', parentOperation, dataModel,[{entityName:"class",entityValue:$scope.class}], $scope);
@@ -1623,58 +1343,7 @@ function fnConvertmvw(tableName,responseObject)
 					}
 			return FridayTable;
 			break ;
-			case 'SaturdayTable':
-			var SaturdayTable = new Array();
-			 responseObject.forEach(fnConvert5);
-			 function fnConvert5(value,index,array){
-				     SaturdayTable[index] = new Object();
-					 SaturdayTable[index].idx=index;
-					 SaturdayTable[index].periodNumber=value.periodNumber;
-					 if(value.subjectID=="") 
-                                         SaturdayTable[index].subjectID="Select option";
-                                         else
-                                         SaturdayTable[index].subjectID=value.subjectID;
-					 //SaturdayTable[index].subjectID=value.subjectID;
-					 SaturdayTable[index].teacherName=value.teacherName;
-					 SaturdayTable[index].teacherID=value.teacherID;
-                                         SaturdayTable[index].startTime=value.startTime;
-                                         SaturdayTable[index].endTime=value.endTime;
-                                        
-					 /*SaturdayTable[index].startTime=new Object();
-					 SaturdayTable[index].endTime=new Object();
-					 SaturdayTable[index].startTime.hour= "";
-					 SaturdayTable[index].startTime.min= "";
-					 SaturdayTable[index].endTime.hour= "";
-					 SaturdayTable[index].endTime.min= "";*/
-					}
-			return SaturdayTable;
-			break ;
-                        case 'SundayTable':
-			var SundayTable = new Array();
-			 responseObject.forEach(fnConvert5);
-			 function fnConvert5(value,index,array){
-				     SundayTable[index] = new Object();
-					 SundayTable[index].idx=index;
-					 SundayTable[index].periodNumber=value.periodNumber;
-					 if(value.subjectID=="") 
-                                         SundayTable[index].subjectID="Select option";
-                                         else
-                                         SundayTable[index].subjectID=value.subjectID;
-					 //SundayTable[index].subjectID=value.subjectID;
-					 SundayTable[index].teacherName=value.teacherName;
-					 SundayTable[index].teacherID=value.teacherID;
-                                         SundayTable[index].startTime=value.startTime;
-                                         SundayTable[index].endTime=value.endTime;
-                                        
-					 /*SundayTable[index].startTime=new Object();
-					 SundayTable[index].endTime=new Object();
-					 SundayTable[index].startTime.hour= "";
-					 SundayTable[index].startTime.min= "";
-					 SundayTable[index].endTime.hour= "";
-					 SundayTable[index].endTime.min= "";*/
-					}
-			return SundayTable;
-			break ;
+			
 		}
 	}
 	
@@ -1727,26 +1396,8 @@ else if(id == 'periodNumber5'){
 $scope.FridayRecord.periodNumber = $('#' + id + '-button').children('span.ui-selectmenu-text').text();
 fnPeriodSelectHandler($scope.FridayRecord.periodNumber,'Fri',$scope);
 break;
+}
 
-}
-case "Sat":
-if(id =='subject6'){
-$scope.SaturdayRecord.subjectName = $('#' + id + '-button').children('span.ui-selectmenu-text').text();
-}
-else if(id == 'periodNumber6'){
-$scope.SaturdayRecord.periodNumber = $('#' + id + '-button').children('span.ui-selectmenu-text').text();
-fnPeriodSelectHandler($scope.SaturdayRecord.periodNumber,'Sat',$scope);
-break;
-}
-case "Sun":
-if(id =='subject7'){
-$scope.SundayRecord.subjectName = $('#' + id + '-button').children('span.ui-selectmenu-text').text();
-}
-else if(id == 'periodNumber7'){
-$scope.SundayRecord.periodNumber = $('#' + id + '-button').children('span.ui-selectmenu-text').text();
-fnPeriodSelectHandler($scope.SundayRecord.periodNumber,'Sun',$scope);
-break;
-}
 
 }
 }	
@@ -1791,19 +1442,7 @@ try{
 											   $scope.FridayRecord.startTime.min = value.StartTimeMin;
 											   $scope.FridayRecord.endTime.hour = value.EndTimeHour;
 											   $scope.FridayRecord.endTime.min = value.EndTimeMin;
-                                                                                           break;
-                                                                                           case 'Sat':
-											   $scope.SaturdayRecord.startTime.hour = value.StartTimeHour;
-											   $scope.SaturdayRecord.startTime.min = value.StartTimeMin;
-											   $scope.SaturdayRecord.endTime.hour = value.EndTimeHour;
-											   $scope.SaturdayRecord.endTime.min = value.EndTimeMin;
 							                   break;
-                                                                                           case 'Sun':
-											   $scope.SundayRecord.startTime.hour = value.StartTimeHour;
-											   $scope.SundayRecord.startTime.min = value.StartTimeMin;
-											   $scope.SundayRecord.endTime.hour = value.EndTimeHour;
-											   $scope.SundayRecord.endTime.min = value.EndTimeMin;
-							                                   break;
 										 }
 											   throw "done";
 											 }
@@ -2075,24 +1714,7 @@ function fnPeriodViewHandler(){
 											   });
 				 }
 				        catch(e){if(e!="done") throw e;}
-				  try {
-				 $scope.period.forEach(function(value,index,array){
-						
-						                     if(value.PeriodNumber ==$scope.SaturdayRecord.periodNumber)
-											 { 
-						                       $scope.SaturdayRecord.startTime.hour = value.StartTimeHour;
-											   $scope.SaturdayRecord.startTime.min = value.StartTimeMin;
-											   $scope.SaturdayRecord.endTime.hour = value.EndTimeHour;
-											   $scope.SaturdayRecord.endTime.min = value.EndTimeMin;
-											   /*if ($scope.operation !='View')
-	                                            {
-	                                         $scope.$apply();
-	                                                }*/
-											   throw "done";
-											 }
-											   });
-				 }
-				        catch(e){if(e!="done") throw e;}
+				 
 
 }
 /*
@@ -2450,20 +2072,6 @@ function fnClassTimeTablepostBackendCall(response)
 		if ($scope.FridayTable != null && $scope.FridayTable.length>0) {
 			$scope.FridayRecord = $scope.FridayTable[$scope.FridayCurIndex];
 			$scope.FridayShowObject = true;
-		}
-                
-                $scope.SaturdayTable =fnConvertmvw('SaturdayTable',fnGetDayPeriodTable(response.body.timeTable,'Sat'));
-		$scope.SaturdayCurIndex = 0;
-		if ($scope.SaturdayTable != null && $scope.SaturdayTable.length>0) {
-			$scope.SaturdayRecord = $scope.SaturdayTable[$scope.SaturdayCurIndex];
-			$scope.SaturdayShowObject = true;
-		}
-                
-                $scope.SundayTable =fnConvertmvw('SundayTable',fnGetDayPeriodTable(response.body.timeTable,'Sun'));
-		$scope.SundayCurIndex = 0;
-		if ($scope.SundayTable != null && $scope.SundayTable.length>0) {
-			$scope.SundayRecord = $scope.SundayTable[$scope.SundayCurIndex];
-			$scope.SundayShowObject = true;
 		}
 		//fnPeriodViewHandler();
                 
