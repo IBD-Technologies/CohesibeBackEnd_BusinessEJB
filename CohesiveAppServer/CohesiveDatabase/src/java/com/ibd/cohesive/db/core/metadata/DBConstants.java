@@ -10,7 +10,7 @@ import java.io.IOException;
  *
  * @author IBD Technologies
 
-***********Change History******** 
+***********Change History******** ****************
 
 * Created by :Suriya
   Created-on:17-02-2018
@@ -46,6 +46,13 @@ import java.io.IOException;
 */
 public class DBConstants {
 
+    
+    
+    
+    
+    
+    
+    
      public static  int FILE_NO_OF_PROPERTY;//Each file has 4 properties filename,fileid
     
     public static  int TABLE_NO_OF_PROPERTY; //Each Table has 6 properties TableName,Tableid,primary key etc.,
